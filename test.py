@@ -28,4 +28,6 @@
 # a=obj.twoOutOfThree(nums1,nums2,nums3)
 # print(a)
 
-gjit gi
+# gjit gi
+
+test case 2 
