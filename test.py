@@ -57,19 +57,42 @@
 
 
 # 2000 also correct answer my logic 
-class Solution: 
-    def reversePrefix(self, word, ch):
-        if ch not in word:
-            return word
+# class Solution: 
+#     def reversePrefix(self, word, ch):
+#         if ch not in word:
+#             return word
         
-        ind=word.find(ch)
-        wtr=word[:ind+1]
-        rev=wtr[::-1]
-        fw=rev+word[ind+1:]
-        return fw
+#         ind=word.find(ch)
+#         wtr=word[:ind+1]
+#         rev=wtr[::-1]
+#         fw=rev+word[ind+1:]
+#         return fw
         
-obj = Solution()
-ch = 'd'
-word = 'abcdefg'
-a = obj.reversePrefix(word, ch)
+# obj = Solution()
+# ch = 'd'
+# word = 'abcdefg'
+# a = obj.reversePrefix(word, ch)
+# print(a)
+
+
+
+# lc 2176
+class Solution:
+    def countPairs(self, nums, k):
+        c=0
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i]==nums[j]:
+                    k=i*j
+                    # print(k,'b')
+                    if k%2==0:
+                        c+=1
+                        # print(c,'a')        
+        return c
+    
+    
+obj=Solution()
+nums = [3,1,2,2,2,1,3]
+k = 2
+a=obj.countPairs(nums,k)
 print(a)
