@@ -77,22 +77,41 @@
 
 
 # lc 2176
+# class Solution:
+#     def countPairs(self, nums, k):
+#         c=0
+#         for i in range(len(nums)):
+#             for j in range(i+1,len(nums)):
+#                 if nums[i]==nums[j]:
+#                     k=i*j
+#                     # print(k,'b')
+#                     if k%2==0:
+#                         c+=1
+#                         # print(c,'a')        
+#         return c
+    
+    
+# obj=Solution()
+# nums = [3,1,2,2,2,1,3]
+# k = 2
+# a=obj.countPairs(nums,k)
+# print(a)
+
+
+# lc2180
+# correct solution
 class Solution:
-    def countPairs(self, nums, k):
-        c=0
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i]==nums[j]:
-                    k=i*j
-                    # print(k,'b')
-                    if k%2==0:
-                        c+=1
-                        # print(c,'a')        
+    def countEven(self, num: int) -> int:
+        c = 0
+        for i in range(2,num+1):
+            sum=0
+            for j in str(i):
+                sum+=int(j)
+            if sum%2==0:
+                c+=1
         return c
-    
-    
-obj=Solution()
-nums = [3,1,2,2,2,1,3]
-k = 2
-a=obj.countPairs(nums,k)
-print(a)
+
+obj = Solution()
+num = 30
+result = obj.countEven(num)
+print(result)
