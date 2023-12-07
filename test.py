@@ -100,18 +100,50 @@
 
 # lc2180
 # correct solution
+# class Solution:
+#     def countEven(self, num: int) -> int:
+#         c = 0
+#         for i in range(2,num+1):
+#             sum=0
+#             for j in str(i):
+#                 sum+=int(j)
+#             if sum%2==0:
+#                 c+=1
+#         return c
+
+# obj = Solution()
+# num = 30
+# result = obj.countEven(num)
+# print(result)
+
+
+# lc2185
 class Solution:
-    def countEven(self, num: int) -> int:
-        c = 0
-        for i in range(2,num+1):
-            sum=0
-            for j in str(i):
-                sum+=int(j)
-            if sum%2==0:
+    def prefixCount(self, words, pref):
+        # c=0
+        # for i in range(len( words)):
+        #   if pref in words[i]:
+        #     for j in range (len(words[i])):
+        #             print(words[i][j],'bb')
+        #             if words[i][j][0]==pref[0]:
+                        
+        #                 print(words[i][j][0],pref[0],'iiiiiiiiiii')
+        #                 c+=1
+        # return c
+        c=0
+        for i in words:
+            if i.startswith(pref):
                 c+=1
         return c
 
-obj = Solution()
-num = 30
-result = obj.countEven(num)
-print(result)
+ob=Solution()
+
+# words = ["leetcode","win","loops","success"]
+# pref = "code"
+
+words = ["pay","attention","practice","attend"]
+pref = 'at'
+
+
+a=ob.prefixCount(words,pref)
+print(a)
