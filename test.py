@@ -117,33 +117,61 @@
 # print(result)
 
 
-# lc2185
-class Solution:
-    def prefixCount(self, words, pref):
-        # c=0
-        # for i in range(len( words)):
-        #   if pref in words[i]:
-        #     for j in range (len(words[i])):
-        #             print(words[i][j],'bb')
-        #             if words[i][j][0]==pref[0]:
+# # lc2185
+# class Solution:
+#     def prefixCount(self, words, pref):
+#         # c=0
+#         # for i in range(len( words)):
+#         #   if pref in words[i]:
+#         #     for j in range (len(words[i])):
+#         #             print(words[i][j],'bb')
+#         #             if words[i][j][0]==pref[0]:
                         
-        #                 print(words[i][j][0],pref[0],'iiiiiiiiiii')
-        #                 c+=1
-        # return c
+#         #                 print(words[i][j][0],pref[0],'iiiiiiiiiii')
+#         #                 c+=1
+#         # return c
+#         c=0
+#         for i in words:
+#             if i.startswith(pref):
+#                 c+=1
+#         return c
+
+# ob=Solution()
+
+# # words = ["leetcode","win","loops","success"]
+# # pref = "code"
+
+# words = ["pay","attention","practice","attend"]
+# pref = 'at'
+
+
+# a=ob.prefixCount(words,pref)
+# print(a)
+
+
+# lc 2210 correct answer
+class Solution:
+    def countHillValley(self, nums):
         c=0
-        for i in words:
-            if i.startswith(pref):
-                c+=1
+        
+        for i in range(1,len(nums)-1) :
+
+            if nums[i] == nums[i+1]:
+
+              nums[i] = nums[i-1]
+
+            if nums[i] > nums[i-1] and nums[i] > nums[i+1]:
+
+              c+=1
+
+            if nums[i] < nums[i-1] and nums[i] < nums[i+1]:
+
+              c+=1
+              
         return c
-
+    
 ob=Solution()
-
-# words = ["leetcode","win","loops","success"]
-# pref = "code"
-
-words = ["pay","attention","practice","attend"]
-pref = 'at'
-
-
-a=ob.prefixCount(words,pref)
+# nums= [6,6,5,5,4,1]
+nums = [2,4,1,1,6,5]
+a=ob.countHillValley(nums)
 print(a)
