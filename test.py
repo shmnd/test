@@ -150,28 +150,61 @@
 
 
 # lc 2210 correct answer
-class Solution:
-    def countHillValley(self, nums):
-        c=0
+# class Solution:
+#     def countHillValley(self, nums):
+#         c=0
         
-        for i in range(1,len(nums)-1) :
+#         for i in range(1,len(nums)-1) :
 
-            if nums[i] == nums[i+1]:
+#             if nums[i] == nums[i+1]:
 
-              nums[i] = nums[i-1]
+#               nums[i] = nums[i-1]
 
-            if nums[i] > nums[i-1] and nums[i] > nums[i+1]:
+#             if nums[i] > nums[i-1] and nums[i] > nums[i+1]:
 
-              c+=1
+#               c+=1
 
-            if nums[i] < nums[i-1] and nums[i] < nums[i+1]:
+#             if nums[i] < nums[i-1] and nums[i] < nums[i+1]:
 
-              c+=1
+#               c+=1
               
-        return c
+#         return c
     
+# ob=Solution()
+# # nums= [6,6,5,5,4,1]
+# nums = [2,4,1,1,6,5]
+# a=ob.countHillValley(nums)
+# print(a)
+
+# lc2264
+class Solution:
+    def largestGoodInteger(self, num) :
+      #correct answeer
+      max_good = ""
+    
+      for i in range(len(num) - 2):
+          current_substring = num[i:i+3]
+          
+          # Check if the substring consists of only one unique digit
+          if len(set(current_substring)) == 1:
+              # Update the maximum good integer if the current substring is greater
+              max_good = max(max_good, current_substring)
+      
+      return max_good
+        
+      
+# wrong answerrrr 
+#         com=[]
+#         for i in range(len(num)):
+#             for j in range(i,len(num)):
+#                 if num[i]==num[j]==num[j+1]:
+#                     com.append(num[i:j+2])
+#                     print(com,'aa')
+                    
+                    
 ob=Solution()
-# nums= [6,6,5,5,4,1]
-nums = [2,4,1,1,6,5]
-a=ob.countHillValley(nums)
+num = "6777133339"
+# num = "2300019"
+# num = "42352338"
+a=ob.largestGoodInteger(num)
 print(a)
