@@ -245,23 +245,7 @@ class Solution:
    
                     
         return p
-    
-    
-    
-        #     k=0
-        # m=0
-        # for i in range(len(nums)):
-        #     for j in range(i+1,len(nums)):
-        #         if nums[j] > nums[i]:
-        #             k=nums[j]-nums[i]
-        #             if k>=m:
-        #                 m=k
-                    
-        if m==0:
-            return -1
-        return m
 
-    
 ov=Solution()
 nums = [1,5,2,10]
 # nums = [7,1,5,4]
