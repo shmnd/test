@@ -209,20 +209,61 @@
 # a=ob.largestGoodInteger(num)
 # print(a)
 
+# class Solution:
+#     def mergeTwoLists(self, list1, list2):
+#         mergedlits=list1+list2
+#         mergedlits.sort()
+#         return mergedlits
+    
+# a=Solution()
+# list1 = [1,2,4]
+# list2 = [1,3,4]
+# la=a.mergeTwoLists(list1,list2)
+# print(la)
 
 
 
+# correct answer
+# lc2016g
 class Solution:
-    def mergeTwoLists(self, list1, list2):
-        mergedlits=list1+list2
-        mergedlits.sort()
-        return mergedlits
+    def maximumDifference(self, nums) :
+        p=0
+        d=0
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[j] > nums[i]:
+                
+                    d=nums[j]-nums[i]
+                    print(nums[j],'aaa')
+                    print(nums[i],'bbb')
+                    print(nums[j]-nums[i],'cccccc')
+                    
+                    if d>=p:
+                        print(d,p,'oo')
+                        p=d
+                        print(p,'joooooo')
+   
+                    
+        return p
     
     
     
+        #     k=0
+        # m=0
+        # for i in range(len(nums)):
+        #     for j in range(i+1,len(nums)):
+        #         if nums[j] > nums[i]:
+        #             k=nums[j]-nums[i]
+        #             if k>=m:
+        #                 m=k
+                    
+        if m==0:
+            return -1
+        return m
+
     
-a=Solution()
-list1 = [1,2,4]
-list2 = [1,3,4]
-la=a.mergeTwoLists(list1,list2)
-print(la)
+ov=Solution()
+nums = [1,5,2,10]
+# nums = [7,1,5,4]
+o=ov.maximumDifference(nums)
+print(o)
