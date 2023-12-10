@@ -177,20 +177,20 @@
 # print(a)
 
 # lc2264
-class Solution:
-    def largestGoodInteger(self, num) :
-      #correct answeer
-      max_good = ""
+# class Solution:
+#     def largestGoodInteger(self, num) :
+#       #correct answeer
+#       max_good = ""
     
-      for i in range(len(num) - 2):
-          current_substring = num[i:i+3]
+#       for i in range(len(num) - 2):
+#           current_substring = num[i:i+3]
           
-          # Check if the substring consists of only one unique digit
-          if len(set(current_substring)) == 1:
-              # Update the maximum good integer if the current substring is greater
-              max_good = max(max_good, current_substring)
+#           # Check if the substring consists of only one unique digit
+#           if len(set(current_substring)) == 1:
+#               # Update the maximum good integer if the current substring is greater
+#               max_good = max(max_good, current_substring)
       
-      return max_good
+#       return max_good
         
       
 # wrong answerrrr 
@@ -202,9 +202,27 @@ class Solution:
 #                     print(com,'aa')
                     
                     
-ob=Solution()
-num = "6777133339"
-# num = "2300019"
-# num = "42352338"
-a=ob.largestGoodInteger(num)
-print(a)
+# ob=Solution()
+# num = "6777133339"
+# # num = "2300019"
+# # num = "42352338"
+# a=ob.largestGoodInteger(num)
+# print(a)
+
+
+
+
+class Solution:
+    def mergeTwoLists(self, list1, list2):
+        mergedlits=list1+list2
+        mergedlits.sort()
+        return mergedlits
+    
+    
+    
+    
+a=Solution()
+list1 = [1,2,4]
+list2 = [1,3,4]
+la=a.mergeTwoLists(list1,list2)
+print(la)
