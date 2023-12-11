@@ -225,29 +225,29 @@
 
 # correct answer
 # lc2016g
-class Solution:
-    def maximumDifference(self, nums) :
-        p=0
-        d=0
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[j] > nums[i]:
+# class Solution:
+#     def maximumDifference(self, nums) :
+#         p=0
+#         d=0
+#         for i in range(len(nums)):
+#             for j in range(i+1,len(nums)):
+#                 if nums[j] > nums[i]:
                 
-                    d=nums[j]-nums[i]
-                    print(nums[j],'aaa')
-                    print(nums[i],'bbb')
-                    print(nums[j]-nums[i],'cccccc')
+#                     d=nums[j]-nums[i]
+#                     print(nums[j],'aaa')
+#                     print(nums[i],'bbb')
+#                     print(nums[j]-nums[i],'cccccc')
                     
-                    if d>=p:
-                        print(d,p,'oo')
-                        p=d
-                        print(p,'joooooo')
+#                     if d>=p:
+#                         print(d,p,'oo')
+#                         p=d
+#                         print(p,'joooooo')
    
                     
-        return p
+#         return p
 
-ov=Solution()
-nums = [1,5,2,10]
-# nums = [7,1,5,4]
-o=ov.maximumDifference(nums)
-print(o)
+# ov=Solution()
+# nums = [1,5,2,10]
+# # nums = [7,1,5,4]
+# o=ov.maximumDifference(nums)
+# print(o)
