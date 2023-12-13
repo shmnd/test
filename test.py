@@ -251,3 +251,24 @@
 # # nums = [7,1,5,4]
 # o=ov.maximumDifference(nums)
 # print(o)
+
+
+# lc 2283
+class Solution:
+    def digitCount(self, num: str) -> bool:
+        count = [0] * 10  # To store the count of each digit
+
+        for digit in num:
+            count[int(digit)] += 1  # Count occurrences of each digit
+
+        for i in range(len(num)):
+            if int(num[i]) != count[i]:
+                return False
+
+        return True
+
+ob=Solution()
+num='1210'
+# num='030'
+a=ob.digitCount(num)
+print(a)
