@@ -275,34 +275,59 @@
 
 
 # 2357. Make Array Zero by Subtracting Equal Amounts
-class Solution:
-    def minimumOperations(self, nums) :
-        num=set(nums)
-        print(num,'aaaaaa')
+# class Solution:
+#     def minimumOperations(self, nums) :
+#         num=set(nums)
+#         print(num,'aaaaaa')
 
-        if 0 in num:
+#         if 0 in num:
             
-            num.remove(0)
-            print(num)
+#             num.remove(0)
+#             print(num)
             
-        return len(num)
+#         return len(num)
         
                 
                 
-        # x=1
-        # c=0
-        # if nums == 0:
-        #     return 0
-        # else:
-        #     for i in range(len(nums)):
-        #         if nums[i]-x==0:
-        #             print(nums[i],'aaa')
-        #             c+=1
-        #         x+=1
-        #     return c
+#         # x=1
+#         # c=0
+#         # if nums == 0:
+#         #     return 0
+#         # else:
+#         #     for i in range(len(nums)):
+#         #         if nums[i]-x==0:
+#         #             print(nums[i],'aaa')
+#         #             c+=1
+#         #         x+=1
+#         #     return c
                 
 
+# ob=Solution()
+# nums = [1,5,0,3,5]
+# a=ob.minimumOperations(nums)
+# print(a)
+
+
+# 2351. First Letter to Appear Twice
+class Solution:
+    def repeatedCharacter(self, s):
+        d=''
+        for i in range(len(s)):
+            if s[i] in d:
+               return s[i]
+            d=d+s[i]
+            print(d,'aaaa')
+        return d 
+        
+        
+        
+        # for i in range(len(s)-1):
+        #     if s[i]==s[i+1]:
+        #         return s[i]
+            
+            
 ob=Solution()
-nums = [1,5,0,3,5]
-a=ob.minimumOperations(nums)
+# s = "abccbaacz"
+s = "abcdde"
+a=ob.repeatedCharacter(s)
 print(a)
