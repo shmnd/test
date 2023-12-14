@@ -254,21 +254,55 @@
 
 
 # lc 2283
+# class Solution:
+#     def digitCount(self, num: str) -> bool:
+#         count = [0] * 10  # To store the count of each digit
+
+#         for digit in num:
+#             count[int(digit)] += 1  # Count occurrences of each digit
+
+#         for i in range(len(num)):
+#             if int(num[i]) != count[i]:
+#                 return False
+
+#         return True
+
+# ob=Solution()
+# num='1210'
+# # num='030'
+# a=ob.digitCount(num)
+# print(a)
+
+
+# 2357. Make Array Zero by Subtracting Equal Amounts
 class Solution:
-    def digitCount(self, num: str) -> bool:
-        count = [0] * 10  # To store the count of each digit
+    def minimumOperations(self, nums) :
+        num=set(nums)
+        print(num,'aaaaaa')
 
-        for digit in num:
-            count[int(digit)] += 1  # Count occurrences of each digit
-
-        for i in range(len(num)):
-            if int(num[i]) != count[i]:
-                return False
-
-        return True
+        if 0 in num:
+            
+            num.remove(0)
+            print(num)
+            
+        return len(num)
+        
+                
+                
+        # x=1
+        # c=0
+        # if nums == 0:
+        #     return 0
+        # else:
+        #     for i in range(len(nums)):
+        #         if nums[i]-x==0:
+        #             print(nums[i],'aaa')
+        #             c+=1
+        #         x+=1
+        #     return c
+                
 
 ob=Solution()
-num='1210'
-# num='030'
-a=ob.digitCount(num)
+nums = [1,5,0,3,5]
+a=ob.minimumOperations(nums)
 print(a)
