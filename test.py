@@ -309,25 +309,41 @@
 
 
 # 2351. First Letter to Appear Twice
-class Solution:
-    def repeatedCharacter(self, s):
-        d=''
-        for i in range(len(s)):
-            if s[i] in d:
-               return s[i]
-            d=d+s[i]
-            print(d,'aaaa')
-        return d 
+# class Solution:
+#     def repeatedCharacter(self, s):
+#         d=''
+#         for i in range(len(s)):
+#             if s[i] in d:
+#                return s[i]
+#             d=d+s[i]
+#             print(d,'aaaa')
+#         return d 
         
         
         
-        # for i in range(len(s)-1):
-        #     if s[i]==s[i+1]:
-        #         return s[i]
+#         # for i in range(len(s)-1):
+#         #     if s[i]==s[i+1]:
+#         #         return s[i]
             
             
-ob=Solution()
-# s = "abccbaacz"
-s = "abcdde"
-a=ob.repeatedCharacter(s)
-print(a)
+# ob=Solution()
+# # s = "abccbaacz"
+# s = "abcdde"
+# a=ob.repeatedCharacter(s)
+# print(a)
+
+
+# 2413. Smallest Even Multiple
+# class Solution:
+#     def smallestEvenMultiple(self, n) :
+#         if n%2==0:
+
+#             return n 
+            
+#         return n*2
+
+# obj=Solution()
+# n=5
+# # n=6
+# a=obj.smallestEvenMultiple(n)
+# print(a)
