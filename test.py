@@ -390,3 +390,26 @@
 # nums=[4,4,2,4,3]
 # a=obj.unequalTriplets(nums)
 # print(a)
+
+# 2441. Largest Positive Integer That Exists With Its Negative
+
+# class Solution:
+#     def findMaxK(self, nums):
+#         for i in range(len(nums)):
+#             h=0
+#             if nums[i]>h:
+#                 h=nums[i]
+#             else:
+#                 continue
+#         return h
+        
+# ob=Solution()
+# nums=[-1,2,-3,3]
+# a=ob.findMaxK(nums)
+# print(a)
+
+
+
+
+
+
