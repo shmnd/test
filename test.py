@@ -392,27 +392,53 @@
 # print(a)
 
 # 2441. Largest Positive Integer That Exists With Its Negative
-
-class Solution:
-    def findMaxK(self, nums):
-        com=[]
-        nums.sort()
-        for i in range(len(nums)-1):
-            for j in range(i,len(nums)):
-                if nums[i]+nums[j]==0:
-                    com.append(nums[j])
+# class Solution:
+#     def findMaxK(self, nums):
+#         com=[]
+#         nums.sort()
+#         for i in range(len(nums)-1):
+#             for j in range(i,len(nums)):
+#                 if nums[i]+nums[j]==0:
+#                     com.append(nums[j])
                     
-        if com:
-            return max(com)
-        else:
-            return-1
+#         if com:
+#             return max(com)
+#         else:
+#             return-1      
+        
+# ob=Solution()
+# nums = [-1,10,6,7,-7,1]
+# a=ob.findMaxK(nums)
+# print(a)
 
 
-        
-        
+# 1370. Increasing Decreasing String
+class Solution:
+    def sortString(self, s: str) -> str:
+        s=list(s)
+
+        res=''
+
+        while s:
+            for i in sorted(set(s)): #set use to order
+                s.remove(i)
+                # print(s,'aa')
+                res+=i
+                print(res,'bb')
+
+            for i in sorted(set(s), reverse=True):
+                s.remove(i)
+                # print(s,'cc')
+                
+                res += i
+                # print(res,'dd')
+                
+
+        return res
+    
+    
+    
 ob=Solution()
-nums = [-1,10,6,7,-7,1]
-a=ob.findMaxK(nums)
+s = "aaaabbbbcccc"
+a=ob.sortString(s)
 print(a)
-
-
