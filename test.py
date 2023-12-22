@@ -393,23 +393,26 @@
 
 # 2441. Largest Positive Integer That Exists With Its Negative
 
-# class Solution:
-#     def findMaxK(self, nums):
-#         for i in range(len(nums)):
-#             h=0
-#             if nums[i]>h:
-#                 h=nums[i]
-#             else:
-#                 continue
-#         return h
+class Solution:
+    def findMaxK(self, nums):
+        com=[]
+        nums.sort()
+        for i in range(len(nums)-1):
+            for j in range(i,len(nums)):
+                if nums[i]+nums[j]==0:
+                    com.append(nums[j])
+                    
+        if com:
+            return max(com)
+        else:
+            return-1
+
+
         
-# ob=Solution()
-# nums=[-1,2,-3,3]
-# a=ob.findMaxK(nums)
-# print(a)
-
-
-
-
+        
+ob=Solution()
+nums = [-1,10,6,7,-7,1]
+a=ob.findMaxK(nums)
+print(a)
 
 
