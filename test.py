@@ -352,25 +352,41 @@
 
 # lc 2418
 # 2418. Sort the People
-
 # Example 1:
 # Input: names = ["Mary","John","Emma"], heights = [180,165,170]
 # Output: ["Mary","Emma","John"]
 # Explanation: Mary is the tallest, followed by Emma and John.
 
 
-class Solution:
-    def sortPeople(self, names, heights):
-        for i in range(len(heights)):
-            for j in range(len(heights)):
-                if heights[i]<heights[j]:
-                    heights[i],heights[j]=heights[j],heights[i]
-                    names[i],names[j]=names[j],names[i]
-        return names
+# class Solution:
+#     def sortPeople(self, names, heights):
+#         for i in range(len(heights)):
+#             for j in range(len(heights)):
+#                 if heights[i]<heights[j]:
+#                     heights[i],heights[j]=heights[j],heights[i]
+#                     names[i],names[j]=names[j],names[i]
+#         return names
         
-obj=Solution() 
-names = ["Mary","John","Emma"]
-heights = [180,165,170]
-a=obj.sortPeople(names,heights)     
-print(a)  
+# obj=Solution() 
+# names = ["Mary","John","Emma"]
+# heights = [180,165,170]
+# a=obj.sortPeople(names,heights)     
+# print(a)  
 
+# 2475. Number of Unequal Triplets in Array
+
+# class Solution:
+#     def unequalTriplets(self, nums):
+#         count=0
+#         for i in range(len(nums)):
+#             for j in range(i+1,len(nums)):
+#                 if nums[i]!=nums[j]:
+#                     for k in range(j+1,len(nums)):
+#                         if nums[i]!=nums[k] and nums[j]!= nums[k]:
+#                             count+=1
+#         return count
+    
+# obj=Solution()
+# nums=[4,4,2,4,3]
+# a=obj.unequalTriplets(nums)
+# print(a)
