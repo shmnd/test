@@ -413,32 +413,78 @@
 
 
 # 1370. Increasing Decreasing String
+# class Solution:
+#     def sortString(self, s: str) -> str:
+#         s=list(s)
+
+#         res=''
+
+#         while s:
+#             for i in sorted(set(s)): #set use to order
+#                 s.remove(i)
+#                 # print(s,'aa')
+#                 res+=i
+#                 print(res,'bb')
+
+#             for i in sorted(set(s), reverse=True):
+#                 s.remove(i)
+#                 # print(s,'cc')
+                
+#                 res += i
+#                 # print(res,'dd')
+                
+
+#         return res
+    
+    
+    
+# ob=Solution()
+# s = "aaaabbbbcccc"
+# a=ob.sortString(s)
+# print(a)
+
+
+# 2511. Maximum Enemy Forts That Can Be Capture
+# class Solution:
+#     def captureForts(self, forts):
+#         com=[]
+#         max_len=0
+        
+#         for i in range(len(forts)):
+#             if forts[i]==1 or -1:
+#                 l=0
+#                 for j in range(i,len(forts)):
+#                     if forts[j]== 0:
+#                         l+=1
+#                         if forts[j+1]==-1:
+#                             com.append(l)
+#                             print(com,'aaa')
+#                             break
+#                 max_len=max(com)
+#         return max_len
+                
+# ob=Solution()
+# forts = [1,0,0,-1,0,0,0,0,1]
+# a=ob.captureForts(forts)
+# print(a)
+
+# 2544. Alternating Digit Sum
 class Solution:
-    def sortString(self, s: str) -> str:
-        s=list(s)
+    def alternateDigitSum(self, n: int) -> int:
+        k=0
+        n=str(n)
+        for i in range(len(n)):
+            if i%2==0:
+              k +=  int(n[i]) 
+            else:
+               k -= int(n[i])
+        return k
 
-        res=''
-
-        while s:
-            for i in sorted(set(s)): #set use to order
-                s.remove(i)
-                # print(s,'aa')
-                res+=i
-                print(res,'bb')
-
-            for i in sorted(set(s), reverse=True):
-                s.remove(i)
-                # print(s,'cc')
-                
-                res += i
-                # print(res,'dd')
-                
-
-        return res
-    
-    
-    
-ob=Solution()
-s = "aaaabbbbcccc"
-a=ob.sortString(s)
+obj=Solution()
+# n=521
+n = 111
+# n = 886996
+a=obj.alternateDigitSum(n)
 print(a)
+
+
