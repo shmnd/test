@@ -489,18 +489,41 @@
 
 
 # 2553. Separate the Digits in an Array
+# class Solution:
+#     def separateDigits(self, nums):
+#         com=[]
+#         for i in range (len(nums)):
+#                 for j in str(nums[i]):
+#                     com.append(int(j))
 
-class Solution:
-    def separateDigits(self, nums):
-        com=[]
-        for i in range (len(nums)):
-                for j in str(nums[i]):
-                    com.append(int(j))
+#         return com
 
-        return com
+# ob=Solution()
+# nums = [13,25,83,77]
+# # nums = [7,1,3,9]
+# a=ob.separateDigits(nums)
+# print(a)
 
-ob=Solution()
-nums = [13,25,83,77]
-# nums = [7,1,3,9]
-a=ob.separateDigits(nums)
-print(a)
+
+
+# 2540. Minimum Common Value
+# class Solution:
+#     def getCommon(self, nums1, nums2):
+#         while len(nums1)>0 and len(nums2)>0:
+#             if nums1[0]==nums2[0]:
+#                 return nums1[0]
+#             elif nums1[0]<nums2[0]:
+#                 nums1.pop(0)
+#             else:
+#                 nums2.pop(0)
+#         return -1
+
+
+# ob=Solution()
+# nums1 = [1,2,3]
+# nums2 = [2,4]
+
+# nums1 = [1,2,3,6]
+# nums2 = [2,3,4,5]
+# a=ob.getCommon(nums1,nums2)
+# print(a)
