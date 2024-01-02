@@ -468,23 +468,39 @@
 # a=ob.captureForts(forts)
 # print(a)
 
-# 2544. Alternating Digit Sum
+# # 2544. Alternating Digit Sum
+# class Solution:
+#     def alternateDigitSum(self, n: int) -> int:
+#         k=0
+#         n=str(n)
+#         for i in range(len(n)):
+#             if i%2==0:
+#               k +=  int(n[i]) 
+#             else:
+#                k -= int(n[i])
+#         return k
+
+# obj=Solution()
+# # n=521
+# n = 111
+# # n = 886996
+# a=obj.alternateDigitSum(n)
+# print(a)
+
+
+# 2553. Separate the Digits in an Array
+
 class Solution:
-    def alternateDigitSum(self, n: int) -> int:
-        k=0
-        n=str(n)
-        for i in range(len(n)):
-            if i%2==0:
-              k +=  int(n[i]) 
-            else:
-               k -= int(n[i])
-        return k
+    def separateDigits(self, nums):
+        com=[]
+        for i in range (len(nums)):
+                for j in str(nums[i]):
+                    com.append(int(j))
 
-obj=Solution()
-# n=521
-n = 111
-# n = 886996
-a=obj.alternateDigitSum(n)
+        return com
+
+ob=Solution()
+nums = [13,25,83,77]
+# nums = [7,1,3,9]
+a=ob.separateDigits(nums)
 print(a)
-
-
