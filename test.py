@@ -527,3 +527,35 @@
 # nums2 = [2,3,4,5]
 # a=ob.getCommon(nums1,nums2)
 # print(a)
+
+# 2578. Split With Minimum Sum
+
+Example 1:
+
+# Input: num = 4325
+# Output: 59
+# Explanation: We can split 4325 so that num1 is 24 and num2 is 35, giving a sum of 59. We can prove that 59 is indeed the minimal possible sum.
+# Example 2:
+
+# Input: num = 687
+# Output: 75
+# Explanation: We can split 687 so that num1 is 68 and num2 is 7, which would give an optimal sum of 75.
+
+class Solution:
+    def splitNum(self,num):
+        s = str(num)
+        s = sorted(s)
+        a, b = '', ''
+        for i in range(len(s)):
+            if i % 2 == 0:
+                a += s[i]
+            else:
+                b += s[i]
+        return int(a) + int(b)
+
+
+    
+ob=Solution()
+num = 4325
+a=ob.splitNum(num)
+print(a)
