@@ -598,22 +598,49 @@
 # Since the concatenation value is 596 so the answer is 596.
 
 
-class Solution:
-    def findTheArrayConcVal(self, nums):
-        concat=0
+# class Solution:
+#     def findTheArrayConcVal(self, nums):
+#         concat=0
         
-        while len(nums)>0:
-            if len(nums)>1:
-                concat+= int(str(nums[0])+str(nums[-1]))
-                del nums[-1]
-            else:
-                concat+= nums[0]
+#         while len(nums)>0:
+#             if len(nums)>1:
+#                 concat+= int(str(nums[0])+str(nums[-1]))
+#                 del nums[-1]
+#             else:
+#                 concat+= nums[0]
             
-            del nums[0]
-        return  concat
+#             del nums[0]
+#         return  concat
         
         
+# obj=Solution()
+# nums = [7,52,2,4]
+# a=obj.findTheArrayConcVal(nums)
+# print(a)
+
+
+
+
+# 2600. K Items With the Maximum Sum
+
+class Solution:
+    def kItemsWithMaximumSum(self, numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
+        if k < numOnes:
+            return k
+        elif k <= numOnes + numZeros:
+            return numOnes
+        else:
+            return numOnes - (k - (numOnes + numZeros))
+            
+        
+
 obj=Solution()
-nums = [7,52,2,4]
-a=obj.findTheArrayConcVal(nums)
+numOnes = 3
+numZeros = 2
+numNegOnes = 0
+k = 2
+a=obj.kItemsWithMaximumSum(numNegOnes,numOnes,numZeros,k)
 print(a)
+
+
+
