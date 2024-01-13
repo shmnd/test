@@ -623,24 +623,95 @@
 
 # 2600. K Items With the Maximum Sum
 
-class Solution:
-    def kItemsWithMaximumSum(self, numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
-        if k < numOnes:
-            return k
-        elif k <= numOnes + numZeros:
-            return numOnes
-        else:
-            return numOnes - (k - (numOnes + numZeros))
+# class Solution:
+#     def kItemsWithMaximumSum(self, numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
+#         if k < numOnes:
+#             return k
+#         elif k <= numOnes + numZeros:
+#             return numOnes
+#         else:
+#             return numOnes - (k - (numOnes + numZeros))
             
         
 
+# obj=Solution()
+# numOnes = 3
+# numZeros = 2
+# numNegOnes = 0
+# k = 2
+# a=obj.kItemsWithMaximumSum(numNegOnes,numOnes,numZeros,k)
+# print(a)
+
+
+
+# 2609. Find the Longest Balanced Substring of a Binary String
+# class Solution:
+#     def findTheLongestBalancedSubstring(self,s):
+#         z=0
+#         o=0
+
+#         if len(s)==0:
+#             return 0
+
+#         for i in range(len(s)):
+#             for j in range(i+1,len(s)):
+#                 if i == 0 and s[i]== 0:
+
+#                     if s[i]==0 and s[j]!=0:
+#                         break 
+#                     o+=1
+                
+#                 elif i!=0 and s[i]==1:
+#                     if s[i]==1 and s[j]!=1:
+#                         break
+#                     z+=1
+
+#             if o==z:
+#                 return o+z
+                
+#             return 0
+            
+            
+# ob=Solution()
+# s='01000111'
+# # s='00111'
+# # s='111'
+# a=ob.findTheLongestBalancedSubstring(s)
+# print(a)
+            
+
+
+
+# 2696. Minimum String Length After Removing Substrings
+        # Example 1:
+        # Input: s = "ABFCACDB"
+        # Output: 2
+        # Explanation: We can do the following operations:
+        # - Remove the substring "ABFCACDB", so s = "FCACDB".
+        # - Remove the substring "FCACDB", so s = "FCAB".
+        # - Remove the substring "FCAB", so s = "FC".
+        # So the resulting length of the string is 2.
+        # It can be shown that it is the minimum length that we can obtain.
+
+        # Example 2:
+        # Input: s = "ACBBD"
+        # Output: 5
+        # Explanation: We cannot do any operations on the string so the length remains the same.
+
+
+
+class Solution:
+    def minLength(self, s) :
+        while 'AB' in s or 'CD' in s:
+            if 'AB' in s:
+                s=s.replace('AB','')
+            elif 'CD' in s:
+                s=s.replace('CD','')
+        return len(s)
+
 obj=Solution()
-numOnes = 3
-numZeros = 2
-numNegOnes = 0
-k = 2
-a=obj.kItemsWithMaximumSum(numNegOnes,numOnes,numZeros,k)
+s = "ABFCACDB"
+# s = "ACBBD"
+a=obj.minLength(s)
 print(a)
-
-
 
