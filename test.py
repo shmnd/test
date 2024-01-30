@@ -700,18 +700,83 @@
 
 
 
-class Solution:
-    def minLength(self, s) :
-        while 'AB' in s or 'CD' in s:
-            if 'AB' in s:
-                s=s.replace('AB','')
-            elif 'CD' in s:
-                s=s.replace('CD','')
-        return len(s)
+# class Solution:
+#     def minLength(self, s) :
+#         while 'AB' in s or 'CD' in s:
+#             if 'AB' in s:
+#                 s=s.replace('AB','')
+#             elif 'CD' in s:
+#                 s=s.replace('CD','')
+#         return len(s)
 
-obj=Solution()
-s = "ABFCACDB"
-# s = "ACBBD"
-a=obj.minLength(s)
-print(a)
+# obj=Solution()
+# s = "ABFCACDB"
+# # s = "ACBBD"
+# a=obj.minLength(s)
+# print(a)
 
+
+
+# lc 2839
+
+# s1 = "abcd"
+# s2='cdab'
+# s1lis=list(s1)
+# # print(s1lis[0])
+# # print(s2)
+
+# k=''.join(s1lis)
+# print(k)
+
+
+# 2839. Check if Strings Can be Made Equal With Operations I
+
+# Hint
+# You are given two strings s1 and s2, both of length 4, consisting of lowercase English letters.
+
+# You can apply the following operation on any of the two strings any number of times:
+
+# Choose any two indices i and j such that j - i = 2, then swap the two characters at those indices in the string.
+# Return true if you can make the strings s1 and s2 equal, and false otherwise.
+
+ 
+
+# Example 1:
+
+# Input: s1 = "abcd", s2 = "cdab"
+# Output: true
+# Explanation: We can do the following operations on s1:
+# - Choose the indices i = 0, j = 2. The resulting string is s1 = "cbad".
+# - Choose the indices i = 1, j = 3. The resulting string is s1 = "cdab" = s2.
+# Example 2:
+
+# Input: s1 = "abcd", s2 = "dacb"
+# Output: false
+# Explanation: It is not possible to make the two strings equal.
+
+# class Solution:
+#     def canBeEqual(self, s1,s2):
+#         s1,s2 = list(s1),list(s2)
+#         s1[1],s1[3] = s1[3],s1[1]
+#         if str(s1) == str(s2):
+#             return True
+#         s1[3],s1[1] = s1[1],s1[3]
+#         if str(s1) != str(s2):
+#             s1[0],s1[2] = s1[2],s1[0]
+#             if str(s1) == str(s2):
+#                 return True
+#             else:
+#                 s1[1],s1[3] = s1[3],s1[1]
+#                 if str(s1) == str(s2):
+#                     return True
+#                 else:
+#                     return False
+#         else:
+#             return True
+
+
+# obj=Solution()
+# s1 = "abcd"
+# s2='cdab'
+# a=obj.canBeEqual(s1,s2)
+# print(a)
