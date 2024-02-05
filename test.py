@@ -803,26 +803,245 @@
 # Explanation: One of the '1's must be in the last position. The maximum number that can be made with the remaining digits is "100". So the answer is "1001".
  
 
-class Solution:
-    def maximumOddBinaryNumber(self, s) :
-        one=[]
-        zero=[]
+# class Solution:
+#     def maximumOddBinaryNumber(self, s) :
+#         one=[]
+#         zero=[]
         
-        for i in s :
-                if i=='1':
-                        one.append(i)
-                else:
-                        zero.append(i)
-        if len(one)==1:
-                s1=''.join(zero)+''.join(one)
-        else:
-                s1 = "".join(one[1:]) + "".join(zero) + one[0]
-        return s1
+#         for i in s :
+#                 if i=='1':
+#                         one.append(i)
+#                 else:
+#                         zero.append(i)
+#         if len(one)==1:
+#                 s1=''.join(zero)+''.join(one)
+#         else:
+#                 s1 = "".join(one[1:]) + "".join(zero) + one[0]
+#         return s1
   
   
-obj=Solution()
-# s = "010"
-s = "0101"
-a=obj.maximumOddBinaryNumber(s)
-print(a)
+# obj=Solution()
+# # s = "010"
+# s = "0101"
+# a=obj.maximumOddBinaryNumber(s)
+# print(a)
         
+        
+# class Solution:
+#     def maximumTripletValue(self, nums):
+            
+#         if len(nums)%2==0:
+#             return 0
+    
+#         else:
+#         #     for i in range(len(nums)):
+#         #         print(i)
+        
+#                 m=len(nums)//2
+                
+#                 # # print(len(nums)) 
+                
+#                 # f=nums[0]
+                
+#                 # l=nums[-1]
+                
+#                 # print(m,f,l) 
+                
+                
+#         f=0
+          
+
+#         for i in range(1,m):
+#                 if nums[0]<nums[i]:
+#                     f=nums[i]  
+#                     print(i) 
+#                     print(f)
+                
+                
+# obj=Solution()
+# # nums = [1,2,3]
+# nums = [1,10,3,4,19]
+# a=obj.maximumTripletValue(nums)
+# print(a)   
+
+
+
+
+# class Solution:
+#     def maximumTripletValue(self, nums):
+#         f=0
+#         m=len(nums)//2
+#         k=nums[m]
+#         l=nums[-1]
+#         print(f,m,l,k)
+
+#         if len(nums)%2==0:
+#                 print('outtt')
+#                 return 0
+#         else:
+#                 print('innnnn')
+#                 for i in range(1,m):
+#                         print('iiiiiiiiiiiiin')
+#                         print(nums[0],nums[i])
+                        
+#                         if nums[0]>nums[i]:
+#                                 f=nums[i]
+#                                 print(f,'ffffff')
+#                                 res= (f-k)*l
+#                                 print(res)
+#                         else:
+#                                 f=nums[0]
+#                                 print(f,'ssss')
+#                                 res= (f-k)*l
+#                                 print(res)
+#                 if res>0:
+#                         return res
+#                 else:
+#                         return 0
+# obj=Solution()
+# nums = [1,10,3,4,19]
+# # nums = [12,6,1,2,7]
+# # nums = [1,2,3]
+# # nums=[1000000,1,1000000]                               
+
+# a=obj.maximumTripletValue(nums)
+# print(a)   
+
+
+
+#////////////////////////////////////// zeno techonology
+
+discount={'Biggestdiscount':""}
+cart=0        
+cartTotal =0  
+
+productDetails ={
+        'productA':20,
+        'productB':40,
+        'productC':50
+}
+
+productQuantity={
+        'productA':'',
+        'productB':'',
+        'productC':''
+}
+
+for key,value in productDetails.items():
+        quanity=int(input(f'enter the  quantity for {key}:'))
+        productQuantity[key]=quanity
+        
+#printing prodct quantity to show terminal        
+# for key,value in productQuantity.items():
+#         print(f'{key}:{value}')
+     
+
+        
+totalProductPrice={
+        'productA':'',
+        'productB':'',
+        'productC':''
+}
+
+
+for key,value in productQuantity.items():
+        cartTotal+=productDetails[key]*value
+        
+print('toatalAmount in cart:' ,cartTotal)
+
+
+
+# indivual price of products
+for key,value in productQuantity.items():
+        iPrice=productDetails[key]*value
+        totalProductPrice[key]=iPrice
+        
+for key,value in totalProductPrice.items():
+        print(f':{key}:{value}')
+
+
+goodDisAmt=[]    
+
+#////////////////////////////#conditions    
+# flat_10_discount": If cart total exceeds $200, apply a flat $10 discount on the cart total.      
+## disAmtA=0.10
+
+
+
+# disAmtA=20      
+# if cartTotal > 200:
+#         firstDic=cartTotal-20
+#         print('if the carttotal gt 200 qty',firstDic)
+#         goodDisAmt.append(firstDic)
+        
+# else:
+#         print('after discount more than 200',cartTotal)
+        
+
+# # "bulk_5_discount": If the quantity of any single product exceeds 10 units, apply a 5% discount on that item's total price.
+
+# fivdisAmtB= 0.05
+# disAmtB=0       
+# for key,value in productQuantity.items():
+#         if value>20:
+#                 print(f'single prod gt 20 qty :{key}:{value}')
+                
+#                 singleprdAmt=productDetails[key]*value
+#                 print('price of single product',singleprdAmt)
+                
+#                 totalDisAmtB=fivdisAmtB*singleprdAmt
+#                 print('dis amt of single prd:',totalDisAmtB)
+                
+#                 disAmtB=singleprdAmt-totalDisAmtB
+                
+#                 print(disAmtB)
+                
+#                 goodDisAmt.append(disAmtB)
+                
+# "bulk_10_discount": If total quantity exceeds 20 units, apply a 10% discount on the cart total.
+
+
+totalQuantity=0
+qtyoffall=0
+for key,value in productQuantity.items():
+        totalQuantity+=productQuantity[key]
+qtyoffall=totalQuantity
+print('products quantity in cart:',qtyoffall)
+
+c=0.10
+disAmtC=0
+if qtyoffall > 20:
+        disAmtC=c*cartTotal
+        thirddisAmt= cartTotal-disAmtC
+        goodDisAmt.append(thirddisAmt)
+
+        print('dis amt gt qty 20:',disAmtC)
+        print('cart total after 3 condn',thirddisAmt)
+        
+        
+#"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
+
+if totalQuantity > 30 :
+        for key,value in productQuantity.items():
+                if value>15:
+                        
+                        
+                
+        
+        
+        
+        
+# print('choose best offer',goodDisAmt)
+        
+
+
+        
+        
+        
+        
+        
+
+    
+    
+    
+  
