@@ -911,9 +911,10 @@
 
 #////////////////////////////////////// zeno techonology
 
-discount={'Biggestdiscount':""}
-cart=0        
+shipping=0  
 cartTotal =0  
+
+giftWrap={}
 
 productDetails ={
         'productA':20,
@@ -930,26 +931,22 @@ productQuantity={
 for key,value in productDetails.items():
         quanity=int(input(f'enter the  quantity for {key}:'))
         productQuantity[key]=quanity
-        
-#printing prodct quantity to show terminal        
-# for key,value in productQuantity.items():
-#         print(f'{key}:{value}')
-     
-
-        
+           
 totalProductPrice={
         'productA':'',
         'productB':'',
         'productC':''
 }
 
+DiscountAmounts={
+        'DiscountA':'',
+        'DiscountB':'',
+        'DiscountC':'',
+        'DiscountD':''
+}
 
 for key,value in productQuantity.items():
         cartTotal+=productDetails[key]*value
-        
-print('toatalAmount in cart:' ,cartTotal)
-
-
 
 # indivual price of products
 for key,value in productQuantity.items():
@@ -957,82 +954,118 @@ for key,value in productQuantity.items():
         totalProductPrice[key]=iPrice
         
 for key,value in totalProductPrice.items():
-        print(f':{key}:{value}')
+        qnty=productQuantity[key]
+        price=productDetails[key]
+        print(f'{key}:quantity:{qnty}*{price},total amount:{value}')
+        
+print('sub total amount:' ,cartTotal)
 
-
-goodDisAmt=[]    
-
-#////////////////////////////#conditions    
 # flat_10_discount": If cart total exceeds $200, apply a flat $10 discount on the cart total.      
-## disAmtA=0.10
+disAmtA=10      
+if cartTotal > 200:
+        cartA=round(cartTotal-disAmtA)
 
-
-
-# disAmtA=20      
-# if cartTotal > 200:
-#         firstDic=cartTotal-20
-#         print('if the carttotal gt 200 qty',firstDic)
-#         goodDisAmt.append(firstDic)
+        DiscountAmounts['DiscountA']=cartA
+else:
+        DiscountAmounts['DiscountA']=0
         
-# else:
-#         print('after discount more than 200',cartTotal)
-        
-
+    
 # # "bulk_5_discount": If the quantity of any single product exceeds 10 units, apply a 5% discount on that item's total price.
+per=0
+disAmtB=0.05      
+finalRes=0 
+for key,value in productQuantity.items():
+        if value>10:
+                singleprdAmt=productDetails[key]*value
+                totalDisAmtB=disAmtB*singleprdAmt
+                cartB =round(cartTotal-totalDisAmtB)  
+                DiscountAmounts['DiscountB']=cartB 
+        else:
+                break         
 
-# fivdisAmtB= 0.05
-# disAmtB=0       
-# for key,value in productQuantity.items():
-#         if value>20:
-#                 print(f'single prod gt 20 qty :{key}:{value}')
-                
-#                 singleprdAmt=productDetails[key]*value
-#                 print('price of single product',singleprdAmt)
-                
-#                 totalDisAmtB=fivdisAmtB*singleprdAmt
-#                 print('dis amt of single prd:',totalDisAmtB)
-                
-#                 disAmtB=singleprdAmt-totalDisAmtB
-                
-#                 print(disAmtB)
-                
-#                 goodDisAmt.append(disAmtB)
-                
 # "bulk_10_discount": If total quantity exceeds 20 units, apply a 10% discount on the cart total.
-
 
 totalQuantity=0
 qtyoffall=0
 for key,value in productQuantity.items():
         totalQuantity+=productQuantity[key]
 qtyoffall=totalQuantity
-print('products quantity in cart:',qtyoffall)
 
-c=0.10
 disAmtC=0
 if qtyoffall > 20:
-        disAmtC=c*cartTotal
-        thirddisAmt= cartTotal-disAmtC
-        goodDisAmt.append(thirddisAmt)
-
-        print('dis amt gt qty 20:',disAmtC)
-        print('cart total after 3 condn',thirddisAmt)
+        disAmtC=round(0.10 * cartTotal)
+        cartC=cartTotal-disAmtC
+        DiscountAmounts['DiscountC']=cartC
+else:
+        DiscountAmounts['DiscountC']=0
+             
         
-        
-#"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
-
+# #"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
+zero=0
 if totalQuantity > 30 :
-        for key,value in productQuantity.items():
+         print('ssssssss')
+         for key,value in productQuantity.items():
                 if value>15:
-                        
-                        
+                        print('ccccccccccc')
+                        originalPrice=productDetails[key]
+                        disAmtD=0.5*originalPrice
+                        prdQty=productQuantity[key]-15
+                        if prdQty >0:
+                                print('kkkkkkkk')
+                                totalDisAmt=disAmtD*prdQty
+                                
+                                cartD=round(cartTotal-totalDisAmt)
+                                DiscountAmounts['DiscountD']=cartD
+                                print(cartD,'jjjjjj')
+                                                
+                        else:
+                                DiscountAmounts['DiscountD']=0
                 
+                else: 
+                        DiscountAmounts['DiscountD']=0
+
+else: 
+        DiscountAmounts['DiscountD']=0
         
         
+#//check best dis                      
+for key,value in DiscountAmounts.items():
+        print(f'{key}:{value}')
+       
+
+filterDic=[]
+for key,value in DiscountAmounts.items():
+        if value >0:
+                filterDic.append(value)
+                
+        else:
+                bestOfffer=0 
+if filterDic:                  
+        bestOfffer=min(filterDic)
+else:
+        bestOfffer=0
         
         
-# print('choose best offer',goodDisAmt)
+max_dis=bestOfffer
+print('mmmmmmmmmmmzzzzzzzzzzzz',max_dis)
+
+# for key,value in DiscountAmounts.items():
+#         if max_dis:
+#                 if max_dis==DiscountAmounts[key]:
+#                         dis_amt=cartTotal-max_dis
+#                         print('Discount Amount applied:',f'{key}:{dis_amt}')
+#         else:
+#                 max_dis=0
         
+                
+                
+# print('your total amount:',max_dis)  #need to change into cartTotal
+
+
+
+
+
+
 
 
         
