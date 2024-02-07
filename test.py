@@ -968,22 +968,25 @@ if cartTotal > 200:
         DiscountAmounts['DiscountA']=cartA
 else:
         DiscountAmounts['DiscountA']=0
+
         
     
 # # "bulk_5_discount": If the quantity of any single product exceeds 10 units, apply a 5% discount on that item's total price.
 per=0
 disAmtB=0.05      
 finalRes=0 
+# countB=0
 for key,value in productQuantity.items():
-        if value>10:
-                singleprdAmt=productDetails[key]*value
-                totalDisAmtB=disAmtB*singleprdAmt
-                cartB =round(cartTotal-totalDisAmtB)  
-                DiscountAmounts['DiscountB']=cartB 
-        else:
-                break         
-
-# "bulk_10_discount": If total quantity exceeds 20 units, apply a 10% discount on the cart total.
+        # if countB==0:
+                if value>10:
+                        # countB+=1
+                        singleprdAmt=productDetails[key]*value
+                        totalDisAmtB=disAmtB*singleprdAmt
+                        cartB =round(cartTotal-totalDisAmtB)  
+                        DiscountAmounts['DiscountB']=cartB 
+                        break
+                else:
+                        DiscountAmounts['DiscountB']=0
 
 totalQuantity=0
 qtyoffall=0
@@ -1017,6 +1020,8 @@ if totalQuantity > 30 :
                                 cartD=round(cartTotal-totalDisAmt)
                                 DiscountAmounts['DiscountD']=cartD
                                 print(cartD,'jjjjjj')
+                                
+                                break
                                                 
                         else:
                                 DiscountAmounts['DiscountD']=0
