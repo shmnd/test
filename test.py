@@ -961,7 +961,7 @@ for key,value in totalProductPrice.items():
         price=productDetails[key]
         print(f'{key}:quantity:{qnty}*{price},total amount:{value}')
         
-print('sub total amount:' ,cartTotal)
+print('sub total amount:',cartTotal)
 
 # flat_10_discount": If cart total exceeds $200, apply a flat $10 discount on the cart total.      
 disAmtA=10      
@@ -1021,7 +1021,7 @@ if totalQuantity > 30 :
 else: 
         DiscountAmounts['DiscountD']=0
         
-#//check best dis                      
+#//check best discount       /////////////////////////////////////            
 for key,value in DiscountAmounts.items():
         print(f'{key}:{value}')
        
@@ -1044,8 +1044,24 @@ for key,value in DiscountAmounts.items():
         if max_dis==DiscountAmounts[key]:
         
                 print(f'Discount appleid :{key}: you get discount{disc}')
+                
+                
+#shipping  ///////////////////////////////////             
+shipfee=5
 
-print('your total amount :',max_dis+wraptotal)
+totalPackages=qtyoffall//10
+if qtyoffall % 10!=0:
+        totalPackages+=1
+        
+totalshipfee=shipfee*totalPackages
+# print(totalshipfee,'hiiiiiiipakd')
+
+
+
+# print(qtyoffall,'qyt ofa lallllll')
+print('your total amount :',max_dis+wraptotal+totalshipfee)
+
+
 
 
 
