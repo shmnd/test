@@ -914,8 +914,6 @@
 shipping=0  
 cartTotal =0  
 
-giftWrap={}
-
 productDetails ={
         'productA':20,
         'productB':40,
@@ -927,10 +925,15 @@ productQuantity={
         'productB':'',
         'productC':''
 }
-
+giftfee=1
+wraptotal=0
 for key,value in productDetails.items():
         quanity=int(input(f'enter the  quantity for {key}:'))
         productQuantity[key]=quanity
+        wrapinput=input(f'do you wrap the gift {key} ?,its cost 1 per unit(Yes/No:)')
+        if wrapinput.lower()=='yes':
+                wrapamt=giftfee*quanity
+                wraptotal+=wrapamt    
            
 totalProductPrice={
         'productA':'',
@@ -947,12 +950,12 @@ DiscountAmounts={
 
 for key,value in productQuantity.items():
         cartTotal+=productDetails[key]*value
-
+        
 # indivual price of products
 for key,value in productQuantity.items():
         iPrice=productDetails[key]*value
         totalProductPrice[key]=iPrice
-        
+          
 for key,value in totalProductPrice.items():
         qnty=productQuantity[key]
         price=productDetails[key]
@@ -969,17 +972,12 @@ if cartTotal > 200:
 else:
         DiscountAmounts['DiscountA']=0
 
-        
-    
 # # "bulk_5_discount": If the quantity of any single product exceeds 10 units, apply a 5% discount on that item's total price.
 per=0
 disAmtB=0.05      
 finalRes=0 
-# countB=0
 for key,value in productQuantity.items():
-        # if countB==0:
                 if value>10:
-                        # countB+=1
                         singleprdAmt=productDetails[key]*value
                         totalDisAmtB=disAmtB*singleprdAmt
                         cartB =round(cartTotal-totalDisAmtB)  
@@ -1004,34 +1002,24 @@ else:
              
         
 # #"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
-zero=0
 if totalQuantity > 30 :
          print('ssssssss')
          for key,value in productQuantity.items():
                 if value>15:
-                        print('ccccccccccc')
                         originalPrice=productDetails[key]
                         disAmtD=0.5*originalPrice
                         prdQty=productQuantity[key]-15
                         if prdQty >0:
-                                print('kkkkkkkk')
                                 totalDisAmt=disAmtD*prdQty
-                                
                                 cartD=round(cartTotal-totalDisAmt)
                                 DiscountAmounts['DiscountD']=cartD
-                                print(cartD,'jjjjjj')
-                                
                                 break
-                                                
                         else:
                                 DiscountAmounts['DiscountD']=0
-                
                 else: 
                         DiscountAmounts['DiscountD']=0
-
 else: 
         DiscountAmounts['DiscountD']=0
-        
         
 #//check best dis                      
 for key,value in DiscountAmounts.items():
@@ -1042,7 +1030,6 @@ filterDic=[]
 for key,value in DiscountAmounts.items():
         if value >0:
                 filterDic.append(value)
-                
         else:
                 bestOfffer=0 
 if filterDic:                  
@@ -1050,21 +1037,19 @@ if filterDic:
 else:
         bestOfffer=0
         
-        
 max_dis=bestOfffer
-print('mmmmmmmmmmmzzzzzzzzzzzz',max_dis)
 
-# for key,value in DiscountAmounts.items():
-#         if max_dis:
-#                 if max_dis==DiscountAmounts[key]:
-#                         dis_amt=cartTotal-max_dis
-#                         print('Discount Amount applied:',f'{key}:{dis_amt}')
-#         else:
-#                 max_dis=0
+disc=cartTotal-max_dis
+for key,value in DiscountAmounts.items():
+        if max_dis==DiscountAmounts[key]:
         
-                
-                
-# print('your total amount:',max_dis)  #need to change into cartTotal
+                print(f'Discount appleid :{key}: you get discount{disc}')
+
+print('your total amount :',max_dis+wraptotal)
+
+
+
+
 
 
 
