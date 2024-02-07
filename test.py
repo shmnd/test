@@ -1000,7 +1000,6 @@ if qtyoffall > 20:
 else:
         DiscountAmounts['DiscountC']=0
              
-        
 # #"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
 if totalQuantity > 30 :
          print('ssssssss')
@@ -1025,7 +1024,6 @@ else:
 for key,value in DiscountAmounts.items():
         print(f'{key}:{value}')
        
-
 filterDic=[]
 for key,value in DiscountAmounts.items():
         if value >0:
@@ -1036,30 +1034,27 @@ if filterDic:
         bestOfffer=min(filterDic)
 else:
         bestOfffer=0
-        
 max_dis=bestOfffer
-
 disc=cartTotal-max_dis
-for key,value in DiscountAmounts.items():
-        if max_dis==DiscountAmounts[key]:
-        
-                print(f'Discount appleid :{key}: you get discount{disc}')
+if max_dis:
+        for key,value in DiscountAmounts.items():
+                if max_dis==DiscountAmounts[key]:
+                        print(f'Discount appleid :{key}: you get discount{disc}')
+else:
+        max_dis=cartTotal
                 
-                
-#shipping  ///////////////////////////////////             
+#shipping///////////////////////////////////////////////////
 shipfee=5
-
 totalPackages=qtyoffall//10
 if qtyoffall % 10!=0:
         totalPackages+=1
-        
 totalshipfee=shipfee*totalPackages
-# print(totalshipfee,'hiiiiiiipakd')
-
-
-
-# print(qtyoffall,'qyt ofa lallllll')
-print('your total amount :',max_dis+wraptotal+totalshipfee)
+cartTotalincludefees=max_dis+wraptotal+totalshipfee
+# print(qtyoffall,'qntyyyyyyyyyyyyy')
+# print(max_dis,'disssssss')
+# print(wraptotal,'wrapppppppp')
+# print(totalshipfee,'shipppppppppp')
+print('Your total amount including shipping and wrap:',cartTotalincludefees)
 
 
 
