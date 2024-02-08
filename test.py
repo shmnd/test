@@ -866,195 +866,176 @@
 
 
 
+########## correct solution for lc 2864
+class Solution:
+    def maximumTripletValue(self, nums):
+        ans=[]
+        for i in range(len(nums)):
+                for j in range(i+1,len(nums)):
+                        for k in range(j+1,len(nums)):
+                                res=(nums[i]-nums[j])*nums[k]
+                                print(nums[i],nums[j],nums[k])
+                                if res <0:
+                                        res= 0
 
-# class Solution:
-#     def maximumTripletValue(self, nums):
-#         f=0
-#         m=len(nums)//2
-#         k=nums[m]
-#         l=nums[-1]
-#         print(f,m,l,k)
-
-#         if len(nums)%2==0:
-#                 print('outtt')
-#                 return 0
-#         else:
-#                 print('innnnn')
-#                 for i in range(1,m):
-#                         print('iiiiiiiiiiiiin')
-#                         print(nums[0],nums[i])
-                        
-#                         if nums[0]>nums[i]:
-#                                 f=nums[i]
-#                                 print(f,'ffffff')
-#                                 res= (f-k)*l
-#                                 print(res)
-#                         else:
-#                                 f=nums[0]
-#                                 print(f,'ssss')
-#                                 res= (f-k)*l
-#                                 print(res)
-#                 if res>0:
-#                         return res
-#                 else:
-#                         return 0
-# obj=Solution()
+                                ans.append(res)
+                                print(ans)
+        return max(ans)
+obj=Solution()
 # nums = [1,10,3,4,19]
-# # nums = [12,6,1,2,7]
-# # nums = [1,2,3]
-# # nums=[1000000,1,1000000]                               
-
-# a=obj.maximumTripletValue(nums)
-# print(a)   
+nums = [12,6,1,2,7]
+# nums = [1,2,3]
+# nums=[1000000,1,1000000]                               
+a=obj.maximumTripletValue(nums)
+print(a)   
 
 
 
 #////////////////////////////////////// zeno techonology
 
-shipping=0  
-cartTotal =0  
+# cartTotal =0  
 
-productDetails ={
-        'productA':20,
-        'productB':40,
-        'productC':50
-}
+# productDetails ={
+#         'productA':20,
+#         'productB':40,
+#         'productC':50
+# }
 
-productQuantity={
-        'productA':'',
-        'productB':'',
-        'productC':''
-}
-giftfee=1
-wraptotal=0
-for key,value in productDetails.items():
-        quanity=int(input(f'enter the  quantity for {key}:'))
-        productQuantity[key]=quanity
-        wrapinput=input(f'do you wrap the gift {key} ?,its cost 1 per unit(Yes/No:)')
-        if wrapinput.lower()=='yes':
-                wrapamt=giftfee*quanity
-                wraptotal+=wrapamt    
+# productQuantity={
+#         'productA':'',
+#         'productB':'',
+#         'productC':''
+# }
+# giftfee=1
+# wraptotal=0
+# for key,value in productDetails.items():
+#         quanity=int(input(f'enter the  quantity for {key}:'))
+#         productQuantity[key]=quanity
+#         wrapinput=input(f'do you wrap the gift {key} ?,its cost 1 per unit(Yes/No:)')
+#         if wrapinput.lower()=='yes':
+#                 wrapamt=giftfee*quanity
+#                 wraptotal+=wrapamt    
            
-totalProductPrice={
-        'productA':'',
-        'productB':'',
-        'productC':''
-}
+# totalProductPrice={
+#         'productA':'',
+#         'productB':'',
+#         'productC':''
+# }
 
-DiscountAmounts={
-        'DiscountA':'',
-        'DiscountB':'',
-        'DiscountC':'',
-        'DiscountD':''
-}
+# DiscountAmounts={
+#         'DiscountA':'',
+#         'DiscountB':'',
+#         'DiscountC':'',
+#         'DiscountD':''
+# }
 
-for key,value in productQuantity.items():
-        cartTotal+=productDetails[key]*value
+# for key,value in productQuantity.items():
+#         cartTotal+=productDetails[key]*value
         
-# indivual price of products
-for key,value in productQuantity.items():
-        iPrice=productDetails[key]*value
-        totalProductPrice[key]=iPrice
+# # indivual price of products
+# for key,value in productQuantity.items():
+#         iPrice=productDetails[key]*value
+#         totalProductPrice[key]=iPrice
           
-for key,value in totalProductPrice.items():
-        qnty=productQuantity[key]
-        price=productDetails[key]
-        print(f'{key}:quantity:{qnty}*{price},total amount:{value}')
+# for key,value in totalProductPrice.items():
+#         qnty=productQuantity[key]
+#         price=productDetails[key]
+#         print(f'{key}:quantity:{qnty}*{price},total amount:{value}')
         
-print('sub total amount:',cartTotal)
+# print('sub total amount:',cartTotal)
 
-# flat_10_discount": If cart total exceeds $200, apply a flat $10 discount on the cart total.      
-disAmtA=10      
-if cartTotal > 200:
-        cartA=round(cartTotal-disAmtA)
+# # flat_10_discount": If cart total exceeds $200, apply a flat $10 discount on the cart total.      
+# disAmtA=10      
+# if cartTotal > 200:
+#         cartA=round(cartTotal-disAmtA)
 
-        DiscountAmounts['DiscountA']=cartA
-else:
-        DiscountAmounts['DiscountA']=0
+#         DiscountAmounts['DiscountA']=cartA
+# else:
+#         DiscountAmounts['DiscountA']=0
 
-# # "bulk_5_discount": If the quantity of any single product exceeds 10 units, apply a 5% discount on that item's total price.
-per=0
-disAmtB=0.05      
-finalRes=0 
-for key,value in productQuantity.items():
-                if value>10:
-                        singleprdAmt=productDetails[key]*value
-                        totalDisAmtB=disAmtB*singleprdAmt
-                        cartB =round(cartTotal-totalDisAmtB)  
-                        DiscountAmounts['DiscountB']=cartB 
-                        break
-                else:
-                        DiscountAmounts['DiscountB']=0
+# # # "bulk_5_discount": If the quantity of any single product exceeds 10 units, apply a 5% discount on that item's total price.
+# per=0
+# disAmtB=0.05      
+# finalRes=0 
+# for key,value in productQuantity.items():
+#                 if value>10:
+#                         singleprdAmt=productDetails[key]*value
+#                         totalDisAmtB=disAmtB*singleprdAmt
+#                         cartB =round(cartTotal-totalDisAmtB)  
+#                         DiscountAmounts['DiscountB']=cartB 
+#                         break
+#                 else:
+#                         DiscountAmounts['DiscountB']=0
 
-totalQuantity=0
-qtyoffall=0
-for key,value in productQuantity.items():
-        totalQuantity+=productQuantity[key]
-qtyoffall=totalQuantity
+# totalQuantity=0
+# qtyoffall=0
+# for key,value in productQuantity.items():
+#         totalQuantity+=productQuantity[key]
+# qtyoffall=totalQuantity
 
-disAmtC=0
-if qtyoffall > 20:
-        disAmtC=round(0.10 * cartTotal)
-        cartC=cartTotal-disAmtC
-        DiscountAmounts['DiscountC']=cartC
-else:
-        DiscountAmounts['DiscountC']=0
+# disAmtC=0
+# if qtyoffall > 20:
+#         disAmtC=round(0.10 * cartTotal)
+#         cartC=cartTotal-disAmtC
+#         DiscountAmounts['DiscountC']=cartC
+# else:
+#         DiscountAmounts['DiscountC']=0
              
-# #"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
-if totalQuantity > 30 :
-         print('ssssssss')
-         for key,value in productQuantity.items():
-                if value>15:
-                        originalPrice=productDetails[key]
-                        disAmtD=0.5*originalPrice
-                        prdQty=productQuantity[key]-15
-                        if prdQty >0:
-                                totalDisAmt=disAmtD*prdQty
-                                cartD=round(cartTotal-totalDisAmt)
-                                DiscountAmounts['DiscountD']=cartD
-                                break
-                        else:
-                                DiscountAmounts['DiscountD']=0
-                else: 
-                        DiscountAmounts['DiscountD']=0
-else: 
-        DiscountAmounts['DiscountD']=0
+# # #"tiered_50_discount": If total quantity exceeds 30 units & any single product quantity greater than 15, then apply a 50% discount on products which are above  15 quantity. The first 15 quantities have the original price and units above 15 will get a 50% discount.           
+# if totalQuantity > 30 :
+#          print('ssssssss')
+#          for key,value in productQuantity.items():
+#                 if value>15:
+#                         originalPrice=productDetails[key]
+#                         disAmtD=0.5*originalPrice
+#                         prdQty=productQuantity[key]-15
+#                         if prdQty >0:
+#                                 totalDisAmt=disAmtD*prdQty
+#                                 cartD=round(cartTotal-totalDisAmt)
+#                                 DiscountAmounts['DiscountD']=cartD
+#                                 break
+#                         else:
+#                                 DiscountAmounts['DiscountD']=0
+#                 else: 
+#                         DiscountAmounts['DiscountD']=0
+# else: 
+#         DiscountAmounts['DiscountD']=0
         
-#//check best discount       /////////////////////////////////////            
-for key,value in DiscountAmounts.items():
-        print(f'{key}:{value}')
+# #//check best discount       /////////////////////////////////////            
+# for key,value in DiscountAmounts.items():
+#         print(f'{key}:{value}')
        
-filterDic=[]
-for key,value in DiscountAmounts.items():
-        if value >0:
-                filterDic.append(value)
-        else:
-                bestOfffer=0 
-if filterDic:                  
-        bestOfffer=min(filterDic)
-else:
-        bestOfffer=0
-max_dis=bestOfffer
-disc=cartTotal-max_dis
-if max_dis:
-        for key,value in DiscountAmounts.items():
-                if max_dis==DiscountAmounts[key]:
-                        print(f'Discount appleid :{key}: you get discount{disc}')
-else:
-        max_dis=cartTotal
+# filterDic=[]
+# for key,value in DiscountAmounts.items():
+#         if value >0:
+#                 filterDic.append(value)
+#         else:
+#                 bestOfffer=0 
+# if filterDic:                  
+#         bestOfffer=min(filterDic)
+# else:
+#         bestOfffer=0
+# max_dis=bestOfffer
+# disc=cartTotal-max_dis
+# if max_dis:
+#         for key,value in DiscountAmounts.items():
+#                 if max_dis==DiscountAmounts[key]:
+#                         print(f'Discount appleid :{key}: you get discount{disc}')
+# else:
+#         max_dis=cartTotal
                 
-#shipping///////////////////////////////////////////////////
-shipfee=5
-totalPackages=qtyoffall//10
-if qtyoffall % 10!=0:
-        totalPackages+=1
-totalshipfee=shipfee*totalPackages
-cartTotalincludefees=max_dis+wraptotal+totalshipfee
-# print(qtyoffall,'qntyyyyyyyyyyyyy')
-# print(max_dis,'disssssss')
-# print(wraptotal,'wrapppppppp')
-# print(totalshipfee,'shipppppppppp')
-print('Your total amount including shipping and wrap:',cartTotalincludefees)
+# #shipping///////////////////////////////////////////////////
+# shipfee=5
+# totalPackages=qtyoffall//10
+# if qtyoffall % 10!=0:
+#         totalPackages+=1
+# totalshipfee=shipfee*totalPackages
+# cartTotalincludefees=max_dis+wraptotal+totalshipfee
+# # print(qtyoffall,'qntyyyyyyyyyyyyy')
+# # print(max_dis,'disssssss')
+# # print(wraptotal,'wrapppppppp')
+# # print(totalshipfee,'shipppppppppp')
+# print('Your total amount including shipping and wrap:',cartTotalincludefees)
 
 
 
