@@ -1145,17 +1145,59 @@
 
 
 
+# nums = [5,10,1,5,2]
+# for i in range(len(nums)):
+#     print(i)
 
-
+# for i in nums:
+#     print(i)
 
 
         
+# a='hello'
+# s=a[:2]
+# print(s)  
         
-        
-        
-        
+# 2710. Remove Trailing Zeros From a String       
+# Given a positive integer num represented as a string, return the integer num without trailing zeros as a string.
 
+ 
+
+# Example 1:
+
+# Input: num = "51230100"
+# Output: "512301"
+# Explanation: Integer "51230100" has 2 trailing zeros, we remove them and return integer "512301".
+# Example 2:
+
+# Input: num = "123"
+# Output: "123"
+# Explanation: Integer "123" has no trailing zeros, we return integer "123".
     
     
-    
+class Solution:
+    def removeTrailingZeros(self,num):
+        j=0
+        nm=int(num)
+        if nm%10==0:
+                rev=num[::-1]
+                for i in rev:
+                        if i =='0':
+                                j+=1
+                        else:
+                              finalres=rev[j:]
+                              res=finalres[::-1]
+                              return res
+                      
+
+                print(nm)
+        else:
+              return num
+              
+
+obj=Solution()
+num = "51230100"
+# num = "123"
+a=obj.removeTrailingZeros(num)
+print(a)
   
