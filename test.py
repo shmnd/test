@@ -867,27 +867,27 @@
 
 
 ########## correct solution for lc 2864
-class Solution:
-    def maximumTripletValue(self, nums):
-        ans=[]
-        for i in range(len(nums)):
-                for j in range(i+1,len(nums)):
-                        for k in range(j+1,len(nums)):
-                                res=(nums[i]-nums[j])*nums[k]
-                                print(nums[i],nums[j],nums[k])
-                                if res <0:
-                                        res= 0
+# class Solution:
+#     def maximumTripletValue(self, nums):
+#         ans=[]
+#         for i in range(len(nums)):
+#                 for j in range(i+1,len(nums)):
+#                         for k in range(j+1,len(nums)):
+#                                 res=(nums[i]-nums[j])*nums[k]
+#                                 print(nums[i],nums[j],nums[k])
+#                                 if res <0:
+#                                         res= 0
 
-                                ans.append(res)
-                                print(ans)
-        return max(ans)
-obj=Solution()
-# nums = [1,10,3,4,19]
-nums = [12,6,1,2,7]
-# nums = [1,2,3]
-# nums=[1000000,1,1000000]                               
-a=obj.maximumTripletValue(nums)
-print(a)   
+#                                 ans.append(res)
+#                                 print(ans)
+#         return max(ans)
+# obj=Solution()
+# # nums = [1,10,3,4,19]
+# nums = [12,6,1,2,7]
+# # nums = [1,2,3]
+# # nums=[1000000,1,1000000]                               
+# a=obj.maximumTripletValue(nums)
+# print(a)   
 
 
 
@@ -1036,6 +1036,50 @@ print(a)
 # # print(wraptotal,'wrapppppppp')
 # # print(totalshipfee,'shipppppppppp')
 # print('Your total amount including shipping and wrap:',cartTotalincludefees)
+
+
+
+
+
+# 2848. Points That Intersect With Cars
+# You are given a 0-indexed 2D integer array nums representing the coordinates of the cars parking on a number line. For any index i, nums[i] = [starti, endi] where starti is the starting point of the ith car and endi is the ending point of the ith car.
+
+# Return the number of integer points on the line that are covered with any part of a car.
+
+ 
+
+# Example 1:
+
+# Input: nums = [[3,6],[1,5],[4,7]]
+# Output: 7
+# Explanation: All the points from 1 to 7 intersect at least one car, therefore the answer would be 7.
+# Example 2:
+
+# Input: nums = [[1,3],[5,8]]
+# Output: 7
+# Explanation: Points intersecting at least one car are 1, 2, 3, 5, 6, 7, 8. There are a total of 7 points, therefore the answer would be 7.
+
+class Solution:
+    def numberOfPoints(self, nums):
+        newset=set()
+        for i in nums:
+            print(i,'aaaa')
+            for j in range(i[0],i[1]+1):
+                print(i[0],'bbbbbb')
+                print(i[1],'cccccc')
+                print(i[1]+1,'ddddddd')
+                print(j,'eeeeeeeeeeeeeeee')
+                
+                newset.add(j)
+                print(newset,'kkkkkkkkkkk')
+        return len(newset)
+
+obj=Solution()
+nums = [[3,6],[1,5],[4,7]]
+# nums = [[1,3],[5,8]]
+a=obj.numberOfPoints(nums)
+
+
 
 
 
