@@ -1517,29 +1517,60 @@
 
 
 
+# lc 2917
+# class Solution:
+#     def findKOr(self, nums, k):
+#         res = 0
+#         for i in range(32):
+#             count = 0
+#             n = 2**i
+#             # print(n)
 
+#             for num in nums:
+#                 if num & n:
+#                     count += 1
+#             if count >= k:
+#                 res += n
+#         return res
+
+# ob=Solution()
+# nums =[7,12,9,8,9,15]
+# k =4
+# a=ob.findKOr(nums,k)
+# # print(a)
+
+
+
+# # h= 2**1
+# # print(h)
+
+
+
+
+
+
+
+
+# lc 2923. Find Champion I
 class Solution:
-    def findKOr(self, nums, k):
-        res = 0
-        for i in range(32):
-            count = 0
-            n = 2**i
-            # print(n)
-
-            for num in nums:
-                if num & n:
-                    count += 1
-            if count >= k:
-                res += n
-        return res
-
-ob=Solution()
-nums =[7,12,9,8,9,15]
-k =4
-a=ob.findKOr(nums,k)
-# print(a)
-
-
-
-# h= 2**1
-# print(h)
+    def findChampion(self, grid):
+        l=len(grid)
+        print(l,'aa')
+        for i in range(l):
+            print(i,'bbb')
+            is_champ=True
+            for j in range(l):
+                print(j,'ccc')
+                if i!=j and grid[j][i]==1:
+                    print(grid[i],[j],'hiiiii')
+                    is_champ=False
+                    break
+            if is_champ:
+                return i
+        return -1
+    
+obu=Solution()
+grid = [[0,1],[0,0]]
+# grid = [[0,0,1],[1,0,1],[0,0,0]]
+a=obu.findChampion(grid)
+print(a)
