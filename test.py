@@ -1546,31 +1546,70 @@
 
 
 
-
-
-
-
-
 # lc 2923. Find Champion I
-class Solution:
-    def findChampion(self, grid):
-        l=len(grid)
-        print(l,'aa')
-        for i in range(l):
-            print(i,'bbb')
-            is_champ=True
-            for j in range(l):
-                print(j,'ccc')
-                if i!=j and grid[j][i]==1:
-                    print(grid[i],[j],'hiiiii')
-                    is_champ=False
-                    break
-            if is_champ:
-                return i
-        return -1
-    
-obu=Solution()
-grid = [[0,1],[0,0]]
-# grid = [[0,0,1],[1,0,1],[0,0,0]]
-a=obu.findChampion(grid)
-print(a)
+# class Solution:
+#     def findChampion(self, grid):
+#         l=len(grid)
+#         print(l,'aa')
+#         for i in range(l):
+#             print(i,'iiii')
+#             is_champ=True
+#             for j in range(l):
+#                 print(j,'jjjj')
+#                 print(grid[j],[i],'hiiiii')
+#                 if i!=j and grid[j][i]==1:
+                    
+#                     is_champ=False
+#                     break
+#             if is_champ:
+#                 return i
+#         return -1
+
+
+
+
+# 2928. Distribute Candies Among Children I
+# obu=Solution()
+# grid = [[0,1],[0,0]]
+# # grid = [[0,0,1],[1,0,1],[0,0,0]]
+# a=obu.findChampion(grid)
+# print(a)
+
+# You are given two positive integers n and limit.
+
+# Return the total number of ways to distribute n candies among 3 children such that no child gets more than limit candies.
+
+# Example 1:
+
+# Input: n = 5, limit = 2
+# Output: 3
+# Explanation: There are 3 ways to distribute 5 candies such that no child gets more than 2 candies: (1, 2, 2), (2, 1, 2) and (2, 2, 1).
+# Example 2:
+
+# Input: n = 3, limit = 3
+# Output: 10
+# Explanation: There are 10 ways to distribute 3 candies such that no child gets more than 3 candies: (0, 0, 3), (0, 1, 2), (0, 2, 1), (0, 3, 0), (1, 0, 2), (1, 1, 1), (1, 2, 0), (2, 0, 1), (2, 1, 0) and (3, 0, 0).
+ 
+
+# Constraints:
+
+# 1 <= n <= 50
+# 1 <= limit <= 50
+
+# lc 2928
+def distributeCandies(n ,limit) :
+        res=0
+        for i in range(limit+1):
+        #     print(i,'iii')
+            for j in range(limit+1):
+                # print(j,'jjjjj')
+                k= n-i-j
+                print(k,'kkkkkkkk')
+                if k>=0 and k<=limit:
+                    res+=1
+        return res   
+
+# Test cases
+
+print(distributeCandies(5, 2)) # Output: 3
+# print(distributeCandies(3, 3)) # Output: 10
