@@ -1597,19 +1597,80 @@
 # 1 <= limit <= 50
 
 # lc 2928
-def distributeCandies(n ,limit) :
-        res=0
-        for i in range(limit+1):
-        #     print(i,'iii')
-            for j in range(limit+1):
-                # print(j,'jjjjj')
-                k= n-i-j
-                print(k,'kkkkkkkk')
-                if k>=0 and k<=limit:
-                    res+=1
-        return res   
+# def distributeCandies(n ,limit) :
+#         res=0
+#         for i in range(limit+1):
+#         #     print(i,'iii')
+#             for j in range(limit+1):
+#                 # print(j,'jjjjj')
+#                 k= n-i-j
+#                 print(k,'kkkkkkkk')
+#                 if k>=0 and k<=limit:
+#                     res+=1
+#         return res   
 
-# Test cases
+# # Test cases
 
-print(distributeCandies(5, 2)) # Output: 3
-# print(distributeCandies(3, 3)) # Output: 10
+# print(distributeCandies(5, 2)) # Output: 3
+# # print(distributeCandies(3, 3)) # Output: 10
+
+
+
+
+
+
+
+
+
+
+# class Solution:
+#     def maximumStrongPairXor(self, nums: List[int]) -> int:
+#         ans = 0
+#         for x in nums:
+#             for y in nums:
+#                 if abs(x-y) <= min(x,y):
+#                     ans = max(ans, x^y)
+#         return ans
+    
+
+
+#     class Solution:
+#     def maximumStrongPairXor(self, nums: List[int]) -> int:
+#         lst=[]
+#         l=len(nums)
+#         for i in range(l):
+#             for j in range(i,l):
+#                 if abs(nums[i]-nums[j])<=min(nums[i], nums[j]):
+#                     lst.append((nums[i], nums[j]))
+#         max_val=0
+#         for items in lst:
+#             temp=items[0]^items[1]
+#             if temp>max_val:
+#                 max_val=temp
+#         return max_val
+    
+
+
+
+
+
+
+
+
+class Solution:
+    def maximumStrongPairXor(self, nums):
+        op = [] # an array to store XOR results
+        # use nested for loop & check for strong pair
+        for i in range(0, len(nums)):
+            for j in range(i, len(nums)):
+                # a simple check for strong pair
+                if abs(nums[i]- nums[j]) <= min(nums[i],nums[j]):
+                    op.append(nums[i]^nums[j]) # store XOR in results array
+        
+        return max(op) # maximum XOR value
+    
+
+ob=Solution()
+nums = [1,2,3,4,5]
+a=ob.maximumStrongPairXor(nums)
+print(a)
