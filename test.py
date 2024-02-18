@@ -1616,61 +1616,58 @@
 
 
 
-
-
-
-
-
-
-
+# lc 2932
 # class Solution:
-#     def maximumStrongPairXor(self, nums: List[int]) -> int:
+#     def maximumStrongPairXor(self, nums):
 #         ans = 0
 #         for x in nums:
+#             # print(x)
 #             for y in nums:
+#                 # print(y)
 #                 if abs(x-y) <= min(x,y):
+#                     print(abs(x-y),'aaaa')
+#                     print(min(x,y),'bbb')
 #                     ans = max(ans, x^y)
-#         return ans
+#         # return ans
     
 
-
-#     class Solution:
-#     def maximumStrongPairXor(self, nums: List[int]) -> int:
-#         lst=[]
-#         l=len(nums)
-#         for i in range(l):
-#             for j in range(i,l):
-#                 if abs(nums[i]-nums[j])<=min(nums[i], nums[j]):
-#                     lst.append((nums[i], nums[j]))
-#         max_val=0
-#         for items in lst:
-#             temp=items[0]^items[1]
-#             if temp>max_val:
-#                 max_val=temp
-#         return max_val
-    
+# ob=Solution()
+# nums = [1,2,3,4,5]
+# a=ob.maximumStrongPairXor(nums)
+# print(a)
 
 
 
+# d=abs(1-5)
+# print(d)
+
+# # lc 2937
+#  def findMinimumOperations(self, s1: str, s2: str, s3: str) -> int:
+#         if not s1[0] == s2[0] == s3[0]:
+#           return -1
+
+#         l1, l2, l3, i = len(s1), len(s2), len(s3), 1
+#         while i < min(l1, l2, l3):
+#             if s1[i] == s2[i] == s3[i]:
+#                 i += 1
+#             else:
+#                 break
+
+#         return l1 + l2 + l3 - 3 * i
 
 
 
-
-
+# lc 2942
 class Solution:
-    def maximumStrongPairXor(self, nums):
-        op = [] # an array to store XOR results
-        # use nested for loop & check for strong pair
-        for i in range(0, len(nums)):
-            for j in range(i, len(nums)):
-                # a simple check for strong pair
-                if abs(nums[i]- nums[j]) <= min(nums[i],nums[j]):
-                    op.append(nums[i]^nums[j]) # store XOR in results array
-        
-        return max(op) # maximum XOR value
-    
+ def findWordsContaining(self, words, x):
+        arr=[]
+        for i in range(len(words)):
+            if x in words[i]:
+                arr.append(i)
+        return arr
 
 ob=Solution()
-nums = [1,2,3,4,5]
-a=ob.maximumStrongPairXor(nums)
+words = ["leet","code"]
+x = "e"
+a=ob.findWordsContaining(words,x)
 print(a)
