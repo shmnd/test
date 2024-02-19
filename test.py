@@ -1658,16 +1658,35 @@
 
 
 # lc 2942
-class Solution:
- def findWordsContaining(self, words, x):
-        arr=[]
-        for i in range(len(words)):
-            if x in words[i]:
-                arr.append(i)
-        return arr
+# class Solution:
+#  def findWordsContaining(self, words, x):
+#         arr=[]
+#         for i in range(len(words)):
+#             if x in words[i]:
+#                 arr.append(i)
+#         return arr
 
-ob=Solution()
-words = ["leet","code"]
-x = "e"
-a=ob.findWordsContaining(words,x)
+# ob=Solution()
+# words = ["leet","code"]
+# x = "e"
+# a=ob.findWordsContaining(words,x)
+# print(a)
+
+
+
+
+
+# lc 2951. Find the Peaks
+class Solution:
+    def findPeaks(self, mountain) :
+        arr=[]
+        for i in range(1, len(mountain) - 1):
+                if mountain[i] > mountain[i-1] and mountain[i] > mountain[i+1]:
+                        arr.append(i)
+        return arr
+    
+
+of=Solution()
+mountain = [1,4,3,8,5]
+a=of.findPeaks(mountain)
 print(a)
