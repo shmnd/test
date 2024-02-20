@@ -1677,16 +1677,43 @@
 
 
 # lc 2951. Find the Peaks
-class Solution:
-    def findPeaks(self, mountain) :
-        arr=[]
-        for i in range(1, len(mountain) - 1):
-                if mountain[i] > mountain[i-1] and mountain[i] > mountain[i+1]:
-                        arr.append(i)
-        return arr
+# class Solution:
+#     def findPeaks(self, mountain) :
+#         arr=[]
+#         for i in range(1, len(mountain) - 1):
+#                 if mountain[i] > mountain[i-1] and mountain[i] > mountain[i+1]:
+#                         arr.append(i)
+#         return arr
     
 
-of=Solution()
-mountain = [1,4,3,8,5]
-a=of.findPeaks(mountain)
+# of=Solution()
+# mountain = [1,4,3,8,5]
+# a=of.findPeaks(mountain)
+# print(a)
+
+
+
+class Solution:
+    def findIntersectionValues(self, nums1, nums2) :
+        arr=[]
+        c1=0
+        c2=0
+        nums3=set(nums1)
+        nums4=set(nums2)
+        
+        for i in nums1:
+        #     print(i)
+            if i in nums4:
+                # print(i)
+                c1+=1
+                # print(c1)
+        for j in nums2:
+            if j in nums3:
+                c2+=1
+        return[c1,c2]
+
+afd=Solution()
+nums1 = [4,3,2,3,1]
+nums2 = [2,2,5,2,3,6]  
+a=afd.findIntersectionValues(nums1,nums2)
 print(a)
