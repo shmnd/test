@@ -1693,27 +1693,57 @@
 
 
 # lc 2956
-class Solution:
-    def findIntersectionValues(self, nums1, nums2) :
-        arr=[]
-        c1=0
-        c2=0
-        nums3=set(nums1)
-        nums4=set(nums2)
+# class Solution:
+#     def findIntersectionValues(self, nums1, nums2) :
+#         arr=[]
+#         c1=0
+#         c2=0
+#         nums3=set(nums1)
+#         nums4=set(nums2)
         
-        for i in nums1:
-        #     print(i)
-            if i in nums4:
-                # print(i)
-                c1+=1
-                # print(c1)
-        for j in nums2:
-            if j in nums3:
-                c2+=1
-        return[c1,c2]
+#         for i in nums1:
+#         #     print(i)
+#             if i in nums4:
+#                 # print(i)
+#                 c1+=1
+#                 # print(c1)
+#         for j in nums2:
+#             if j in nums3:
+#                 c2+=1
+#         return[c1,c2]
 
-afd=Solution()
-nums1 = [4,3,2,3,1]
-nums2 = [2,2,5,2,3,6]  
-a=afd.findIntersectionValues(nums1,nums2)
+# afd=Solution()
+# nums1 = [4,3,2,3,1]
+# nums2 = [2,2,5,2,3,6]  
+# a=afd.findIntersectionValues(nums1,nums2)
+# print(a)
+
+
+# lc 2960
+class Solution:
+    def countTestedDevices(self, batteryPercentages):
+        c=0
+        for i in range(len(batteryPercentages)):
+            if batteryPercentages[i]>0:
+                c+=1
+                for j in range(i+1,len(batteryPercentages)):
+                    batteryPercentages[j]=max(0,batteryPercentages[j]-1)
+                    print(batteryPercentages[j])
+        return c
+
+
+
+of=Solution()
+batteryPercentages = [1,1,2,1,3]
+a=of.countTestedDevices(batteryPercentages)
 print(a)
+
+
+# class shamnad:
+#     def apple(self):
+#         print('hoo')
+#     def orange(self):
+#         print('hiiii')
+# aj=shamnad()
+# a=aj.apple()
+# a=aj.orange()
