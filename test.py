@@ -1720,23 +1720,23 @@
 
 
 # lc 2960
-class Solution:
-    def countTestedDevices(self, batteryPercentages):
-        c=0
-        for i in range(len(batteryPercentages)):
-            if batteryPercentages[i]>0:
-                c+=1
-                for j in range(i+1,len(batteryPercentages)):
-                    batteryPercentages[j]=max(0,batteryPercentages[j]-1)
-                    print(batteryPercentages[j])
-        return c
+# class Solution:
+#     def countTestedDevices(self, batteryPercentages):
+#         c=0
+#         for i in range(len(batteryPercentages)):
+#             if batteryPercentages[i]>0:
+#                 c+=1
+#                 for j in range(i+1,len(batteryPercentages)):
+#                     batteryPercentages[j]=max(0,batteryPercentages[j]-1)
+#                     print(batteryPercentages[j])
+#         return c
 
 
 
-of=Solution()
-batteryPercentages = [1,1,2,1,3]
-a=of.countTestedDevices(batteryPercentages)
-print(a)
+# of=Solution()
+# batteryPercentages = [1,1,2,1,3]
+# a=of.countTestedDevices(batteryPercentages)
+# print(a)
 
 
 # class shamnad:
@@ -1747,3 +1747,18 @@ print(a)
 # aj=shamnad()
 # a=aj.apple()
 # a=aj.orange()
+
+# lc2974
+class solution():
+      def numberGame(self,nums):
+
+                nums.sort()
+                i=0
+                while(i<len(nums)):
+                        nums[i],nums[i+1]=nums[i+1],nums[i]
+                        print(nums[i],nums[i+1],nums[i+1],nums[i])
+                        i+=2
+                return nums  
+obj=solution()
+nums=[5,4,2,3]
+a=obj.numberGame(nums)
