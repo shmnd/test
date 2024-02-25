@@ -1797,4 +1797,4 @@ ob=Solution()
 grid = [[1,3],[2,2]]
 # grid = [[9,1,7],[8,9,2],[3,4,6]]
 a=ob.findMissingAndRepeatedValues(grid)
-# print(a)
+print(a)
