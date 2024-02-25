@@ -1749,16 +1749,52 @@
 # a=aj.orange()
 
 # lc2974
-class solution():
-      def numberGame(self,nums):
+# class solution():
+#       def numberGame(self,nums):
 
-                nums.sort()
-                i=0
-                while(i<len(nums)):
-                        nums[i],nums[i+1]=nums[i+1],nums[i]
-                        print(nums[i],nums[i+1],nums[i+1],nums[i])
-                        i+=2
-                return nums  
-obj=solution()
-nums=[5,4,2,3]
-a=obj.numberGame(nums)
+#                 nums.sort()
+#                 i=0
+#                 while(i<len(nums)):
+#                         nums[i],nums[i+1]=nums[i+1],nums[i]
+#                         print(nums[i],nums[i+1],nums[i+1],nums[i])
+#                         i+=2
+#                 return nums  
+# obj=solution()
+# nums=[5,4,2,3]
+# a=obj.numberGame(nums)
+
+
+# lc2965
+class Solution:
+    def findMissingAndRepeatedValues(self, grid):
+        n=len(grid)
+        print(n,'length')
+        totalsum=n*(n+1)//2 
+        print(totalsum,'total sum')
+        count =[0]*(n*n+1)
+        print(count,'count')
+
+        repeatednum=missingnum=None
+        print(repeatednum,missingnum,'aaaaaaaaa')
+
+        for row in grid:
+            print(row)
+            for num in row:
+                print(num)
+                totalsum-=num
+                print(totalsum,'totalsum')
+                count[num]+=1
+                print(count[num])
+        
+        for i in range(1,n*n+1):
+            if count[i]==2:
+                repeatednum=i
+            elif count[i]==0:
+                missingnum=i
+        return [repeatednum,missingnum]
+    
+ob=Solution()
+grid = [[1,3],[2,2]]
+# grid = [[9,1,7],[8,9,2],[3,4,6]]
+a=ob.findMissingAndRepeatedValues(grid)
+# print(a)
