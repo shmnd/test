@@ -1765,36 +1765,51 @@
 
 
 # lc2965
-class Solution:
-    def findMissingAndRepeatedValues(self, grid):
-        n=len(grid)
-        print(n,'length')
-        totalsum=n*(n+1)//2 
-        print(totalsum,'total sum')
-        count =[0]*(n*n+1)
-        print(count,'count')
+# class Solution:
+#     def findMissingAndRepeatedValues(self, grid):
+#         n=len(grid)
+#         print(n,'length')
+#         totalsum=n*(n+1)//2 
+#         print(totalsum,'total sum')
+#         count =[0]*(n*n+1)
+#         print(count,'count')
 
-        repeatednum=missingnum=None
-        print(repeatednum,missingnum,'aaaaaaaaa')
+#         repeatednum=missingnum=None
+#         print(repeatednum,missingnum,'aaaaaaaaa')
 
-        for row in grid:
-            print(row)
-            for num in row:
-                print(num)
-                totalsum-=num
-                print(totalsum,'totalsum')
-                count[num]+=1
-                print(count[num])
+#         for row in grid:
+#             print(row)
+#             for num in row:
+#                 print(num)
+#                 totalsum-=num
+#                 print(totalsum,'totalsum')
+#                 count[num]+=1
+#                 print(count[num])
         
-        for i in range(1,n*n+1):
-            if count[i]==2:
-                repeatednum=i
-            elif count[i]==0:
-                missingnum=i
-        return [repeatednum,missingnum]
+#         for i in range(1,n*n+1):
+#             if count[i]==2:
+#                 repeatednum=i
+#             elif count[i]==0:
+#                 missingnum=i
+#         return [repeatednum,missingnum]
     
-ob=Solution()
-grid = [[1,3],[2,2]]
-# grid = [[9,1,7],[8,9,2],[3,4,6]]
-a=ob.findMissingAndRepeatedValues(grid)
+# ob=Solution()
+# grid = [[1,3],[2,2]]
+# # grid = [[9,1,7],[8,9,2],[3,4,6]]
+# a=ob.findMissingAndRepeatedValues(grid)
+# print(a)
+
+# lc 2980
+class Solution:
+    def hasTrailingZeros(self, nums):
+        c=0
+        for i in nums:
+            if i%2==0:
+                c+=1
+        if c>=2:
+            return True
+            
+obj=Solution()
+nums = [1,2,3,4,5]
+a=obj.hasTrailingZeros(nums)
 print(a)
