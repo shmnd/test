@@ -1800,16 +1800,40 @@
 # print(a)
 
 # lc 2980
-class Solution:
-    def hasTrailingZeros(self, nums):
-        c=0
-        for i in nums:
-            if i%2==0:
-                c+=1
-        if c>=2:
-            return True
+# class Solution:
+#     def hasTrailingZeros(self, nums):
+#         c=0
+#         for i in nums:
+#             if i%2==0:
+#                 c+=1
+#         if c>=2:
+#             return True
             
-obj=Solution()
-nums = [1,2,3,4,5]
-a=obj.hasTrailingZeros(nums)
-print(a)
+# obj=Solution()
+# nums = [1,2,3,4,5]
+# a=obj.hasTrailingZeros(nums)
+# print(a)
+
+
+# lc 2970
+# nums = [1,2,3,4]
+# class solution():
+#     def incremovableSubarrayCount(self, nums):
+#             c=0
+#             for i in range(len(nums)):
+#                 for j in range(i+1,len(nums)+1):
+#                     l=nums[:i]+nums[j:]
+#                     if l==sorted(l) and len(l)==len(set(l)):
+#                         c+=1
+#             return c
+
+# obj=solution()
+# nums = [1,2,3,4]
+# a=obj.incremovableSubarrayCount(nums)
+# print(a)
+
+
+a='shamnad'
+
+l=a[3:]
+print(l)
