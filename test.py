@@ -1833,7 +1833,22 @@
 # print(a)
 
 
-a='shamnad'
+# a=[1,2,12,88]
+# op=[2, 12, 88]
 
-l=a[3:]
-print(l)
+# l=a[1:]
+# print(l)
+
+
+nums=[1,2,12]
+
+def minimumCost( nums):
+        sum=nums[0]
+        nums=nums[1:]
+        nums.sort()
+        return sum+nums[0]+nums[1]
+
+        # print(nums)
+
+res=minimumCost(nums)
+# print(res)
