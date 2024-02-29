@@ -1839,16 +1839,31 @@
 # l=a[1:]
 # print(l)
 
+# # lc 3010
+# nums=[1,2,12]
 
-nums=[1,2,12]
+# def minimumCost( nums):
+#         sum=nums[0]
+#         nums=nums[1:]
+#         nums.sort()
+#         return sum+nums[0]+nums[1]
 
-def minimumCost( nums):
-        sum=nums[0]
-        nums=nums[1:]
-        nums.sort()
-        return sum+nums[0]+nums[1]
+#         # print(nums)
 
-        # print(nums)
+# res=minimumCost(nums)
+# # print(res)
 
-res=minimumCost(nums)
-# print(res)
+
+# 3019. Number of Changing Keys
+class Solution:
+    def countKeyChanges(self, s):
+        c=0
+        for i in range(1,len(s)):
+            if s[i].lower()!=s[i-1].lower():
+                c+=1
+        return c
+    
+ob=Solution()
+s= "aAbBcC"
+a=ob.countKeyChanges(s)
+print(a)
