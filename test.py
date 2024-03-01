@@ -1855,15 +1855,45 @@
 
 
 # 3019. Number of Changing Keys
+# class Solution:
+#     def countKeyChanges(self, s):
+#         c=0
+#         for i in range(1,len(s)):
+#             if s[i].lower()!=s[i-1].lower():
+#                 c+=1
+#         return c
+    
+# ob=Solution()
+# s= "aAbBcC"
+# a=ob.countKeyChanges(s)
+# print(a)
+
+
+# nums = [3,4,5]
+# # for i in range(len(nums)):
+# for i in nums:
+#         # if i==i+1 and i==i+2:
+#                 print(i+1)
+
+
+
 class Solution:
-    def countKeyChanges(self, s):
-        c=0
-        for i in range(1,len(s)):
-            if s[i].lower()!=s[i-1].lower():
-                c+=1
-        return c
+    def triangleType(self, nums):
+        z='equilateral'
+        y='isosceles'
+        x='scalene'
+        nums.sort()
+        a,b,c=nums[0],nums[1],nums[2]
+        if a+b>c:
+            if a==b==c:
+                return z
+            elif a!=b and b!=c and a!=c:
+                return x
+            else:
+                return y 
+        return 'none'
     
 ob=Solution()
-s= "aAbBcC"
-a=ob.countKeyChanges(s)
+nums = [3,4,5]
+a=ob.triangleType(nums)
 print(a)
