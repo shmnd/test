@@ -1876,24 +1876,57 @@
 #                 print(i+1)
 
 
+# lc 3024. Type of Triangle
+# class Solution:
+#     def triangleType(self, nums):
+#         z='equilateral'
+#         y='isosceles'
+#         x='scalene'
+#         nums.sort()
+#         a,b,c=nums[0],nums[1],nums[2]
+#         if a+b>c:
+#             if a==b==c:
+#                 return z
+#             elif a!=b and b!=c and a!=c:
+#                 return x
+#             else:
+#                 return y 
+#         return 'none'
+    
+# ob=Solution()
+# nums = [3,4,5]
+# a=ob.triangleType(nums)
+# print(a)
+
 
 class Solution:
-    def triangleType(self, nums):
-        z='equilateral'
-        y='isosceles'
-        x='scalene'
+    def isPossibleToSplit(self, nums):
         nums.sort()
-        a,b,c=nums[0],nums[1],nums[2]
-        if a+b>c:
-            if a==b==c:
-                return z
-            elif a!=b and b!=c and a!=c:
-                return x
+        num1=[]
+        num2=[]
+        for i in range(len(nums)):
+            if i%2==0:
+                num2.append(nums[i])
             else:
-                return y 
-        return 'none'
-    
+                num1.append(nums[i])
+        return len(num1)==len(set(num1)) and len(num2)==len(set(num2))
+        # arr1=[]
+        # arr2=[]
+        # k=len(nums)//2
+        # for i in range(k):
+        #     arr1.append(nums[i])
+        # for j in range(k,len(nums)):
+        #     arr2.append(nums[j])
+        # for k in arr1:
+        #     # for k in arr2:
+        #     #     if e==k:
+        #             return False
+
+        # return True
+        #         # else:
 ob=Solution()
-nums = [3,4,5]
-a=ob.triangleType(nums)
+# nums =[10,1,7,4,5,1,6,4]
+nums =[6,1,3,1,1,8,9,2]
+
+a=ob.isPossibleToSplit(nums)
 print(a)
