@@ -1898,35 +1898,53 @@
 # a=ob.triangleType(nums)
 # print(a)
 
+# lc 3046
+# class Solution:
+#     def isPossibleToSplit(self, nums):
+#         nums.sort()
+#         num1=[]
+#         num2=[]
+#         for i in range(len(nums)):
+#             if i%2==0:
+#                 num2.append(nums[i])
+#             else:
+#                 num1.append(nums[i])
+#         return len(num1)==len(set(num1)) and len(num2)==len(set(num2))
+#         # arr1=[]
+#         # arr2=[]
+#         # k=len(nums)//2
+#         # for i in range(k):
+#         #     arr1.append(nums[i])
+#         # for j in range(k,len(nums)):
+#         #     arr2.append(nums[j])
+#         # for k in arr1:
+#         #     # for k in arr2:
+#         #     #     if e==k:
+#         #             return False
 
+#         # return True
+#         #         # else:
+# ob=Solution()
+# # nums =[10,1,7,4,5,1,6,4]
+# nums =[6,1,3,1,1,8,9,2]
+
+# a=ob.isPossibleToSplit(nums)
+# print(a)
+
+# 3038. Maximum Number of Operations With the Same Score I
 class Solution:
-    def isPossibleToSplit(self, nums):
-        nums.sort()
-        num1=[]
-        num2=[]
-        for i in range(len(nums)):
-            if i%2==0:
-                num2.append(nums[i])
+    def maxOperations(self,nums):
+        s= nums[0]+nums[1]
+        c=1
+        i=2
+        while i<=len(nums)-2:
+            if nums[i]+nums[i+1]==s:
+                c+=1
+                i+=2
             else:
-                num1.append(nums[i])
-        return len(num1)==len(set(num1)) and len(num2)==len(set(num2))
-        # arr1=[]
-        # arr2=[]
-        # k=len(nums)//2
-        # for i in range(k):
-        #     arr1.append(nums[i])
-        # for j in range(k,len(nums)):
-        #     arr2.append(nums[j])
-        # for k in arr1:
-        #     # for k in arr2:
-        #     #     if e==k:
-        #             return False
-
-        # return True
-        #         # else:
-ob=Solution()
-# nums =[10,1,7,4,5,1,6,4]
-nums =[6,1,3,1,1,8,9,2]
-
-a=ob.isPossibleToSplit(nums)
+                break
+        return c
+obj=Solution()
+nums =[3,2,4,1,5]
+a=obj.maxOperations(nums)
 print(a)
