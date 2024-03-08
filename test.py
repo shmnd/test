@@ -1932,19 +1932,59 @@
 # print(a)
 
 # 3038. Maximum Number of Operations With the Same Score I
+# class Solution:
+#     def maxOperations(self,nums):
+#         s= nums[0]+nums[1]
+#         c=1
+#         i=2
+#         while i<=len(nums)-2:
+#             if nums[i]+nums[i+1]==s:
+#                 c+=1
+#                 i+=2
+#             else:
+#                 break
+#         return c
+# obj=Solution()
+# nums =[3,2,4,1,5]
+# a=obj.maxOperations(nums)
+# print(a)
+
+# 3042. Count Prefix and Suffix Pairs I
+# words = ["a","aba","ababa","aa"]
 class Solution:
-    def maxOperations(self,nums):
-        s= nums[0]+nums[1]
-        c=1
-        i=2
-        while i<=len(nums)-2:
-            if nums[i]+nums[i+1]==s:
-                c+=1
-                i+=2
-            else:
-                break
-        return c
-obj=Solution()
-nums =[3,2,4,1,5]
-a=obj.maxOperations(nums)
+    def countPrefixSuffixPairs(self,words):
+        count = 0
+        for i in range(len(words)):
+            for j in range(i + 1, len(words)):
+                if words[j].startswith(words[i]) and words[j].endswith(words[i]):
+                    count += 1
+        return count
+
+
+    # def countPrefixSuffixPairs(self,words):
+        # c=0
+        # for i in range(len(words)):
+        #     k=len(words[i])
+        #     for j in range(i+1,len(words)):
+        #         s=words[j]
+        #         sl=s[:k]
+        #         if len(sl)==1:
+        #             print(sl,'sllllllllllll')
+        #             if sl==words[i]:
+        #                 c+=1
+        #         elif len(sl)>1:
+        #             sl=s[:k-1]
+        #             if sl==words[i]:
+        #                 c+=1
+
+        # return c
+    
+ob=Solution()
+words = ["a","aba","ababa","aa"]
+a=ob.countPrefixSuffixPairs(words)
 print(a)
+            
+# w='abcdedfghijklmnopqrstuvwxyz'
+# k=4
+# s1=w[:k-1]
+# print(s1)
