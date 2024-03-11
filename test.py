@@ -1951,40 +1951,63 @@
 
 # 3042. Count Prefix and Suffix Pairs I
 # words = ["a","aba","ababa","aa"]
-class Solution:
-    def countPrefixSuffixPairs(self,words):
-        count = 0
-        for i in range(len(words)):
-            for j in range(i + 1, len(words)):
-                if words[j].startswith(words[i]) and words[j].endswith(words[i]):
-                    count += 1
-        return count
+# class Solution:
+#     def countPrefixSuffixPairs(self,words):
+#         count = 0
+#         for i in range(len(words)):
+#             for j in range(i + 1, len(words)):
+#                 if words[j].startswith(words[i]) and words[j].endswith(words[i]):
+#                     count += 1
+#         return count
 
 
-    # def countPrefixSuffixPairs(self,words):
-        # c=0
-        # for i in range(len(words)):
-        #     k=len(words[i])
-        #     for j in range(i+1,len(words)):
-        #         s=words[j]
-        #         sl=s[:k]
-        #         if len(sl)==1:
-        #             print(sl,'sllllllllllll')
-        #             if sl==words[i]:
-        #                 c+=1
-        #         elif len(sl)>1:
-        #             sl=s[:k-1]
-        #             if sl==words[i]:
-        #                 c+=1
+#     # def countPrefixSuffixPairs(self,words):
+#         # c=0
+#         # for i in range(len(words)):
+#         #     k=len(words[i])
+#         #     for j in range(i+1,len(words)):
+#         #         s=words[j]
+#         #         sl=s[:k]
+#         #         if len(sl)==1:
+#         #             print(sl,'sllllllllllll')
+#         #             if sl==words[i]:
+#         #                 c+=1
+#         #         elif len(sl)>1:
+#         #             sl=s[:k-1]
+#         #             if sl==words[i]:
+#         #                 c+=1
 
-        # return c
+#         # return c
     
-ob=Solution()
-words = ["a","aba","ababa","aa"]
-a=ob.countPrefixSuffixPairs(words)
-print(a)
+# ob=Solution()
+# words = ["a","aba","ababa","aa"]
+# a=ob.countPrefixSuffixPairs(words)
+# print(a)
             
-# w='abcdedfghijklmnopqrstuvwxyz'
-# k=4
-# s1=w[:k-1]
-# print(s1)
+# # w='abcdedfghijklmnopqrstuvwxyz'
+# # k=4
+# # s1=w[:k-1]
+# # print(s1)
+
+
+
+# 26. Remove Duplicates from Sorted Array
+# class Solution:
+#     def removeDuplicates(self, nums) :
+#           s = set(nums)
+#           nums.clear()
+#           for i in s:
+#                nums.append(i)
+#           nums.sort()
+#           return len(nums)
+
+# obj=Solution()
+# nums = [0,0,1,1,1,2,2,3,3,4]
+# a=obj.removeDuplicates(nums)
+# print(a)
+
+
+
+# nums = [0,0,1,1,1,2,2,3,3,4,]
+# zx=nums.clear()
+# print(zx)
