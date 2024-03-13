@@ -2011,3 +2011,19 @@
 # nums = [0,0,1,1,1,2,2,3,3,4,]
 # zx=nums.clear()
 # print(zx)
+
+
+#lc 125
+class Solution:
+    def isPalindrome(self, s) :
+        k=''
+        for i in s:
+            if i.isalnum()==True:
+                k+=i.lower()
+                print(k,'aaaaaaaa')
+        return k == k[::-1]
+    
+obj=Solution()
+s = "A man, a plan, a canal: Panama"
+a=obj.isPalindrome(s)
+print(a)
