@@ -2014,16 +2014,44 @@
 
 
 #lc 125
+# class Solution:
+#     def isPalindrome(self, s) :
+#         k=''
+#         for i in s:
+#             if i.isalnum()==True:
+#                 k+=i.lower()
+#                 print(k,'aaaaaaaa')
+#         return k == k[::-1]
+    
+# obj=Solution()
+# s = "A man, a plan, a canal: Panama"
+# a=obj.isPalindrome(s)
+# print(a)
+
+# a=[1,2]
+# b=a
+# b.append(3)
+# # print(a)
+# n=6
+# while n >0:
+#     print(n)
+#     n-=2 if n%3==0 else 1
+
+
+
+
+# lc 217
 class Solution:
-    def isPalindrome(self, s) :
-        k=''
-        for i in s:
-            if i.isalnum()==True:
-                k+=i.lower()
-                print(k,'aaaaaaaa')
-        return k == k[::-1]
+    def containsDuplicate(self,nums):
+        k=0
+        d=0
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i] == nums[j]:
+                    return True
+        return False
     
 obj=Solution()
-s = "A man, a plan, a canal: Panama"
-a=obj.isPalindrome(s)
+nums=[1,2,3,1]
+a=obj.containsDuplicate(nums)
 print(a)
