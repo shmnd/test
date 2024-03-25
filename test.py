@@ -2043,14 +2043,19 @@
 # lc 217
 class Solution:
     def containsDuplicate(self,nums):
-        k=0
-        d=0
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i] == nums[j]:
-                    return True
+        # for i in range(len(nums)):
+        #     for j in range(i+1,len(nums)):
+        #         if nums[i] == nums[j]:
+        #             return True
+        # return False
+
+        num_set = set()
+        for num in nums:
+                if num in num_set:
+                        return True
+                num_set.add(num)
         return False
-    
+        
 obj=Solution()
 nums=[1,2,3,1]
 a=obj.containsDuplicate(nums)
