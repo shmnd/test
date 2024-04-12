@@ -2041,22 +2041,100 @@
 
 
 # lc 217
-class Solution:
-    def containsDuplicate(self,nums):
-        # for i in range(len(nums)):
-        #     for j in range(i+1,len(nums)):
-        #         if nums[i] == nums[j]:
-        #             return True
-        # return False
+# class Solution:
+#     def containsDuplicate(self,nums):
+#         # for i in range(len(nums)):
+#         #     for j in range(i+1,len(nums)):
+#         #         if nums[i] == nums[j]:
+#         #             return True
+#         # return False
 
-        num_set = set()
-        for num in nums:
-                if num in num_set:
-                        return True
-                num_set.add(num)
-        return False
+#         num_set = set()
+#         for num in nums:
+#                 if num in num_set:
+#                         return True
+#                 num_set.add(num)
+#         return False
         
-obj=Solution()
-nums=[1,2,3,1]
-a=obj.containsDuplicate(nums)
-print(a)
+# obj=Solution()
+# nums=[1,2,3,1]
+# a=obj.containsDuplicate(nums)
+# print(a)
+
+
+
+# a=[1,2,3,5]
+# for a[-1] in a:
+# #     print(a)
+#     print(a[-1])
+
+# a=[a,b,c,d]
+# for i in a:
+#     a.append(i.upper())
+# print(a)
+# n=16
+# while n>1:
+#     if n%4!=0:
+#         print('hle') 
+#     n/=4
+#     print(n)
+#     print ('hi')
+
+
+# class Solution:
+#     def isPowerOfThree(self ,n ):
+#         if n<1:
+#             return False
+        
+#         while n>1:
+#             if n % 3 != 0:
+#                 return False
+#             n /=3
+#             print(n)
+#             return True
+# obj=Solution()
+# n=27
+# a=obj.isPowerOfThree(n)
+# print(a)
+
+
+# class Solution:
+#     def missingNumber(self, nums):
+#         # le=len(nums)
+#         nums=sorted(nums)
+#         l=nums[-1]
+#         f=nums[1]
+#         # print(f,l,le,'hiiiii')
+
+#         if len(nums)==2:
+#             r=f+1
+#             return r
+#         elif len(nums)>2:
+#             r=l-f
+#             return r
+        
+
+
+# obj=Solution()
+# nums = [0,1]
+# a=obj.missingNumber(nums)
+# print(a)
+
+
+
+# class Solution:
+#     def missingNumber(self, nums: List[int]) -> int:
+#         left,right=0,len(nums)
+#         nums.sort()
+#         while left<=right:
+#             mid=(left+right)//2
+#             if mid>len(nums)-1:
+#                 return mid
+#             elif mid!=nums[mid] and mid<len(nums):
+#                 right=mid-1
+#             elif mid==nums[mid]:
+#                 left=mid+1
+#         return left      
+
+[3,0,1]          
+        
