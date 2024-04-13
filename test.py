@@ -2136,5 +2136,19 @@
 #                 left=mid+1
 #         return left      
 
-[3,0,1]          
+# [3,0,1]          
+
+
+# lc 334
+
+class Solution:
+    def reverstring(self,s):
+        s.reverse()
+        return s
+
+obj=Solution()
+s = ["h","e","l","l","o"]
+a=obj.reverstring(s)
+print(a)
+    
         
