@@ -2165,23 +2165,53 @@
 # Output: [4,9]
 # Explanation: [9,4] is also accepted.
 
-class Solution:
-    def intersect(self, nums1, nums2) :
-        count={}
-        for i in nums1:
-            if i in count:
-                count[i]+=1
-            else:
-                count[i]=1
+# class Solution:
+#     def intersect(self, nums1, nums2) :
+#         count={}
+#         for i in nums1:
+#             if i in count:
+#                 count[i]+=1
+#             else:
+#                 count[i]=1
         
-        res=[]
-        for i in nums2:
-            if i in count and count[i]>0:
-                res.append(i)
-                count[i]-=1
-        return res
-obj=Solution()
-nums1 = [1,2,2,1]
-nums2 = [2,2]
-a=obj.intersect(nums1,nums2)
+#         res=[]
+#         for i in nums2:
+#             if i in count and count[i]>0:
+#                 res.append(i)
+#                 count[i]-=1
+#         return res
+# obj=Solution()
+# nums1 = [1,2,2,1]
+# nums2 = [2,2]
+# a=obj.intersect(nums1,nums2)
+# print(a)
+
+# s=0
+# c=0
+# num=[1,2,3,4,5,6,7,8,9,10]
+# for i in num:
+#     if i%2==0:
+#         c+=1
+#         t=c*2
+#         s+=i
+# print(s)
+# print(t)
+
+class Solution():
+    def target(self, nums, t):
+        d={}
+
+        for i in range(len(nums)):
+            k=t-nums[i]
+
+            if k in d:
+                return [d[k],i]
+            d[nums[i]]=i
+        return d
+
+obj = Solution()
+nums = [2, 7, 11, 15]
+t = 9
+a = obj.target(nums, t)
 print(a)
+
