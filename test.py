@@ -2197,21 +2197,53 @@
 # print(s)
 # print(t)
 
-class Solution():
-    def target(self, nums, t):
-        d={}
+# class Solution():
+#     def target(self, nums, t):
+#         d={}
 
-        for i in range(len(nums)):
-            k=t-nums[i]
+#         for i in range(len(nums)):
+#             k=t-nums[i]
 
-            if k in d:
-                return [d[k],i]
-            d[nums[i]]=i
-        return d
+#             if k in d:
+#                 return [d[k],i]
+#             d[nums[i]]=i
+#         return d
 
-obj = Solution()
-nums = [2, 7, 11, 15]
-t = 9
-a = obj.target(nums, t)
+# obj = Solution()
+# nums = [2, 7, 11, 15]
+# t = 9
+# a = obj.target(nums, t)
+# print(a)
+
+
+#lc 414
+
+class Solution:
+    def thirdMax(self, nums):
+        k=list(set(nums))
+        k.sort()
+        if len(k)>=3:
+            return k[len(k)-3]
+        return max(k)
+     
+obj=Solution()
+nums=[3,2,1]
+a=obj.thirdMax(nums)
 print(a)
 
+
+# #chat gpt
+# class Solution:
+#     def thirdMax(self, nums):
+#         nums_set = list(set(nums))  # Remove duplicates
+#         nums_set.sort(reverse=True)  # Sort in descending order
+        
+#         if len(nums_set) >= 3:
+#             return nums_set[2]  # Return the third maximum number
+#         else:
+#             return max(nums_set)  # Return the maximum number if there are fewer than three unique numbers
+
+# obj = Solution()
+# nums = [3, 2, 1]
+# a = obj.thirdMax(nums)
+# print(a)
