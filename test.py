@@ -2218,18 +2218,18 @@
 
 #lc 414
 
-class Solution:
-    def thirdMax(self, nums):
-        k=list(set(nums))
-        k.sort()
-        if len(k)>=3:
-            return k[len(k)-3]
-        return max(k)
+# class Solution:
+#     def thirdMax(self, nums):
+#         k=list(set(nums))
+#         k.sort()
+#         if len(k)>=3:
+#             return k[len(k)-3]
+#         return max(k)
      
-obj=Solution()
-nums=[3,2,1]
-a=obj.thirdMax(nums)
-print(a)
+# obj=Solution()
+# nums=[3,2,1]
+# a=obj.thirdMax(nums)
+# print(a)
 
 
 # #chat gpt
@@ -2247,3 +2247,21 @@ print(a)
 # nums = [3, 2, 1]
 # a = obj.thirdMax(nums)
 # print(a)
+
+
+class Car:
+  def __init__(self, color, model):
+    self.color = color  # Property
+    self.model = model  # Property
+
+  def accelerate(self):  # Method
+    print(f"The {self.color} {self.model} accelerates!")
+
+# Create a Car object
+my_car = Car("red", "Tesla Model S")
+
+# Access property (get value)
+print(f"Car color: {my_car.color}")
+
+# Call method
+my_car.accelerate()
