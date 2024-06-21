@@ -2249,19 +2249,55 @@
 # print(a)
 
 
-class Car:
-  def __init__(self, color, model):
-    self.color = color  # Property
-    self.model = model  # Property
+# class Car:
+#   def __init__(self, color, model):
+#     self.color = color  # Property
+#     self.model = model  # Property
 
-  def accelerate(self):  # Method
-    print(f"The {self.color} {self.model} accelerates!")
+#   def accelerate(self):  # Method
+#     print(f"The {self.color} {self.model} accelerates!")
 
-# Create a Car object
-my_car = Car("red", "Tesla Model S")
+# # Create a Car object
+# my_car = Car("red", "Tesla Model S")
 
-# Access property (get value)
-print(f"Car color: {my_car.color}")
+# # Access property (get value)
+# print(f"Car color: {my_car.color}")
 
-# Call method
-my_car.accelerate()
+# # Call method
+# my_car.accelerate()
+
+# lc 905
+# class Solution:
+#   def sortArrayByParity(self, nums):
+      # lis=[]
+      # for i in nums:
+      #     if i%2==0:
+      #         lis.append(i)
+          
+      # for i in nums:
+      #     if i %2 !=0:
+      #         lis.append(i)
+      # return lis
+
+# obj=Solution()
+# nums=[3,1,2,4]
+# a= obj.sortArrayByParity(nums)
+# print(a)
+# another method
+
+class Solution:
+  def sortArrayByParity(self, nums):
+    lis1=[]
+    lis2=[]
+    for i in nums:
+      if i % 2 == 0:
+        lis1.append(i)
+      else:
+        lis2.append(i)
+    return lis1+lis2
+  
+obj=Solution()
+nums=[3,1,2,4]
+a= obj.sortArrayByParity(nums)
+print(a)
+        
