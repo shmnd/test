@@ -2301,3 +2301,42 @@
 # a= obj.sortArrayByParity(nums)
 # print(a)
         
+
+
+# lc 1207. Unique Number of Occurrences
+# gpt work flow : https://chatgpt.com/share/259f8847-1fd6-4f4a-bb9a-3cf881aaf63c
+
+class Solution:
+    def uniqueOccurrences(self, arr) :
+        # c=0
+        # for i in range(len(arr)):
+        #     for j in range(i+1,len(arr)):
+        #         print(c,c+1,'hiiiiiiiiii')
+        #         if arr[i] == arr[j]:
+        #             c+=1
+        #         if c == arr[c]:
+        #             print('iiiiiiii')
+        #             return True
+        #         else:
+        #           return False
+
+          occurrences = {}
+          for num in arr:
+              if num in occurrences:
+                  occurrences[num] += 1
+                  print(occurrences[num],'yyy')
+              else:
+                  occurrences[num] = 1
+          
+          # List to store the counts of occurrences
+          counts = list(occurrences.values())
+          
+          # Check if all counts are unique by comparing length with set length
+          return len(counts) == len(set(counts))
+
+
+
+obj=Solution()
+arr =[1,2,2,1,1,3]
+a=obj.uniqueOccurrences(arr)
+print(a)
