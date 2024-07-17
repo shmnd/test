@@ -2285,19 +2285,19 @@
 # print(a)
 # another method
 
-class Solution:
-  def sortArrayByParity(self, nums):
-    lis1=[]
-    lis2=[]
-    for i in nums:
-      if i % 2 == 0:
-        lis1.append(i)
-      else:
-        lis2.append(i)
-    return lis1+lis2
+# class Solution:
+#   def sortArrayByParity(self, nums):
+#     lis1=[]
+#     lis2=[]
+#     for i in nums:
+#       if i % 2 == 0:
+#         lis1.append(i)
+#       else:
+#         lis2.append(i)
+#     return lis1+lis2
   
-obj=Solution()
-nums=[3,1,2,4]
-a= obj.sortArrayByParity(nums)
-print(a)
+# obj=Solution()
+# nums=[3,1,2,4]
+# a= obj.sortArrayByParity(nums)
+# print(a)
         
