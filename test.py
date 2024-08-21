@@ -2342,22 +2342,129 @@
 # print(a)
 
 
-# a function inside another function (sachuuuuuu)
-def create_larger_than_predicate(threshold):
-    def predicate(number):
-        return number > threshold
-    return predicate
+# # a function inside another function (sachuuuuuu)
+# def create_larger_than_predicate(threshold):
+#     def predicate(number):
+#         return number > threshold
+#     return predicate
 
-def main():
-    larger_than_two = create_larger_than_predicate(2)
-    larger_than_five = create_larger_than_predicate(5)
+# def main():
+#     larger_than_two = create_larger_than_predicate(2)
+#     larger_than_five = create_larger_than_predicate(5)
 
-    print(larger_than_two(3))  # True
-    print(larger_than_five(3))  # False
+#     print(larger_than_two(3))  # True
+#     print(larger_than_five(3))  # False
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
 # Returning functions from functions: 
 # A fundamental concept in any programming language is the ability to return a value from a function.
 #  Since a function is treated just like a regular object, it can also be returned from another function.
+#///////////////////////////-----------------------------------------------------////////////////////////////////////////---------------------------
+
+
+
+# __all__ = ("date", "datetime", "time", "timedelta", "timezone", "tzinfo",
+#            "MINYEAR", "MAXYEAR", "UTC")
+# import time as _time
+
+# # Correctly substitute for %z and %Z escapes in strftime formats.
+# def _wrap_strftime(object, format, timetuple):
+#     # Don't call utcoffset() or tzname() unless actually needed.
+#     freplace = None  # the string to use for %f
+#     zreplace = None  # the string to use for %z
+#     Zreplace = None  # the string to use for %Z
+
+#     # Scan format for %z and %Z escapes, replacing as needed.
+#     newformat = []
+#     push = newformat.append
+#     i, n = 0, len(format)
+#     while i < n:
+#         ch = format[i]
+#         i += 1
+#         if ch == '%':
+#             if i < n:
+#                 ch = format[i]
+#                 i += 1
+#                 if ch == 'f':
+#                     if freplace is None:
+#                         freplace = '%06d' % getattr(object,'microsecond', 0)
+#                     newformat.append(freplace)
+#                 elif ch == 'z':
+#                     if zreplace is None:
+#                         zreplace = ""
+#                         if hasattr(object, "utcoffset"):
+#                             offset = object.utcoffset()
+#                             if offset is not None:
+#                                 sign = '+'
+#                                 if offset.days < 0:
+#                                     offset = -offset
+#                                     sign = '-'
+#                                 h, rest = divmod(offset, timedelta(hours=1))
+#                                 m, rest = divmod(rest, timedelta(minutes=1))
+#                                 s = rest.seconds
+#                                 u = offset.microseconds
+#                                 if u:
+#                                     zreplace = '%c%02d%02d%02d.%06d' % (sign, h, m, s, u)
+#                                 elif s:
+#                                     zreplace = '%c%02d%02d%02d' % (sign, h, m, s)
+#                                 else:
+#                                     zreplace = '%c%02d%02d' % (sign, h, m)
+#                     assert '%' not in zreplace
+#                     newformat.append(zreplace)
+#                 elif ch == 'Z':
+#                     if Zreplace is None:
+#                         Zreplace = ""
+#                         if hasattr(object, "tzname"):
+#                             s = object.tzname()
+#                             if s is not None:
+#                                 # strftime is going to have at this: escape %
+#                                 Zreplace = s.replace('%', '%%')
+#                     newformat.append(Zreplace)
+#                 else:
+#                     push('%')
+#                     push(ch)
+#             else:
+#                 push('%')
+#         else:
+#             push(ch)
+#     newformat = "".join(newformat)
+#     return _time.strftime(newformat, timetuple)
+# from datetime import datetime
+# import datetime
+
+# def strftime(self, fmt):
+#     """
+#     Format using strftime().
+
+#     Example: "%d/%m/%Y, %H:%M:%S"
+#     """
+#     return _wrap_strftime(self, fmt, self.timetuple())
+# # Assuming customer_birthday is a datetime.date or datetime.datetime object
+# customer_birthday = "2024/12/25"
+# print(customer_birthday,'111111111')
+# customer_birthday_str = customer_birthday.strftime("%m-%d")  # Converts to "MM-DD" format
+
+# # Get the current year
+# current_year = datetime.now().year
+
+# # Combine customer_birthday_str with the current year to form "MM-DD-YYYY"
+# customer_birthday_current_year_str = f"{customer_birthday_str}-{current_year}"
+
+# # Convert the string back to a date object if needed
+# customer_birthday_current_year = datetime.strptime(customer_birthday_current_year_str, "%m-%d-%Y").date()
+
+# print(customer_birthday_current_year_str)  # Output: "01-25-2024"
+# print(customer_birthday_current_year)  # Output: 2024-01-25
+
+
+
+import pytz
+
+# Get a list of all time zone names
+timezones = pytz.all_timezones
+
+# Print each time zone
+for tz in timezones:
+    print(f"'{tz}'")
