@@ -1,3 +1,5 @@
+import gc
+
 # lc2032 correct answer
 # class Solution:
 #     def twoOutOfThree(self, nums1, nums2, nums3):
@@ -2460,11 +2462,116 @@
 
 
 
-import pytz
+# import pytz
 
-# Get a list of all time zone names
-timezones = pytz.all_timezones
+# # Get a list of all time zone names
+# timezones = pytz.all_timezones
 
-# Print each time zone
-for tz in timezones:
-    print(f"'{tz}'")
+# # Print each time zone
+# for tz in timezones:
+#     print(f"'{tz}'")
+
+
+
+# from datetime import datetime, timedelta
+
+# expiry_days = 10
+# future_date = datetime.now() + timedelta(days=expiry_days)
+
+# print(future_date)
+
+
+
+# import requests
+
+# def convert_currency(amount, from_currency, to_currency):
+#   """Converts a given amount from one currency to another using the OpenExchangeRates API.
+
+#   Args:
+#     amount: The amount to convert.
+#     from_currency: The three-letter ISO 4217 code of the source currency.
+#     to_currency: The three-letter ISO 4217 code of the target currency.
+
+#   Returns:
+#     The converted amount.
+#   """
+
+#   # Replace 'YOUR_API_KEY' with your actual API key from OpenExchangeRates
+#   api_key = 'YOUR_API_KEY'
+
+#   url = f'https://openexchangerates.org/api/latest.json?app_id={api_key}'
+#   response = requests.get(url)
+
+#   if response.status_code == 200:
+#     data = response.json()
+#     exchange_rate = data['rates'][to_currency] / data['rates'][from_currency]
+#     converted_amount = amount * exchange_rate
+#     return converted_amount
+#   else:
+#     raise Exception('Failed to fetch exchange rates.')
+
+# # Example usage
+# amount = 100
+# from_currency = 'USD'
+# to_currency = 'EUR'
+
+# converted_amount = convert_currency(amount, from_currency, to_currency)
+# print(f"{amount} {from_currency} is equal to {converted_amount:.2f} {to_currency}")
+
+
+
+# import sys
+# import os
+
+# try:
+#     # Code that may raise an exception
+#     result = 1 / 0  # This will raise ZeroDivisionError
+# except:
+#     exc_type, exc_obj, exc_tb = sys.exc_info()
+#     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+#     print(f"Exception occurred in file: {fname}")
+
+# import antigravity
+
+# collector = gc.collect()
+# print(collector,'aaaaaaaaaaaaaaa')
+
+'''---------------------Grabage colector-------------------'''
+# import gc
+# i = 0
+
+# # create a cycle and on each iteration x as a dictionary
+# # assigned to 
+
+# # import pdb ; pdb.set_trace()
+
+# def create_cycle():
+# 	x = { }
+# 	x[i+1] = x
+# 	print(x)
+
+# # lists are cleared whenever a full collection or 
+# # collection of the highest generation (2) is run
+# collected = gc.collect() # or gc.collect(2)
+# print("Garbage collector2: collected %d objects." % (collected))
+
+# print("Creating cycles...")
+# for i in range(10):
+#         # print('hiiiii')
+# 	create_cycle()
+
+# collected = gc.collect()
+
+# print("Garbage1 collector: collected %d objects." % (collected))
+
+
+
+'''------------------regex---------------------------------------'''
+import re 
+a = 'The rain in the Spain'
+c = re.search("^the.*spain$",a,re.IGNORECASE)
+
+if c:
+        print(f"aaaaaaaaa,{c}")
+else:
+        print('no match')
