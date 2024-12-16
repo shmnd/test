@@ -2566,12 +2566,22 @@ import gc
 
 
 
-'''------------------regex---------------------------------------'''
-import re 
-a = 'The rain in the Spain'
-c = re.search("^the.*spain$",a,re.IGNORECASE)
+# '''------------------regex---------------------------------------'''
+# import re 
+# a = 'The rain in the Spain'
+# c = re.search("^the.*spain$",a,re.IGNORECASE)
 
-if c:
-        print(f"aaaaaaaaa,{c}")
-else:
-        print('no match')
+# if c:
+#         print(f"aaaaaaaaa,{c}")
+# else:
+#         print('no match')
+
+''' sonarQube (use docstsring) '''
+
+# Create an object
+a = "Hello"
+b = "Hello"
+
+# Get the ID (memory address) of the objects
+print(id(a))  # Prints the unique ID of the string object 'a'
+print(id(b))  
