@@ -2578,10 +2578,10 @@ import gc
 
 ''' sonarQube (use docstsring) '''
 
-# Create an object
-a = "Hello"
-b = "Hello"
+# # Create an object
+# a = "Hello"
+# b = "Hello"
 
-# Get the ID (memory address) of the objects
-print(id(a))  # Prints the unique ID of the string object 'a'
-print(id(b))  
+# # Get the ID (memory address) of the objects
+# print(id(a))  # Prints the unique ID of the string object 'a'
+# print(id(b))  
