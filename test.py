@@ -2580,8 +2580,35 @@ import gc
 
 # # Create an object
 # a = "Hello"
-# b = "Hello"
+# b = 'Hello'
 
 # # Get the ID (memory address) of the objects
 # print(id(a))  # Prints the unique ID of the string object 'a'
 # print(id(b))  
+
+'''time zone and timedelta'''
+# from datetime import timedelta
+# from django.utils import timezone
+
+# a = timezone.now()
+# print(a)
+# b = timedelta(minutes=5)
+# print(b)
+
+
+
+# നന്മ=1
+# print(നന്മ)
+
+txt = 50800
+a=type(txt)
+x = txt.isdigit()
+
+print(a,x)
+string1 = "12345"
+string2 = "abc123"
+string3 = "123.45"
+
+print(string1.isdigit())  # Output: True
+print(string2.isdigit())  # Output: False
+print(string3.isdigit())  # Output: False
