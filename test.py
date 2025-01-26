@@ -2829,8 +2829,8 @@ class Singleton:
     def get_instance(cls):
         if cls._instance is None:
             cls._instance = Singleton()
-        return cls._instance
-        # return print(cls._instance)
+        # return cls._instance
+        return print(cls._instance)
 
 
     def show_message(self):
@@ -2845,7 +2845,17 @@ class Singleton:
 
 # Correct way to get the instance
 singleton = Singleton.get_instance()
+
+'''Since _instance is not None, when Singleton.get_instance() is called, it does not create a new Singleton object. Instead, it simply returns the current value of _instance, which is 5.
+show_message Call:
+
+After getting the "instance" from get_instance, you call singleton.show_message().
+However, singleton is now holding the integer 5, not an actual Singleton object.
+Since integers (int) do not have a show_message method, Python raises an AttributeError:'''
+
 # singleton.show_message()
+
+
 
 # # Verify only one instance is created
 # another_singleton = Singleton.get_instance()
