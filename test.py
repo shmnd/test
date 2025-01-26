@@ -2599,16 +2599,16 @@ import gc
 
 # നന്മ=1
 # print(നന്മ)
+# '''is digit function'''
 
-txt = 50800
-a=type(txt)
-x = txt.isdigit()
+# txt = 50800
+# a=type(txt)
+# # x = txt.isdigit()
+# print(a)
+# string1 = "12345"
+# string2 = "abc123"
+# string3 = "123.45"
 
-print(a,x)
-string1 = "12345"
-string2 = "abc123"
-string3 = "123.45"
-
-print(string1.isdigit())  # Output: True
-print(string2.isdigit())  # Output: False
-print(string3.isdigit())  # Output: False
+# print(string1.isdigit())  # Output: True
+# print(string2.isdigit())  # Output: False
+# print(string3.isdigit())  # Output: False
