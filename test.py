@@ -2599,6 +2599,7 @@ import gc
 
 # നന്മ=1
 # print(നന്മ)
+
 # '''is digit function'''
 
 # txt = 50800
@@ -2612,3 +2613,52 @@ import gc
 # print(string1.isdigit())  # Output: True
 # print(string2.isdigit())  # Output: False
 # print(string3.isdigit())  # Output: False
+
+
+'''constructors'''
+''' constructors are special methods that are used to initialize an object when it is created. The constructor in Python is defined using the __init__ method.'''
+# class ClassName:
+#         def Cat(self,parameter):
+#                 self.attribute = parameter
+#                 return self.attribute
+
+
+# obj = ClassName()
+# a = obj.Cat(5)
+# print(a)
+
+
+
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name  # Initialize the name attribute
+#         self.age = age    # Initialize the age attribute
+
+# # Create an instance of the Person class
+# person1 = Person("Alice", 30)
+
+# # Access attributes
+# print(person1.name)  # Output: Alice
+# print(person1.age)   # Output: 30
+
+
+# class Person:
+#     def __init__(self, name="Unknown", age=0):
+#         self.name = name
+#         self.age = age
+
+# person2 = Person()  # Uses default values
+# print(person2.name)  # Output: Unknown
+
+
+class ClassName:
+    def Cat(self, parameter):
+        self.attribute = 5
+        return self.attribute
+
+# Create an instance of the class
+obj = ClassName()
+
+# Call the Cat method
+result = obj.Cat(10)
+print(result)  # Output: 5
