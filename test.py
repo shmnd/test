@@ -2614,7 +2614,7 @@ import gc
 # print(string2.isdigit())  # Output: False
 # print(string3.isdigit())  # Output: False
 
-
+'''oops'''
 '''constructors'''
 ''' constructors are special methods that are used to initialize an object when it is created. The constructor in Python is defined using the __init__ method.'''
 # class ClassName:
@@ -2651,14 +2651,92 @@ import gc
 # print(person2.name)  # Output: Unknown
 
 
-class ClassName:
-    def Cat(self, parameter):
-        self.attribute = 5
-        return self.attribute
+# class ClassName:
+#     def Cat(self, parameter):
+#         self.attribute = 5
+#         return self.attribute
 
-# Create an instance of the class
-obj = ClassName()
+# # Create an instance of the class
+# obj = ClassName()
 
-# Call the Cat method
-result = obj.Cat(10)
-print(result)  # Output: 5
+# # Call the Cat method
+# result = obj.Cat(10)
+# print(result)  # Output: 5
+
+
+
+'''Types of consturctors'''
+
+
+'''1.default constructor'''
+class DefaultConstructor:
+    def __init__(self):
+        self.attribute = "Default Value"
+
+obj = DefaultConstructor()
+print(obj.attribute)  # Output: Default Value
+
+
+class Name:
+        def __init__(self,name,attr):
+                self.name = 'aaaaaaa'
+                self.attr='default'
+
+obj= Name('shamnad','bbbbbbbb')
+a = obj.attr
+b = obj.name
+print(a,b)
+
+'''2.Parameterized Constructor'''
+
+class ParameterizedConstructor:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+obj = ParameterizedConstructor("Alice", 30)
+print(obj.name)  # Output: Alice
+print(obj.age)   # Output: 30
+
+
+'''3. Default Arguments Constructor'''
+
+class DefaultArgsConstructor:
+    def __init__(self, name="Default Name", age=0):
+        self.name = name
+        self.age = age
+
+obj1 = DefaultArgsConstructor()  # Uses default values
+# obj2 = DefaultArgsConstructor("Bob", 25)
+
+print(obj1.name, obj1.age)  # Output: Default Name 0
+# print(obj2.name, obj2.age)  # Output: Bob 25
+
+'''4. Private Constructor'''
+
+class PrivateConstructor:
+    def __init__(self):
+        print("Private constructor is being called!")
+
+    @classmethod
+    def create_instance(cls):
+        return cls()
+
+# obj = PrivateConstructor()  # Direct instantiation discouraged
+obj = PrivateConstructor.create_instance()  # Use the factory method
+
+
+'''5. Copy Constructor'''
+class CopyConstructor:
+    def __init__(self, obj=None):
+        if obj:
+            self.name = obj.name
+            self.age = obj.age
+        else:
+            self.name = "Default"
+            self.age = 0
+
+obj1 = CopyConstructor()
+obj2 = CopyConstructor(obj1)
+
+print(obj2.name, obj2.age)  # Output: Default 0
