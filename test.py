@@ -2665,78 +2665,227 @@ import gc
 
 
 
-'''Types of consturctors'''
+# '''Types of consturctors'''
 
 
-'''1.default constructor'''
-class DefaultConstructor:
+# '''1.default constructor'''
+# class DefaultConstructor:
+#     def __init__(self):
+#         self.attribute = "Default Value"
+
+# obj = DefaultConstructor()
+# print(obj.attribute)  # Output: Default Value
+
+
+# class Name:
+#         def __init__(self,name,attr):
+#                 self.name = 'aaaaaaa'
+#                 self.attr='default'
+
+# obj= Name('shamnad','bbbbbbbb')
+# a = obj.attr
+# b = obj.name
+# print(a,b)
+
+# '''2.Parameterized Constructor'''
+
+# class ParameterizedConstructor:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+# obj = ParameterizedConstructor("Alice", 30)
+# print(obj.name)  # Output: Alice
+# print(obj.age)   # Output: 30
+
+
+# '''3. Default Arguments Constructor'''
+
+# class DefaultArgsConstructor:
+#     def __init__(self, name="Default Name", age=0):
+#         self.name = name
+#         self.age = age
+
+# obj1 = DefaultArgsConstructor()  # Uses default values
+# # obj2 = DefaultArgsConstructor("Bob", 25)
+
+# print(obj1.name, obj1.age)  # Output: Default Name 0
+# # print(obj2.name, obj2.age)  # Output: Bob 25
+
+# '''4. Private Constructor'''
+
+# class PrivateConstructor:
+#     def __init__(self):
+#         print("Private constructor is being called!")
+
+#     @classmethod
+#     def create_instance(cls):
+#         return cls()
+
+# # obj = PrivateConstructor()  # Direct instantiation discouraged
+# obj = PrivateConstructor.create_instance()  # Use the factory method
+
+
+# '''5. Copy Constructor'''
+# class CopyConstructor:
+#     def __init__(self, obj=None):
+#         if obj:
+#             self.name = obj.name
+#             self.age = obj.age
+#         else:
+#             self.name = "Default"
+#             self.age = 0
+
+# obj1 = CopyConstructor()
+# obj2 = CopyConstructor(obj1)
+
+# print(obj2.name, obj2.age)  # Output: Default 0
+
+
+
+# my opps
+
+# class PrivateConstructor:
+#     def __init__(self):
+#         # Prevent accidental instantiation
+#         raise RuntimeError("Direct instantiation not allowed. Use create_instance() instead.")
+
+#     @classmethod
+#     def create_instance(cls):
+#         # Create and return an instance of the class
+#         obj = cls.__new__(cls)  # Bypass __init__
+#         obj.name = "Instance created using factory method!"
+#         return obj
+
+# obj = PrivateConstructor()  # Raises an error
+# # obj = PrivateConstructor.create_instance()
+# print(obj.name)  # Output: Instance created using factory method!
+
+
+
+# class CopyConstructor:
+#     def __init__(self, obj=None):
+#         if obj:
+#             self.name = obj.name
+#             self.age = obj.age
+#         else:
+#             self.name = "Default"
+#             self.age = 0
+
+# obj1 = CopyConstructor()
+# obj2 = CopyConstructor(obj1)
+
+# print(obj2.name, obj2.age)  # Output: Default 0
+
+
+
+'''copy constructor detailed '''
+# class Copy:
+#     def __init__(self,obj=None):
+#         if obj:
+#             self.name = obj.name
+#             self.age = obj.age
+#         else:
+#             self.name = 'Default'
+#             self.age = 0
+# obj3 = Copy()
+# obj1 = Copy(obj3)
+# print(obj1.name,obj1.age)
+
+'''too add valuesss'''
+# class Copy:
+#     def __init__(self,obj=None):
+#         if obj:
+#             self.name = obj.name
+#             self.age = obj.age
+#         else:
+#             self.name = 'Default'
+#             self.age = 0
+# obj3 = Copy()
+# obj3.name = 'shamnad'
+# obj3.age = 25
+# # obj1 = Copy(obj3)
+# print(obj3.name,obj3.age)
+
+
+
+'''private constructore'''
+
+# _a - protected variable
+# __a - private variable
+
+class Singleton:
+    # Class-level variable to store the instance
+    # _instance = None  # private variable
+    _instance = '5' # private variable
+
+
     def __init__(self):
-        self.attribute = "Default Value"
-
-obj = DefaultConstructor()
-print(obj.attribute)  # Output: Default Value
-
-
-class Name:
-        def __init__(self,name,attr):
-                self.name = 'aaaaaaa'
-                self.attr='default'
-
-obj= Name('shamnad','bbbbbbbb')
-a = obj.attr
-b = obj.name
-print(a,b)
-
-'''2.Parameterized Constructor'''
-
-class ParameterizedConstructor:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-obj = ParameterizedConstructor("Alice", 30)
-print(obj.name)  # Output: Alice
-print(obj.age)   # Output: 30
-
-
-'''3. Default Arguments Constructor'''
-
-class DefaultArgsConstructor:
-    def __init__(self, name="Default Name", age=0):
-        self.name = name
-        self.age = age
-
-obj1 = DefaultArgsConstructor()  # Uses default values
-# obj2 = DefaultArgsConstructor("Bob", 25)
-
-print(obj1.name, obj1.age)  # Output: Default Name 0
-# print(obj2.name, obj2.age)  # Output: Bob 25
-
-'''4. Private Constructor'''
-
-class PrivateConstructor:
-    def __init__(self):
-        print("Private constructor is being called!")
+        if Singleton._instance is not None:
+            raise Exception("This class is a singleton!")
+        print("Private constructor called!")
 
     @classmethod
-    def create_instance(cls):
-        return cls()
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = Singleton()
+        return cls._instance
+        # return print(cls._instance)
 
-# obj = PrivateConstructor()  # Direct instantiation discouraged
-obj = PrivateConstructor.create_instance()  # Use the factory method
+
+    def show_message(self):
+        print("Singleton instance in action!")
 
 
-'''5. Copy Constructor'''
-class CopyConstructor:
-    def __init__(self, obj=None):
-        if obj:
-            self.name = obj.name
-            self.age = obj.age
-        else:
-            self.name = "Default"
-            self.age = 0
+# Testing the Singleton
+# try:
+#     obj1 = Singleton()  # This will raise an exception
+# except Exception as e:
+#     print(e)
 
-obj1 = CopyConstructor()
-obj2 = CopyConstructor(obj1)
+# Correct way to get the instance
+singleton = Singleton.get_instance()
+# singleton.show_message()
 
-print(obj2.name, obj2.age)  # Output: Default 0
+# # Verify only one instance is created
+# another_singleton = Singleton.get_instance()
+# print("Are both instances the same?", singleton is another_singleton)
+
+'''he key difference between protected and private in Python lies in accessibility and intent. Here's a breakdown'''
+'''Protected:'''
+# class Parent:
+#     def __init__(self):
+#         self._protected_var = 42  # Protected variable
+
+#     def _protected_method(self):
+#         print("This is a protected method!")
+
+# class Child(Parent):
+#     def access_protected(self):
+#         print(self._protected_var)  # Accessible in subclass
+#         self._protected_method()   # Accessible in subclass
+
+# obj = Child()
+# obj.access_protected()
+# print(obj._protected_var)  # Accessible but not recommended
+
+'''private'''
+
+# class Parent:
+#     def __init__(self):
+#         self.__private_var = 42  # Private variable
+
+#     def __private_method(self):
+#         print("This is a private method!")
+
+#     def access_private(self):
+#         print(self.__private_var)  # Accessible within the class
+#         self.__private_method()
+
+# obj = Parent()
+# obj.access_private()
+# # print(obj.__private_var)  # AttributeError: Cannot access private variable
+# # obj.__private_method()    # AttributeError: Cannot access private method
+
+# # Accessing through name mangling (not recommended):
+# print(obj._Parent__private_var)  # Works but bypasses encapsulation
