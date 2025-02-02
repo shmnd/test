@@ -3047,39 +3047,49 @@ Example	        attrs['refresh_token']	                args[0] (first positional
 
 # Example Combining All Three:
 
-def example( attrs, *args, **kwargs):
-    print("Attributes:", attrs)
+# def example( attrs, *args, **kwargs):
+#     print("Attributes:", attrs)
 
-    access_token = attrs['acces_tokens']
-    print(access_token, 'access_token')
+#     access_token = attrs['acces_tokens']
+#     print(access_token, 'access_token')
 
-    # Uncomment this if you want to access refresh_token
-    refresh_token = attrs['refresh_tokens']
-    print(refresh_token, 'refresh_token')
+#     # Uncomment this if you want to access refresh_token
+#     refresh_token = attrs['refresh_tokens']
+#     print(refresh_token, 'refresh_token')
 
-    print("Positional arguments:", args)
+#     print("Positional arguments:", args)
     
-    for i in args:
-        print(i,'argss')
+#     for i in args:
+#         print(i,'argss')
 
-    print("Keyword arguments:", kwargs)
+#     print("Keyword arguments:", kwargs)
 
-    for key,val in kwargs.items():
-        print(f"{key},{val}","kwargs")
-
-
-
-example(
-    {'refresh_tokens': 'abc123','acces_tokens':'xyz987'},  # attrs
-    1, 2, 3,                      # *args
-    name='Alice', age=25          # **kwargs
-)
+#     for key,val in kwargs.items():
+#         print(f"{key},{val}","kwargs")
 
 
-'''Output:'''
-# Attributes: {'refresh_token': 'abc123'}
+
+# example(
+#     {'refresh_tokens': 'abc123','acces_tokens':'xyz987'},  # attrs
+#     1, 2, 3,                      # *args
+#     name='Alice', age=25          # **kwargs
+# )
+
+'''my output'''
+
+# Attributes: {'refresh_tokens': 'abc123', 'acces_tokens': 'xyz987'}
+# xyz987 access_token
+# abc123 refresh_token
+
 # Positional arguments: (1, 2, 3)
+# 1 argss
+# 2 argss
+# 3 argss
+
 # Keyword arguments: {'name': 'Alice', 'age': 25}
+# name,Alice kwargs
+# age,25 kwargs
+
 
 'In summary:'
 
@@ -3088,3 +3098,31 @@ example(
 # *args is for variable positional arguments.
 
 # **kwargs is for variable keyword arguments.
+
+'''any'''
+
+# from typing import Any
+
+# def process_data(data):
+#     # Here, `data` can be of any type: int, str, list, dict, etc.
+#     print(data)
+
+# # These are all valid calls to the function:
+# process_data(42)          # int
+# process_data("hello")     # str
+# process_data([1, 2, 3])   # list
+# process_data({"key": "value"})  # dict
+
+'''Key Points:
+Flexibility: Any allows you to bypass type checking for a specific variable.
+
+Use with Caution: Overusing Any can defeat the purpose of type checking, making your code less safe and harder to understand. It's generally better to use more specific types whenever possible.
+
+Compatibility: Any is compatible with all other types, so you can assign a value of type Any to a variable of any other type, and vice versa.
+
+When to Use Any:
+When interacting with dynamic or untyped code (e.g., data from external APIs).
+
+When the type of a variable is truly unknown or can vary widely.
+
+When migrating a codebase to use type hints and you need a temporary escape hatch.'''
