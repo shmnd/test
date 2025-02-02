@@ -2814,27 +2814,27 @@ import gc
 # _a - protected variable
 # __a - private variable
 
-class Singleton:
-    # Class-level variable to store the instance
-    # _instance = None  # private variable
-    _instance = '5' # private variable
+# class Singleton:
+#     # Class-level variable to store the instance
+#     # _instance = None  # private variable
+#     _instance = '5' # private variable
 
 
-    def __init__(self):
-        if Singleton._instance is not None:
-            raise Exception("This class is a singleton!")
-        print("Private constructor called!")
+#     def __init__(self):
+#         if Singleton._instance is not None:
+#             raise Exception("This class is a singleton!")
+#         print("Private constructor called!")
 
-    @classmethod
-    def get_instance(cls):
-        if cls._instance is None:
-            cls._instance = Singleton()
-        # return cls._instance
-        return print(cls._instance)
+#     @classmethod
+#     def get_instance(cls):
+#         if cls._instance is None:
+#             cls._instance = Singleton()
+#         # return cls._instance
+#         return print(cls._instance)
 
 
-    def show_message(self):
-        print("Singleton instance in action!")
+#     def show_message(self):
+#         print("Singleton instance in action!")
 
 
 # Testing the Singleton
@@ -2844,7 +2844,7 @@ class Singleton:
 #     print(e)
 
 # Correct way to get the instance
-singleton = Singleton.get_instance()
+# singleton = Singleton.get_instance()
 
 '''Since _instance is not None, when Singleton.get_instance() is called, it does not create a new Singleton object. Instead, it simply returns the current value of _instance, which is 5.
 show_message Call:
@@ -2899,3 +2899,192 @@ Since integers (int) do not have a show_message method, Python raises an Attribu
 
 # # Accessing through name mangling (not recommended):
 # print(obj._Parent__private_var)  # Works but bypasses encapsulation
+
+
+
+'''What is the difference between attrs and and args and kwargs'''
+
+
+'''1.In Python, attrs, args, and kwargs are used to handle different types of arguments in functions or methods. Here's a breakdown of their differences:
+
+1. attrs
+attrs is typically a dictionary or a collection of key-value pairs that represent attributes or properties.
+
+In your code, attrs is used to pass a dictionary-like object containing data, such as {'refresh_token': 'some_token_value'}.
+
+It is not a standard Python term but is often used in frameworks (like Django REST Framework) to represent a collection of attributes or fields.'''
+# def Test( attrs):
+#     token = attrs['refresh_token']  # Accessing a key in the dictionary
+#     return attrs
+
+
+# dif = {
+#         'refresh_token':'aaaaaaaaaaaaaaaaaaa',
+#         'key' :'valueeeeeeeeee'
+# }
+
+# obj = Test(dif)
+# a = obj['refresh_token']
+# print(a)
+
+
+# class Myclass:
+
+#         def Test(self,attrs):
+#                 self.token = attrs['token']
+#                 return attrs
+
+
+# dif = {
+#         'token':'aaaaaaaaaaaaaaaaaaa',
+#         'key' :'valueeeeeeeeee'
+# }
+# obj = Myclass()
+
+# a = obj.Test(dif)
+# print(a['token'])
+
+'''
+2. *args
+*args is used to pass a variable number of positional arguments to a function.
+
+It collects all positional arguments into a tuple.
+
+It is useful when you don't know how many arguments will be passed to the function.'''
+
+# class Token:
+#         def Check(self,*args):
+#                 res = sum(args)
+
+#                 return res
+
+# obj = Token()
+# print(obj.Check(1,2,3))
+# print(obj.Check(10,20,30))
+
+
+'''fun'''
+# def exam_result(*args):
+#         print('results',args)
+#         for a in args:
+#                 print(a)
+
+# exam_result(1,2,'apple','hello')
+
+
+'''output'''
+# 1
+# 2
+# apple
+# hello
+
+
+'''fun'''
+# def exam_result(*args):
+#         print('results',args[2])
+#         for a in args:
+#                 pass
+
+# exam_result(1,2,'apple','hello')
+
+'''output'''
+        # apple
+
+'''3. **kwargs
+**kwargs is used to pass a variable number of keyword arguments (key-value pairs) to a function.
+
+It collects all keyword arguments into a dictionary.
+
+It is useful when you want to handle named arguments dynamically.'''
+
+'''fun'''
+
+# def Abc(**kwargs):
+
+#         for key,value in kwargs.items():
+#                 print(f"{key}:{value}")
+
+
+# Abc(name='alice',age=25)  
+
+'''output
+name:alice
+age:25'''
+
+
+'''class'''
+
+# class Abu:
+#         def Test(self,**kwargs):
+#                 for key,val in kwargs.items():
+#                         print(f"{key}:{val}")
+
+# obj = Abu()
+# a = obj.Test(
+#         amima='helllooo',
+#         age = 25,
+#         status = 'married'
+# )
+
+
+
+''' output :
+amima:helllooo
+age:25
+status:married
+'''
+
+#  short note about 3 of them
+
+'''
+Key Differences:
+Feature	        attrs	                                *args	                                        **kwargs
+Type	        Dictionary (or similar)	                Tuple	                                         Dictionary
+Purpose	        Holds attributes or fields	        Collects positional arguments	                Collects keyword arguments
+Usage	        Specific to frameworks or logic	        General-purpose for any function	        General-purpose for any function
+Example	        attrs['refresh_token']	                args[0] (first positional arg)	                kwargs['name'](key-value pair)
+'''
+
+# Example Combining All Three:
+
+def example( attrs, *args, **kwargs):
+    print("Attributes:", attrs)
+
+    access_token = attrs['acces_tokens']
+    print(access_token, 'access_token')
+
+    # Uncomment this if you want to access refresh_token
+    refresh_token = attrs['refresh_tokens']
+    print(refresh_token, 'refresh_token')
+
+    print("Positional arguments:", args)
+    
+    for i in args:
+        print(i,'argss')
+
+    print("Keyword arguments:", kwargs)
+
+    for key,val in kwargs.items():
+        print(f"{key},{val}","kwargs")
+
+
+
+example(
+    {'refresh_tokens': 'abc123','acces_tokens':'xyz987'},  # attrs
+    1, 2, 3,                      # *args
+    name='Alice', age=25          # **kwargs
+)
+
+
+'''Output:'''
+# Attributes: {'refresh_token': 'abc123'}
+# Positional arguments: (1, 2, 3)
+# Keyword arguments: {'name': 'Alice', 'age': 25}
+
+'In summary:'
+
+# attrs is a dictionary of attributes.
+
+# *args is for variable positional arguments.
+
+# **kwargs is for variable keyword arguments.
