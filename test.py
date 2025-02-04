@@ -3099,7 +3099,9 @@ Example	        attrs['refresh_token']	                args[0] (first positional
 
 # **kwargs is for variable keyword arguments.
 
-'''any'''
+
+'''Any'''
+
 
 # from typing import Any
 
@@ -3126,3 +3128,135 @@ When interacting with dynamic or untyped code (e.g., data from external APIs).
 When the type of a variable is truly unknown or can vary widely.
 
 When migrating a codebase to use type hints and you need a temporary escape hatch.'''
+
+# Differnce b/w traditional api vs rest api
+
+'''Summary Table:
+
+Feature	        REST API	                        Traditional API (SOAP/RPC)
+Architecture	Resource-based, stateless	        Action-based, operation-based
+Data Format	JSON (preferred), XML	                XML (SOAP), custom formats (RPC)
+Protocol	HTTP/HTTPS	                        HTTP, SMTP, TCP, etc.
+Performance	Lightweight, faster	                Heavier, slower
+Error Handling	HTTP status codes, JSON messages	Built-in fault messages (SOAP)
+Security	HTTPS, OAuth, API keys	                WS-Security (SOAP), custom (RPC)
+Use Cases	Web, mobile, microservices	        Enterprise, financial systems'''
+
+
+
+
+# The terms REST API and Traditional API (often referring to SOAP or RPC-based APIs) refer to different architectural styles and approaches for building and consuming APIs. Here's a breakdown of the key differences:
+
+'''1. Architecture and Design
+REST API (Representational State Transfer):
+
+REST is an architectural style that uses HTTP protocols and standard methods like GET, POST, PUT, DELETE, etc.
+
+It is resource-based, meaning APIs are designed around resources (e.g., users, products) and their representations (e.g., JSON, XML).
+
+REST APIs are stateless, meaning each request from the client to the server must contain all the information needed to understand and process the request.
+
+Traditional API (e.g., SOAP or RPC):
+
+Traditional APIs like SOAP (Simple Object Access Protocol) or RPC (Remote Procedure Call) are action-based or operation-based.
+
+SOAP APIs use XML for messaging and rely on a strict protocol with built-in error handling and security features.
+
+RPC APIs focus on invoking specific functions or procedures on a remote server, often using custom protocols or HTTP.
+
+2. Data Format
+REST API:
+
+Typically uses lightweight data formats like JSON (most common) or XML.
+
+JSON is easier to read and parse, making REST APIs more developer-friendly.
+
+Traditional API:
+
+SOAP APIs use XML exclusively, which is more verbose and complex compared to JSON.
+
+RPC APIs may use custom data formats or protocols, depending on the implementation.
+
+3. Communication Protocol
+REST API:
+
+Relies on HTTP/HTTPS and uses standard HTTP methods (GET, POST, PUT, DELETE) for communication.
+
+Works well with web technologies and is widely supported.
+
+Traditional API:
+
+SOAP APIs can work over various protocols, including HTTP, SMTP, TCP, etc.
+
+RPC APIs may use custom protocols or HTTP, but they are less standardized compared to REST.
+
+4. Performance and Scalability
+REST API:
+
+Lightweight and faster due to the use of JSON and statelessness.
+
+Easier to scale horizontally because each request is independent.
+
+Traditional API:
+
+SOAP APIs are heavier due to XML and additional overhead (e.g., WS-Security, WS-Addressing).
+
+RPC APIs may have performance bottlenecks depending on the implementation.
+
+5. Error Handling
+REST API:
+
+Uses standard HTTP status codes (e.g., 200 for success, 404 for not found, 500 for server errors).
+
+Error messages are often returned in JSON format.
+
+Traditional API:
+
+SOAP APIs have built-in error handling with detailed fault messages in XML.
+
+RPC APIs may have custom error-handling mechanisms.
+
+6. Security
+REST API:
+
+Relies on standard web security practices like HTTPS, OAuth, and API keys.
+
+No built-in security features, so developers must implement security measures.
+
+Traditional API:
+
+SOAP APIs have built-in security features like WS-Security for encryption, authentication, and integrity.
+
+RPC APIs may require custom security implementations.
+
+7. Use Cases
+REST API:
+
+Ideal for modern web and mobile applications, microservices, and public APIs.
+
+Commonly used for CRUD (Create, Read, Update, Delete) operations.
+
+Traditional API:
+
+SOAP is often used in enterprise environments, financial services, and systems requiring high security and reliability.
+
+RPC is used in scenarios where specific remote procedures need to be invoked.
+'''
+
+
+
+
+'''swagger'''
+# Swagger is a tool used for designing, building, documenting, and consuming RESTful web services. It provides a standardized way to describe RESTful APIs, making it easier for developers to understand and interact with them. Here are some key uses of Swagger:
+
+# API Documentation: Swagger generates interactive and human-readable API documentation automatically from the API definition. This documentation includes details about endpoints, request/response formats, parameters, and examples.
+
+# API Design: Swagger allows developers to design APIs using the OpenAPI Specification (formerly known as Swagger Specification). This specification is a standard, language-agnostic way to describe RESTful APIs, making it easier to collaborate and share API designs.
+
+# Code Generation: Swagger can generate server stubs, client SDKs, and API documentation in various programming languages based on the API definition. This speeds up development and ensures consistency between the API and its implementation.
+
+# Testing: Swagger provides tools like Swagger UI and Swagger Editor, which allow developers to interact with and test APIs directly from the documentation. This helps in validating the API's behavior during development.
+
+# Standardization: By using Swagger, teams can ensure that their APIs follow a consistent structure and adhere to best practices. This improves maintainability and reduces the learning curve for new developers.
+
+# Collaboration: Swagger's clear and standardized API descriptions make it easier for teams to collaborate on API development, whether they are working on the backend, frontend, or third-party integrations.
