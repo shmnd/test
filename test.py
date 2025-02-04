@@ -3274,12 +3274,22 @@ the render_to_string function is commonly used in web development frameworks, pa
 
 '''strip_tags'''
 
-#  The strip_tags function is commonly used in web development to remove HTML and XML tags from a string. It is particularly useful for sanitizing user input or cleaning up content to ensure that no unwanted or potentially harmful HTML/XML tags are present.
+'''The strip_tags function is commonly used in web development to remove HTML and XML tags from a string. It is particularly useful for sanitizing user input or cleaning up content to ensure that no unwanted or potentially harmful HTML/XML tags are present.
+'''
 
+# from django.utils.html import strip_tags
 
-from django.utils.html import strip_tags
+# html_content = "<p>Hello, <b>world!</b></p>"
+# plain_text = strip_tags(html_content)
 
-html_content = "<p>Hello, <b>world!</b></p>"
-plain_text = strip_tags(html_content)
+# print(plain_text)  # Output: "Hello, world!"
 
-print(plain_text)  # Output: "Hello, world!"
+# Thread 
+'''What is a Thread?
+A thread is the smallest unit of execution in a program. 
+It represents a sequence of instructions that can be executed independently. 
+By using multiple threads, you can perform multiple tasks at the same time within the same program.'''
+
+'''The threading module in Python provides a way to create and manage threads, which are separate flows of execution within a program. 
+Threads allow you to run multiple tasks concurrently, 
+making it possible to perform operations in parallel and improve the efficiency of your program, especially for I/O-bound or concurrent tasks.'''
