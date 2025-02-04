@@ -3260,3 +3260,26 @@ RPC is used in scenarios where specific remote procedures need to be invoked.
 # Standardization: By using Swagger, teams can ensure that their APIs follow a consistent structure and adhere to best practices. This improves maintainability and reduces the learning curve for new developers.
 
 # Collaboration: Swagger's clear and standardized API descriptions make it easier for teams to collaborate on API development, whether they are working on the backend, frontend, or third-party integrations.
+
+
+'''
+render_to_string function
+
+the render_to_string function is commonly used in web development frameworks, particularly in Django, a popular Python web framework. Its primary purpose is to render a template to a string, rather than directly returning an HTTP response'''
+
+# from django.template.loader import render_to_string
+
+# context = {'name': 'John Doe'}
+# html_string = render_to_string('my_template.html', context)
+
+'''strip_tags'''
+
+#  The strip_tags function is commonly used in web development to remove HTML and XML tags from a string. It is particularly useful for sanitizing user input or cleaning up content to ensure that no unwanted or potentially harmful HTML/XML tags are present.
+
+
+from django.utils.html import strip_tags
+
+html_content = "<p>Hello, <b>world!</b></p>"
+plain_text = strip_tags(html_content)
+
+print(plain_text)  # Output: "Hello, world!"
