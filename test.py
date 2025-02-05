@@ -3293,3 +3293,84 @@ By using multiple threads, you can perform multiple tasks at the same time withi
 '''The threading module in Python provides a way to create and manage threads, which are separate flows of execution within a program. 
 Threads allow you to run multiple tasks concurrently, 
 making it possible to perform operations in parallel and improve the efficiency of your program, especially for I/O-bound or concurrent tasks.'''
+
+
+
+'''lc 1'''
+# target = 10
+# arr = [1,2,4,5,6,7]
+# class Solution:
+#         def findTarget(self,arr,target):
+#                 for i in range(len(arr)):
+#                         for j in range(i+1,len(arr)):
+#                                 if arr[i]+arr[j] == target:
+#                                         return i,j
+
+# obj = Solution()
+# a = obj.findTarget(arr,target)
+# print(a)
+
+'''simplified method'''
+
+
+'''enumerate
+
+In Python, enumerate() is a built-in function that allows you to loop over an iterable (like a list, tuple, or string) 
+while keeping track of the index of the current item. It returns a sequence of tuples, 
+where each tuple contains the index and the corresponding item from the iterable.'''
+
+'''syntax'''
+
+# enumerate(iterable, start=0)
+
+'''sample'''
+# arr = [1,2,3,4,5]
+
+# for index,value in enumerate(arr):
+#         print(f'index,{index}value:{value}')
+
+
+'''using enumerate'''
+
+# target = 10
+# arr = [1,2,4,5,6,7]
+
+# class solution:
+#         def findTarget(self,arr,target):
+#                 seen = {}
+
+#                 for i,num in enumerate(arr):
+#                         complement = target-num
+#                         print(complement)
+#                         if complement in seen:
+#                                 return seen[complement] # Return the indices
+#                         seen[num]=i   # Store the current number and its index in the dictionary
+
+# obj = solution()
+# a = obj.findTarget(arr,target)
+# print(a)
+
+
+# print(10-7,'checkkkkkkk')
+
+
+
+target = 10
+arr = [1, 2, 4,8, 5,7]
+
+class solution:
+    def findTarget(self, target, arr):  # Fix parameter names
+        seen = {}
+        for i, num in enumerate(arr):
+            complement = target - num
+            print(complement,'complement')
+            if complement in seen:
+                print(seen,'seen')
+                return seen[complement], i  # Return the indices
+            seen[num] = i  # Store the current number and its index in the dictionary
+
+obj = solution()
+a = obj.findTarget(target, arr)  # Corrected order
+print(a,'outpu') #1,3 index 
+ '''because :  when 10-8=2 and it takes the index of current value (3) and the number that exist ie, output is 2 but 2 already exist there at index (1)'''
+
