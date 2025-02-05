@@ -3355,22 +3355,66 @@ where each tuple contains the index and the corresponding item from the iterable
 
 
 
-target = 10
-arr = [1, 2, 4,8, 5,7]
+# target = 10
+# arr = [1, 2, 4,8, 5,7]
 
-class solution:
-    def findTarget(self, target, arr):  # Fix parameter names
-        seen = {}
-        for i, num in enumerate(arr):
-            complement = target - num
-            print(complement,'complement')
-            if complement in seen:
-                print(seen,'seen')
-                return seen[complement], i  # Return the indices
-            seen[num] = i  # Store the current number and its index in the dictionary
+# class solution:
+#     def findTarget(self, target, arr):  # Fix parameter names
+#         seen = {}
+#         for i, num in enumerate(arr):
+#             complement = target - num
+#             print(complement,'complement')
+#             if complement in seen:
+#                 print(seen,'seen')
+#                 return seen[complement], i  # Return the indices
+#             seen[num] = i  # Store the current number and its index in the dictionary
 
-obj = solution()
-a = obj.findTarget(target, arr)  # Corrected order
-print(a,'outpu') #1,3 index 
- '''because :  when 10-8=2 and it takes the index of current value (3) and the number that exist ie, output is 2 but 2 already exist there at index (1)'''
+# obj = solution()
+# a = obj.findTarget(target, arr)  # Corrected order
+# print(a,'outpu') #1,3 index 
+'''because :  when 10-8=2 and it takes the index of current value (3) and the number that exist ie, output is 2 but 2 already exist there at index (1)'''
 
+''''''
+# from .tasks import process_evaluation
+'''is used to import the process_evaluation function (or task) from the tasks.py file in the same directory (indicated by the .).
+'''
+'''Breakdown:
+from .tasks:
+The . refers to the current directory (or module) where this import is being executed. It tells Python to look in the current directory for a file named tasks.py.
+import process_evaluation:
+This imports the process_evaluation function (or task) from the tasks.py file. This is typically used to reference a Celery task or any other function defined in that file.
+Use Case in Django + Celery:
+In the context of Celery and Django, tasks.py is commonly used to define asynchronous tasks. These tasks can be executed in the background (off the main thread) to avoid blocking the main application flow, for example, long-running processes like processing evaluations.
+
+Here's how it might look:
+
+Example of tasks.py:'''
+
+# # tasks.py
+# from celery import shared_task
+
+# @shared_task
+# def process_evaluation(evaluation_id):
+#     # Logic to process the evaluation based on the evaluation_id
+#     print(f"Processing evaluation with ID: {evaluation_id}")
+'''In the example above, process_evaluation is a Celery task defined using the @shared_task decorator. This task will run in the background when called.'''
+
+'''Using the Task in Views or Other Files:
+Now, when you write from .tasks import process_evaluation in a view or another file, you're bringing this Celery task into that file so that you can call it. For example:
+'''
+# views.py
+# from .tasks import process_evaluation
+
+# def submit_evaluation(request):
+#     evaluation_id = request.data.get("evaluation_id")
+    
+    # Call the Celery task to process the evaluation in the background
+#     process_evaluation.delay(evaluation_id)
+    
+#     return Response({"message": "Evaluation is being processed!"})
+# process_evaluation.delay(evaluation_id): #This line enqueues the task process_evaluation to be executed asynchronously by a Celery worker. The delay() method is used to send the task to the Celery queue for background processing.
+'''In Summary:
+from .tasks import process_evaluation imports the process_evaluation task or function defined in tasks.py.
+It is commonly used to call the function or Celery task from elsewhere in your Django application (like views or signals).
+Celery tasks are typically used for background processing (e.g., running long processes asynchronously).
+Let me know if you'd like more information on how to configure Celery or tasks in Django!'''
