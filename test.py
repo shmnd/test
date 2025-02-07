@@ -3418,3 +3418,24 @@ from .tasks import process_evaluation imports the process_evaluation task or fun
 It is commonly used to call the function or Celery task from elsewhere in your Django application (like views or signals).
 Celery tasks are typically used for background processing (e.g., running long processes asynchronously).
 Let me know if you'd like more information on how to configure Celery or tasks in Django!'''
+
+
+'''Resend '''
+
+# import os
+# import resend
+
+# resend.api_key = os.environ["RESEND_API_KEY"]
+
+# params: resend.Emails.SendParams = {
+#     "from": "Acme <onboarding@resend.dev>",
+#     "to": ["delivered@resend.dev"],
+#     "subject": "hello world",
+#     "html": "<strong>it works!</strong>",
+# }
+
+# email = resend.Emails.send(params)
+# print(email)
+
+
+
