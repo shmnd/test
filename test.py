@@ -3437,5 +3437,7 @@ Let me know if you'd like more information on how to configure Celery or tasks i
 # email = resend.Emails.send(params)
 # print(email)
 
+'''staash'''
+# git stash list
 
-
+# git stash pop stash@{0}
