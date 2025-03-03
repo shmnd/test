@@ -3596,3 +3596,73 @@ In most cases, classes (.) are preferred because they are more flexible and reus
 
 
 # '''1.checked password# 514'''
+
+
+'''escape'''
+
+'''The escape() function from django.utils.html is used to escape special HTML characters in a string, preventing HTML injection and XSS (Cross-Site Scripting) attacks.
+
+Use Case
+When rendering user-generated content, you might need to escape characters like <, >, &, and " so they don’t get interpreted as HTML.
+
+Example'''
+
+# from django.utils.html import escape
+
+# user_input = "<script>alert('hacked')</script>"
+# escape_out_put = escape(user_input)
+# print(escape_out_put)
+
+# Original: <script>alert("Hacked!");</script>
+# Escaped: &lt;script&gt;alert(&quot;Hacked!&quot;);&lt;/script&gt;
+
+
+'''signers'''
+
+
+'''The Signer class from django.core.signing is not meant for encryption and decryption. Instead, it provides a way to sign and verify data to ensure its integrity. It prevents tampering but does not encrypt the data.
+
+How It Works
+signer.sign(data): Appends a cryptographic signature to the data.
+signer.unsign(data): Verifies the signature and extracts the original data.
+This ensures that the data has not been modified but does not hide the content.
+
+'''
+
+
+from django.core.signing import Signer
+
+signer = Signer()
+
+
+class URLEncryptionDecryption():
+    
+    def enc(data : any):
+        return signer.sign(data)
+    
+
+    def dec(data : any):
+        try:
+            return signer.unsign(data)
+        except Exception as e:
+            return None
+
+# Example Usage
+data = "user123"
+
+singed_data = URLEncryptionDecryption.enc(data)
+print(singed_data,'dataaaaaaaaaaaa')
+
+original_data = URLEncryptionDecryption.dec(singed_data)
+print(original_data,'original_dataaaaaaaaaaaa')
+
+tampered_data = singed_data.replace('user123','hacker123')
+print("Tampered data",URLEncryptionDecryption.dec(tampered_data))
+
+
+
+# Signed Data: user123:9Jw0lN3E7FvDuoHMO7YgMKfCFSo
+# Original Data: user123
+# Tampered Data: None  # Signature verification fails
+
+
