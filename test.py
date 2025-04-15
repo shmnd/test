@@ -3630,34 +3630,34 @@ This ensures that the data has not been modified but does not hide the content.
 '''
 
 
-from django.core.signing import Signer
+# from django.core.signing import Signer
 
-signer = Signer()
+# signer = Signer()
 
 
-class URLEncryptionDecryption():
+# class URLEncryptionDecryption():
     
-    def enc(data : any):
-        return signer.sign(data)
+#     def enc(data : any):
+#         return signer.sign(data)
     
 
-    def dec(data : any):
-        try:
-            return signer.unsign(data)
-        except Exception as e:
-            return None
+#     def dec(data : any):
+#         try:
+#             return signer.unsign(data)
+#         except Exception as e:
+#             return None
 
-# Example Usage
-data = "user123"
+# # Example Usage
+# data = "user123"
 
-singed_data = URLEncryptionDecryption.enc(data)
-print(singed_data,'dataaaaaaaaaaaa')
+# singed_data = URLEncryptionDecryption.enc(data)
+# print(singed_data,'dataaaaaaaaaaaa')
 
-original_data = URLEncryptionDecryption.dec(singed_data)
-print(original_data,'original_dataaaaaaaaaaaa')
+# original_data = URLEncryptionDecryption.dec(singed_data)
+# print(original_data,'original_dataaaaaaaaaaaa')
 
-tampered_data = singed_data.replace('user123','hacker123')
-print("Tampered data",URLEncryptionDecryption.dec(tampered_data))
+# tampered_data = singed_data.replace('user123','hacker123')
+# print("Tampered data",URLEncryptionDecryption.dec(tampered_data))
 
 
 
@@ -3665,4 +3665,33 @@ print("Tampered data",URLEncryptionDecryption.dec(tampered_data))
 # Original Data: user123
 # Tampered Data: None  # Signature verification fails
 
+# def func(x, y=[]):
+#     y.append(x)
+#     return y
+
+# print(func(1))
+# print(func(2, []))
+# print(func(3))
+
+
+# # obj= func(2, [])
+
+
+# Message pretending to be emoji (typed as text)
+fake_emoji = "ud83dude02ud83dude02"
+
+# Actual emojis
+real_emoji = "😂😂"
+
+print("Fake looks like:", fake_emoji)
+print("Real looks like:", real_emoji)
+
+# Check if string contains actual emoji
+import emoji
+
+def contains_emoji(s):
+    return any(char in emoji.EMOJI_DATA for char in s)
+
+print("Fake has emoji?", contains_emoji(fake_emoji))  # False
+print("Real has emoji?", contains_emoji(real_emoji))  # True
 
