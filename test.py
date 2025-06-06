@@ -3677,21 +3677,89 @@ This ensures that the data has not been modified but does not hide the content.
 # # obj= func(2, [])
 
 
-# Message pretending to be emoji (typed as text)
-fake_emoji = "ud83dude02ud83dude02"
+# # Message pretending to be emoji (typed as text)
+# fake_emoji = "ud83dude02ud83dude02"
 
-# Actual emojis
-real_emoji = "😂😂"
+# # Actual emojis
+# real_emoji = "😂😂"
 
-print("Fake looks like:", fake_emoji)
-print("Real looks like:", real_emoji)
+# print("Fake looks like:", fake_emoji)
+# print("Real looks like:", real_emoji)
 
-# Check if string contains actual emoji
-import emoji
+# # Check if string contains actual emoji
+# import emoji
 
-def contains_emoji(s):
-    return any(char in emoji.EMOJI_DATA for char in s)
+# def contains_emoji(s):
+#     return any(char in emoji.EMOJI_DATA for char in s)
 
-print("Fake has emoji?", contains_emoji(fake_emoji))  # False
-print("Real has emoji?", contains_emoji(real_emoji))  # True
+# print("Fake has emoji?", contains_emoji(fake_emoji))  # False
+# print("Real has emoji?", contains_emoji(real_emoji))  # True
 
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+import re
+
+input_file = r'C:\Users\user\Downloads\db_pearl_m.sql'
+output_file = 'postgres_clean_insert.sql'
+
+def fix_quotes(value):
+    if value.startswith("'") and value.endswith("'"):
+        inner = value[1:-1]
+        inner = inner.replace("'", "''")  # Double any single quotes
+        return f"'{inner}'"
+    return value
+
+def main():
+    with open(input_file, 'r', encoding='utf-8') as f:
+        sql_text = f.read()
+
+    # Regex to match INSERT INTO db_pearl_m (...) VALUES (...);
+    pattern = re.compile(
+        r"INSERT\s+INTO\s+[`\"]?db_pearl_m[`\"]?\s*\((.*?)\)\s*VALUES\s*((?:\([^)]+\)\s*,?\s*)+);",
+        re.IGNORECASE | re.DOTALL,
+    )
+
+    matches = pattern.findall(sql_text)
+
+    if not matches:
+        print("No INSERT statements found.")
+        return
+
+    with open(output_file, 'w', encoding='utf-8') as outf:
+        for cols, values_block in matches:
+            cols_clean = re.sub(r"[`\"]", "", cols).strip()
+
+            # Safely split multiple value tuples
+            tuples = []
+            buf = ''
+            depth = 0
+            for char in values_block:
+                if char == '(':
+                    depth += 1
+                if char == ')':
+                    depth -= 1
+                buf += char
+                if depth == 0 and buf.strip():
+                    tuples.append(buf.strip())
+                    buf = ''
+
+            fixed_tuples = []
+            for tup in tuples:
+                def repl(m):
+                    val = m.group(0)
+                    val = val.replace("\\'", "''")  # Convert \' to ''
+                    return fix_quotes(val)
+
+                # Replace all single-quoted strings with fixed versions
+                fixed_tup = re.sub(r"'([^']|\\')*?'", repl, tup)
+                fixed_tuples.append(fixed_tup)
+
+            all_values = ',\n'.join(fixed_tuples)
+            insert_stmt = f"INSERT INTO db_pearl_m ({cols_clean}) VALUES\n{all_values};\n\n"
+            outf.write(insert_stmt)
+
+    print(f"✅ Done: {len(matches)} INSERT statements converted and saved to '{output_file}'")
+
+if __name__ == "__main__":
+    main()
