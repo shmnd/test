@@ -3766,4 +3766,27 @@ This ensures that the data has not been modified but does not hide the content.
 
 
 
-#  lc           
+#  lc 121
+
+class Solution:
+    def maxProfit(self, prices):
+        buyPrice = prices[0]
+        profit = 0
+
+        for price in prices:
+            if buyPrice > price:
+                buyPrice = price
+            profit = max(profit, price - buyPrice)
+        return profit
+        
+
+
+
+obj = Solution()
+prices = [7,1,5,3,6,4]
+a= obj.maxProfit(prices)
+print(a)
+
+
+
+              
