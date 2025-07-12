@@ -3796,30 +3796,59 @@ You must solve this problem without using the library's sort function.'''
 # Input: nums = [2,0,2,1,1,0]
 # Output: [0,0,1,1,2,2]
 
-class Solution:
-    def sortColors(self, nums):
-        count =[0,0,0]
-        for i in nums:
-            count[i] += 1
+# class Solution:
+#     def sortColors(self, nums):
+#         count =[0,0,0]
+#         for i in nums:
+#             count[i] += 1
 
-        index = 0
-        for i in range(3):
-            for j in range(count[i]):
-                nums[index] = i
-                index += 1 
-        return nums
+#         index = 0
+#         for i in range(3):
+#             for j in range(count[i]):
+#                 nums[index] = i
+#                 index += 1 
+#         return nums
                 
 
-        """
-        Do not return anything, modify nums in-place instead.
-        """
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
 
-obj = Solution()
-nums = [2,0,2,1,1,0]
-a = obj.sortColors(nums)
-print(a)
+# obj = Solution()
+# nums = [2,0,2,1,1,0]
+# a = obj.sortColors(nums)
+# print(a)
         
 
+# lc 58
+
+'''Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+A word is a maximal substring consisting of non-space characters only.
+
+ 
+Example 1:
+
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.'''
 
 
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+
+        words = s.split()
+        len_last_word = len(words[-1])
+        print(len_last_word)
+
+
+        return len_last_word
+    
+
+obj = Solution()
+s = "   fly me   to   the moon  "
+# s = "luffy is still joyboy"
+# s = "Hello World"
+a = obj.lengthOfLastWord(s)
+print(a)
               
