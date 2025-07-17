@@ -3980,21 +3980,46 @@ If all assertions pass, then your solution will be accepted.'''
  
 
 
-class Solution:
-    def removeElement(self, nums,val) -> int:
-        k = 0
-        for i in range(len(nums)):
-            if nums[i] != val:
-                nums[k] = nums[i]
-                k += 1
+# class Solution:
+#     def removeElement(self, nums,val) -> int:
+#         k = 0
+#         for i in range(len(nums)):
+#             if nums[i] != val:
+#                 nums[k] = nums[i]
+#                 k += 1
         
-        return k
+#         return k
 
 
-obj = Solution()
-nums = [3,2,2,3]
-val = 3
-a = obj.removeElement(nums,val)
-print(a)
+# obj = Solution()
+# nums = [3,2,2,3]
+# val = 3
+# a = obj.removeElement(nums,val)
+# print(a)
 
-        
+
+
+# sort and find unique of a list
+
+
+lis = [ 1, 4, 2, 4, 3, 7, 1 ]
+uni = []
+
+# find unique numbers
+
+for i in lis:
+    if i not in uni:
+        uni.append(i)
+
+print(f'{uni},unique numbers only')
+
+# sorting unique number
+
+for i in range(len(uni)):
+    for j in range(len(uni)-i-1):
+        if uni[j] > uni[j+1]:
+            uni[j],uni[j+1] = uni[j+1],uni[j]
+
+print(f'{uni},sorted unique number')
+
+
