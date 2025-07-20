@@ -4061,23 +4061,73 @@ Return the largest lucky integer in the array. If there is no lucky integer retu
 '''
 
 
-class Solution:
-    def findLucky(self, arr):
+# class Solution:
+#     def findLucky(self, arr):
 
-        count = {}
-        lucky = -1
-        for i in arr:
-            count[i] = count.get(i,0) +1
+#         count = {}
+#         lucky = -1
+#         for i in arr:
+#             count[i] = count.get(i,0) +1
         
-        for key,val in count.items():
-            if key == val:
-                if key > lucky:
-                    lucky = key
-        return lucky
+#         for key,val in count.items():
+#             if key == val:
+#                 if key > lucky:
+#                     lucky = key
+#         return lucky
+
+# obj = Solution()
+# # arr = [2,2,3,4]
+# arr = [1,2,2,3,3,3]
+# a = obj.findLucky(arr)
+# print(a)
+
+
+# lc 283
+
+'''283. Move Zeroes
+Easy
+Topics
+premium lock icon
+Companies
+Hint
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+'''
+# Example 1:
+
+# Input: nums = [0,1,0,3,12]
+# Output: [1,3,12,0,0]
+# Example 2:
+
+# Input: nums = [0]
+# Output: [0]
+ 
+
+'''Constraints:
+
+1 <= nums.length <= 104
+-231 <= nums[i] <= 231 - 1
+ '''
+
+class Solution:
+    def moveZeroes(self, nums) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left = 0
+
+        for right in range(len(nums)):
+            if nums[right] != 0:
+                nums[right],nums[left] = nums[left],nums[right]
+                left += 1
+
+        return(nums)
 
 obj = Solution()
-# arr = [2,2,3,4]
-arr = [1,2,2,3,3,3]
-a = obj.findLucky(arr)
+# nums = [0,0,1]
+nums = [0,1,0,3,12]
+a = obj.moveZeroes(nums)
 print(a)
 
+        
