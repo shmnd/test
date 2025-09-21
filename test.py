@@ -4110,24 +4110,49 @@ Note that you must do this in-place without making a copy of the array.
 -231 <= nums[i] <= 231 - 1
  '''
 
-class Solution:
-    def moveZeroes(self, nums) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        left = 0
+# class Solution:
+#     def moveZeroes(self, nums) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         left = 0
 
-        for right in range(len(nums)):
-            if nums[right] != 0:
-                nums[right],nums[left] = nums[left],nums[right]
-                left += 1
+#         for right in range(len(nums)):
+#             if nums[right] != 0:
+#                 nums[right],nums[left] = nums[left],nums[right]
+#                 left += 1
 
-        return(nums)
+#         return(nums)
 
-obj = Solution()
-# nums = [0,0,1]
-nums = [0,1,0,3,12]
-a = obj.moveZeroes(nums)
-print(a)
+# obj = Solution()
+# # nums = [0,0,1]
+# nums = [0,1,0,3,12]
+# a = obj.moveZeroes(nums)
+# print(a)
 
-        
+
+# lc 1 
+
+
+'''Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+        '''
+# class Solution:
+#     def twoSum(self,num,tar):
+#         for i in range(len(num)):
+#             for j in range(i+1,len(num)):
+#                 if num[i]+num[j] == tar:
+#                     return i,j
+
+# obj = Solution()
+# num = [2,7,11,15]
+# tar = 9
+# q=obj.twoSum(num,tar)
+# print(q)
+
+
+# for i in range(5,5):
+#     print(i)
+
+#    """ op : nothing"""
