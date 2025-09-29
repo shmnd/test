@@ -4156,3 +4156,26 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 #     print(i)
 
 #    """ op : nothing"""
+
+
+
+# s = "Python"
+# print(s[-1:1:-1])
+# # op = noht
+
+
+# lc 976
+class Solution:
+    def largestPerimeter(self, nums):
+        nums.sort(reverse=True)
+        for i in range(len(nums)-2):
+            if nums[i] < nums[i+1] + nums[i+2]:
+                return nums[i]+nums[i+1]+nums[i+2]
+        return 0
+        
+        
+obj = Solution()
+# nums = [1,2,1,10]
+nums = [2,1,2]
+obj1 = obj.largestPerimeter(nums)
+print(obj1)
