@@ -4289,6 +4289,7 @@ class Solution:
             print(new_bottle,'neww bottlessssssssss')
             total_drunk += new_bottle
             print(total_drunk, "total_drunk")
+            
             empty = empty % numExchange + new_bottle
             print(empty,'emptyyyyyyyyyyyyyyyyyyyyyyyyyy')
 
