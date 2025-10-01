@@ -4165,17 +4165,136 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 
 # lc 976
+
+'''Given an integer array nums, return the largest perimeter of a triangle with a non-zero area, formed from three of these lengths. If it is impossible to form any triangle of a non-zero area, return 0.
+
+Example 1:
+
+Input: nums = [2,1,2]
+Output: 5
+Explanation: You can form a triangle with three side lengths: 1, 2, and 2.
+Example 2:
+
+Input: nums = [1,2,1,10]
+Output: 0
+Explanation: 
+You cannot use the side lengths 1, 1, and 2 to form a triangle.
+You cannot use the side lengths 1, 1, and 10 to form a triangle.
+You cannot use the side lengths 1, 2, and 10 to form a triangle.
+As we cannot use any three side lengths to form a triangle of non-zero area, we return 0.'''
+
+# class Solution:
+#     def largestPerimeter(self, nums):
+#         nums.sort(reverse=True)
+#         for i in range(len(nums)-2):
+#             if nums[i] < nums[i+1] + nums[i+2]:
+#                 return nums[i]+nums[i+1]+nums[i+2]
+#         return 0
+        
+        
+# obj = Solution()
+# # nums = [1,2,1,10]
+# nums = [2,1,2]
+# obj1 = obj.largestPerimeter(nums)
+# print(obj1)
+
+
+
+# lc 1039
+
+'''1039. Minimum Score Triangulation of Polygon
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+You have a convex n-sided polygon where each vertex has an integer value. You are given an integer array values where values[i] is the value of the ith vertex in clockwise order.
+Polygon triangulation is a process where you divide a polygon into a set of triangles and the vertices of each triangle must also be vertices of the original polygon. Note that no other shapes other than triangles are allowed in the division. This process will result in n - 2 triangles.
+You will triangulate the polygon. For each triangle, the weight of that triangle is the product of the values at its vertices. The total score of the triangulation is the sum of these weights over all n - 2 triangles.
+Return the minimum possible score that you can achieve with some triangulation of the polygon.
+
+
+Example 1:
+Input: values = [1,2,3]
+Output: 6
+Explanation: The polygon is already triangulated, and the score of the only triangle is 6.
+
+Example 2:
+Input: values = [3,7,4,5]
+Output: 144
+Explanation: There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.
+The minimum score is 144.
+
+Example 3:
+Input: values = [1,3,1,4,1,5]
+Output: 13
+Explanation: The minimum score triangulation is 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.
+
+Constraints:
+n == values.length
+3 <= n <= 50
+1 <= values[i] <= 100'''
+
+
+# class Solution:
+#     def minScoredTriangulation(self,value):
+#         if len(value) == 3:
+#             for i in range(len(value)-2):
+#                 return value(i)+value(i+1)+value(i+2)
+    
+
+# obj = Solution()
+# value =[1,3,1,4,1,5]
+# # values = [3,7,4,5]
+# # values = [1,2,3]
+# a = obj.minScoredTriangulation(value)
+
+
+"""1518. Water Bottles
+Attempted
+Easy
+Topics
+premium lock icon
+Companies
+Hint
+There are numBottles water bottles that are initially full of water. You can exchange numExchange empty water bottles from the market with one full water bottle.
+
+The operation of drinking a full water bottle turns it into an empty bottle.
+
+Given the two integers numBottles and numExchange, return the maximum number of water bottles you can drink.
+
+ 
+
+Example 1:
+
+
+Input: numBottles = 9, numExchange = 3
+Output: 13
+Explanation: You can exchange 3 empty bottles to get 1 full water bottle.
+Number of water bottles you can drink: 9 + 3 + 1 = 13.
+Example 2:
+
+
+Input: numBottles = 15, numExchange = 4
+Output: 19
+Explanation: You can exchange 4 empty bottles to get 1 full water bottle. 
+Number of water bottles you can drink: 15 + 3 + 1 = 19.
+"""
 class Solution:
-    def largestPerimeter(self, nums):
-        nums.sort(reverse=True)
-        for i in range(len(nums)-2):
-            if nums[i] < nums[i+1] + nums[i+2]:
-                return nums[i]+nums[i+1]+nums[i+2]
-        return 0
-        
-        
-obj = Solution()
-# nums = [1,2,1,10]
-nums = [2,1,2]
-obj1 = obj.largestPerimeter(nums)
-print(obj1)
+    def numWaterBottles(self, numBottles, numExchange):
+        total_drunk = numBottles   # start with initial bottles
+        empty = numBottles         # all are empty after drinking
+        while empty >= numExchange:
+            new_bottle = empty // numExchange
+            print(new_bottle,'neww bottlessssssssss')
+            total_drunk += new_bottle
+            print(total_drunk, "total_drunk")
+            empty = empty % numExchange + new_bottle
+            print(empty,'emptyyyyyyyyyyyyyyyyyyyyyyyyyy')
+
+        return total_drunk 
+
+ob = Solution()
+print(ob.numWaterBottles(9, 3))   # expected 13
+# print(ob.numWaterBottles(15, 4))  # expected 19
+# print(ob.numWaterBottles(5, 5))
