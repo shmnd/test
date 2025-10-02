@@ -4280,22 +4280,81 @@ Output: 19
 Explanation: You can exchange 4 empty bottles to get 1 full water bottle. 
 Number of water bottles you can drink: 15 + 3 + 1 = 19.
 """
-class Solution:
-    def numWaterBottles(self, numBottles, numExchange):
-        total_drunk = numBottles   # start with initial bottles
-        empty = numBottles         # all are empty after drinking
-        while empty >= numExchange:
-            new_bottle = empty // numExchange
-            print(new_bottle,'neww bottlessssssssss')
-            total_drunk += new_bottle
-            print(total_drunk, "total_drunk")
+# class Solution:
+#     def numWaterBottles(self, numBottles, numExchange):
+#         total_drunk = numBottles   # start with initial bottles
+#         empty = numBottles         # all are empty after drinking
+#         while empty >= numExchange:
+#             new_bottle = empty // numExchange
+#             print(new_bottle,'neww bottlessssssssss')
+#             total_drunk += new_bottle
+#             print(total_drunk, "total_drunk")
             
-            empty = empty % numExchange + new_bottle
-            print(empty,'emptyyyyyyyyyyyyyyyyyyyyyyyyyy')
+#             empty = empty % numExchange + new_bottle
+#             print(empty,'emptyyyyyyyyyyyyyyyyyyyyyyyyyy')
 
-        return total_drunk 
+#         return total_drunk 
 
-ob = Solution()
-print(ob.numWaterBottles(9, 3))   # expected 13
-# print(ob.numWaterBottles(15, 4))  # expected 19
-# print(ob.numWaterBottles(5, 5))
+# ob = Solution()
+# print(ob.numWaterBottles(9, 3))   # expected 13
+# # print(ob.numWaterBottles(15, 4))  # expected 19
+# # print(ob.numWaterBottles(5, 5))
+
+# lc 3100
+'''3100. Water Bottles II
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+You are given two integers numBottles and numExchange.
+
+numBottles represents the number of full water bottles that you initially have. In one operation, you can perform one of the following operations:
+
+Drink any number of full water bottles turning them into empty bottles.
+Exchange numExchange empty bottles with one full water bottle. Then, increase numExchange by one.
+Note that you cannot exchange multiple batches of empty bottles for the same value of numExchange. For example, if numBottles == 3 and numExchange == 1, you cannot exchange 3 empty water bottles for 3 full bottles.
+
+Return the maximum number of water bottles you can drink.
+
+ 
+
+Example 1:
+
+
+Input: numBottles = 13, numExchange = 6
+Output: 15
+Explanation: The table above shows the number of full water bottles, empty water bottles, the value of numExchange, and the number of bottles drunk.
+Example 2:
+
+
+Input: numBottles = 10, numExchange = 3
+Output: 13
+Explanation: The table above shows the number of full water bottles, empty water bottles, the value of numExchange, and the number of bottles drunk.
+ 
+
+Constraints:
+
+1 <= numBottles <= 100 
+1 <= numExchange <= 100'''
+
+
+class Solution:
+    def maxBottleDrunk(self,numBottle,numExchange):
+        drunk_bottle = numBottle
+        empty_bottle = numBottle
+
+        while empty_bottle >= numExchange:
+            empty_bottle -= numExchange
+            drunk_bottle +=1
+            numExchange +=1
+        #     print(numExchange)
+            empty_bottle +=1
+
+        return drunk_bottle
+    
+
+
+obj = Solution()
+# print(obj.maxBottleDrunk(13,6))
+print(obj.maxBottleDrunk(10,3))
