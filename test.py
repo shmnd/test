@@ -4396,21 +4396,40 @@ Example 3:
 
 Input: accounts = [[2,8,7],[7,1,3],[1,9,5]]
 Output: 17"""
-class Solution:
+# class Solution:
     
 
-    def richestCustomer(self,acc):
-        arr = []
-        val = 0
-        for i in acc:
-            val = 0
-            for j in range(len(i)):
-                val += i[j]
-                if j+1 == len(i):
-                        arr.append(val)
+#     def richestCustomer(self,acc):
+#         arr = []
+#         val = 0
+#         for i in acc:
+#             val = 0
+#             for j in range(len(i)):
+#                 val += i[j]
+#                 if j+1 == len(i):
+#                         arr.append(val)
                 
-        return max(arr)
+#         return max(arr)
 
-obj =Solution()
-print(obj.richestCustomer([[1,2,3],[3,2,1]]))
-# print(obj.richestCustomer([[1,5],[7,3],[3,5]]))
+# obj =Solution()
+# print(obj.richestCustomer([[1,2,3],[3,2,1]]))
+# # print(obj.richestCustomer([[1,5],[7,3],[3,5]]))
+
+candies = [2,3,5,1,3]
+
+
+# lar = sorted(candies)[-1]
+
+# lar = max(candies)
+
+# print(lar)
+
+
+from typing import Counter
+s = "programming"
+
+# Input: s = "programming"
+
+mp = Counter(s)
+
+print(mp)
