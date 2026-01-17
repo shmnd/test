@@ -1,4 +1,4 @@
-import gc
+# import gc
 
 # lc2032 correct answer
 # class Solution:
@@ -4415,8 +4415,7 @@ Output: 17"""
 # print(obj.richestCustomer([[1,2,3],[3,2,1]]))
 # # print(obj.richestCustomer([[1,5],[7,3],[3,5]]))
 
-candies = [2,3,5,1,3]
-
+# candies = [2,3,5,1,3]
 
 # lar = sorted(candies)[-1]
 
@@ -4425,11 +4424,31 @@ candies = [2,3,5,1,3]
 # print(lar)
 
 
-from typing import Counter
-s = "programming"
+# from typing import Counter
+# s = "programming"
 
-# Input: s = "programming"
+# # Input: s = "programming"
 
-mp = Counter(s)
+# mp = Counter(s)
 
-print(mp)
+# print(mp)
+
+
+'''How to drew a swirl \er using Python's turtle module'''
+
+# import turtle
+'''swirl'''
+# screen = turtle.Screen()
+# screen.bgcolor("black")
+# pen = turtle.Turtle()
+# pen.color("red")
+
+# i = 1   
+
+# while True:
+#     pen.circle(i,10)
+#     i += 0.5
+
+# pen.hideturtle()
+# turtle.done()
+
